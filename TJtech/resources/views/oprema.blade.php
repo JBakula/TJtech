@@ -116,13 +116,14 @@
                 <div class="row">
                     <div class="boxed">
                         <!-- 1 -->
+                        @foreach($data as $item) 
                         <div class="col-sm-6">
                             <div class="shop-box">
-                                <img class="img-full img-responsive" src="assets/images/shop-111.jpg" alt="shop">
+                                <img class="img-full img-responsive" src= "{{$item->Slika}}" alt="shop">
                                 <div class="shop-box-hover text-center">
                                     <div class="c-table">
                                         <div class="c-cell">
-                                            <a class="test-popup-link" href="assets/images/shop-big-111.jpg">
+                                            <a class="test-popup-link" href="{{$item->Povecana_slika}}">
                                                 <span class="ion-ios-search-strong just-img"></span>
                                             </a>
                                             <a href="#">
@@ -135,20 +136,28 @@
                             <div class="shop-box-title">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <h4>
-                                            Monitor Asus 27" TUF GAMING VG27VH1B, VA, Gaming, Adaptive-sync, FreeSync Premium 165Hz, 
-                                            VGA, HDMI, Zvučnici, Zakrivljeni 1500R, Full HD
+                                        <h4>{{$item->Opis}}
+                                            
                                         </h4><br>
+                                        @if($item->oprema_id==2)
+                                        <br>
+                                        <br>
+                                        <br>
+                                        @endif
+                                        @if($item->oprema_id==8)
+                                        <br>
+                                        @endif
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="shop-price">
-                                            $ 354,59
+                                        {{$item->Cijena}}<!--$ 354,59-->
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- 2 -->
+                        @endforeach
+                        <!-- 2 
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" src="assets/images/shop-222.jpg" alt="shop">
@@ -184,7 +193,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- 3 -->
+                         3 
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" src="assets/images/shop-333.jpg" alt="shop">
@@ -213,8 +222,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- 4 -->
+                        </div>-->
+                        <!-- 4 
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" src="assets/images/shop-444.jpg" alt="shop">
@@ -244,7 +253,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- 5 -->
+                        <!-- 5 
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" src="assets/images/shop-555.jpg" alt="shop">
@@ -274,7 +283,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- 6 -->
+                         6 
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" src="assets/images/shop-666.jpg" alt="shop">
@@ -303,8 +312,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- 7 -->
+                        </div>-->
+                        <!-- 7 
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" id="foure" src="assets/images/shop-777.jpg" alt="shop">
@@ -333,8 +342,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- 8 -->
+                        </div>-->
+                        <!-- 8 
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" src="assets/images/shop-888.jpg" alt="shop">
@@ -364,8 +373,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- 9 -->
+                        </div>-->
+                        <!-- 9 
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" src="assets/images/shop-999.jpg" alt="shop">
@@ -394,8 +403,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- 10 -->
+                        </div>-->
+                        <!-- 10 
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" id="three" src="assets/images/shop-100.jpg" alt="shop">
@@ -424,7 +433,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!--
                         <div class="col-sm-12">
                             <nav>

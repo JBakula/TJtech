@@ -113,6 +113,52 @@ body{
 	color: #fabe12;
 	border-color: #fabe12;
 }
+/* Dropdown */
+.dropdown-user{
+	position: relative;
+	right: 0;
+}
+.dropdown-user button{
+	position: relative;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	background-color: transparent;
+}
+.dropdown-user ul{
+	position: relative;
+	height: 0;
+	margin: auto;
+	margin-left: 120px;
+	padding: 5px;
+	transform-origin: top;
+	transform: perspective(1000px) rotateX(-90deg);
+	transition: 0.5s;
+}
+.dropdown-user ul.active{
+	transform: perspective(1000px) rotateX(0deg);
+	height: 100px;
+}
+.dropdown-user ul li{
+	list-style: none;
+}
+.dropdown-user ul li a{
+	display: block;
+	padding: 10px;
+	text-align: right;
+	text-decoration: none;
+	color: #fabe12;
+	border-bottom: 1px solid rgba(240, 225, 19, 0.2);
+	transition: 0.25s;
+}
+.dropdown-user ul li a:hover{
+	text-shadow: 0px 0px 10px yellow,
+				0px 0px 20px yellow,
+				0px 0px 40px yellow,
+				0px 0px 80px yellow,
+				0px 0px 120px yellow,
+				0px 0px 160px yellow;
+}
 
 
 

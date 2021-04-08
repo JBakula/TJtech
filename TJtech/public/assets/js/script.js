@@ -58,6 +58,10 @@ $(document).ready(function(){
             }*/
         }); //end of Pop Up
 
+    // User icon
+        $(".dropdown-user button").click(function(){
+            $(".dropdown-user ul").toggleClass("active");
+        })
 
 
 }); // end of $(document).ready(function()

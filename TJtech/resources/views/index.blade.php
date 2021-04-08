@@ -36,11 +36,11 @@
 
                         <!--Košarica i User-->
                         
-                        @if(Session::has('Ime'))  <!-- provjera je li uspostavljena sesija, ako je pojavi se ime i kosara--->
+                       <!-- @if(Session::has('Ime'))   provjera je li uspostavljena sesija, ako je pojavi se ime i kosara
                         <span style="padding-right: 10px;">{{Session::get('Ime')}}</span><a href="#"><i class="fas fa-user btn btn-default user"></i></a><br>
                         <span class="ion-android-cart btn btn-default"style="margin-bottom: 15px"> 0 produkata </span>
                         
-                        @endif
+                        @endif--->
 
                         <form>
                             <div class="input-group">
@@ -69,7 +69,7 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                        </div>
+                        </div> 
 
                         <div class="collapse navbar-collapse" id="site-nav-bar">
                             <ul class="nav navbar-nav">
@@ -79,18 +79,18 @@
                                 <li><a href="Računala.html"><b><i><u>Računala</u></i></b></a></li>
                                 <li><a href="Oprema.html"><b><i><u>Oprema</u></i></b></a></li>
                                 <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
-                                @if(!Session::has('Ime')) <!-- ako sesija nije uspostavljena, ostaju signup i login gumbovi --->
+                                <!-- @if(!Session::has('Ime'))  ako sesija nije uspostavljena, ostaju signup i login gumbovi --->
                                 <li><a href="login.html" style="margin: 0; padding: 0;">
                                     <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;">Login</button>
                                 </a></li>
                                 <li><a href="signup.html" style="margin: 0; padding: 0;">
                                     <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;">Signup</button>
                                 </a></li>
-                                @else <!-- ako je sesija uspostavljena, pojavljuje se gumb za odjavu-->
+                               <!-- @else  ako je sesija uspostavljena, pojavljuje se gumb za odjavu
                                 <li><a href="index.html" style="margin: 0; padding: 0;">
                                     <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;" >Odjava {{Session::forget('Ime')}}</button>
                                 </a></li>
-                                @endif
+                                @endif-->
                             </ul>
                         </div><!-- /.navbar-collapse -->
                     </nav>

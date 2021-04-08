@@ -116,13 +116,14 @@
                 <div class="row">
                     <div class="boxed">
                         <!-- 1 -->
+                        @foreach($dataLaptopi as $item)
                         <div class="col-sm-6">
                             <div class="shop-box">
-                                <img class="img-full img-responsive" id="one" src="assets/images/shop-1.jpg" alt="shop">
+                                <img class="img-full img-responsive" id="one" src="{{$item->Slika}}" alt="shop">
                                 <div class="shop-box-hover text-center">
                                     <div class="c-table">
                                         <div class="c-cell">
-                                            <a class="test-popup-link" href="assets/images/shop-big-1.jpg">
+                                            <a class="test-popup-link" href="{{$item->Velika_slika}}">
                                                 <span class="ion-ios-search-strong just-img"></span>
                                             </a>
                                             <a href="#">
@@ -135,21 +136,22 @@
                             <div class="shop-box-title">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <h4>Notebook Acer Aspire 3, NX.HEREX.008, 14</h4><br>
-                                        <h4>CPU: <span class="thin">AMD Dual-Core A4 9120E</span></h4>
-                                        <h4>RAM: <span class="thin">8GB DDR4</span></h4>
-                                        <h4>Memory: <span class="thin">256GB NVMe SSD</span></h4>
-                                        <h4>Graphic Card: <span class="thin">AMD Radeon R3 Graphics</span></h4>
+                                        <h4>{{$item->Naziv_proizvoda}}</h4><br>
+                                        <h4>CPU: <span class="thin">{{$item->CPU}}</span></h4>
+                                        <h4>RAM: <span class="thin">{{$item->RAM}}</span></h4>
+                                        <h4>Memory: <span class="thin">{{$item->Memorija}}</span></h4>
+                                        <h4>Graphic Card: <span class="thin">{{$item->Graficka}}</span></h4>
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-6"> 
                                         <p class="shop-price">
-                                            $ 393,41
+                                        {{$item->Cijena}}
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- 2 -->
+                        @endforeach
+                        <!-- 2 
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" src="assets/images/shop-2.jpg" alt="shop">
@@ -182,8 +184,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- 3 -->
+                        </div>-->
+                        <!-- 3 
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" src="assets/images/shop-3.jpg" alt="shop">
@@ -216,8 +218,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- 4 -->
+                        </div>-->
+                        <!-- 4 
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" src="assets/images/shop-4.jpg" alt="shop">
@@ -250,8 +252,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- 5 -->
+                        </div>-->
+                        <!-- 5 
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" src="assets/images/shop-5.jpg" alt="shop">
@@ -284,8 +286,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- 6 -->
+                        </div>-->
+                        <!-- 6 
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" src="assets/images/shop-6.jpg" alt="shop">
@@ -318,7 +320,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                         <!--
                         <div class="col-sm-12">
                             <nav>
