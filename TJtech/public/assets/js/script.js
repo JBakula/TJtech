@@ -62,6 +62,51 @@ $(document).ready(function(){
         $(".dropdown-user button").click(function(){
             $(".dropdown-user ul").toggleClass("active");
         })
+        $(".admin-dropdown-user button").click(function(){
+            $(".admin-dropdown-user ul").toggleClass("active");
+        })
+
+    // Search dropdown
+        var niz = ["zagreb","sarajevo","zadar","Makarska","Posusje"];
+        
+
+        $('#Search').autocomplete({
+
+            // U source: "PHP-dio"... samo sam stavio primjer niza
+            source: niz,
+            minLength: 1,
+        })
+
+        // Button click Pretrazi
+        $("#Pretrazi").click(function (e) { 
+            e.preventDefault();
+            var proizvod = $("#Search").val();
+            var pom = false;
+            proizvod = proizvod.toLowerCase();
+
+            // Isto dodat taj niz od PHP-a... umijesto varijable niz
+            niz.forEach((item, index, arr) =>{
+                item = item.toLowerCase();
+                if(item === proizvod){
+
+                    // Dodat lokaciju gdje se nalazi taj proizvod... umijesto Laptopi.html
+                    window.location.href = "#"; // Unijeti gdje je relocirati
+                    pom = true;
+                }
+            })
+
+            // Namijestanje stranice Nema Proizvoda
+            if(pom === false){
+                var doc = document.URL;
+                if(doc.includes("user")){
+                    window.location.href = "userNemaproizvoda.html";
+                }else if(doc.includes("admin")){
+                    window.location.href = "adminNemaproizvoda.html";
+                }else {
+                    window.location.href = "nemaproizvoda.html";
+                }
+            }
+        });
 
 
 }); // end of $(document).ready(function()

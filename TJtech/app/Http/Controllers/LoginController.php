@@ -1,11 +1,12 @@
 <?php
 // u ovom kontroleru se provjerava je li se korisnik  ispravno logira
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Korisnik;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Facades\Session;
+//use Symfony\Component\HttpFoundation\Session\Session;
 class LoginController extends Controller
 {
     public function index()     // <---- ova metoda ucitava html stranicu login
@@ -27,11 +28,72 @@ class LoginController extends Controller
         }else{
             
             if($request->lozinka==$podaci->Lozinka){ // provjera lozinke
-                $request->session()->put('Ime',$podaci['Ime_prezime']); // uspostavljanje sesije i prosljedjivanje imena
-                return redirect('index.html'); // redirektanje na pocetnu stranicu nakon uspjesne prijave
+                $request->session()->put('LogiraniKorisnik',$podaci['korisnik_id']); // uspostavljanje sesije i prosljedjivanje imena
+                
+                if($podaci->Uloga=="korisnik"){
+                    return redirect('userIndex.html'); 
+                }else{
+                    
+                }
+                // redirektanje na pocetnu stranicu nakon uspjesne prijave
             }else{
                 return back()->withInput();
             }
+        }
+    }
+    function profile(){
+        if(session()->has('LogiraniKorisnik')){
+            $user=Korisnik::where('korisnik_id','=',session('LogiraniKorisnik'))->first();
+            $data=[
+                'LogiraniKorisnikPodaci'=>$user
+            ];
+        }
+        return view('User.userIndex',$data);
+    }
+    function userLaptopi(){
+        if(session()->has('LogiraniKorisnik')){
+            $user=Korisnik::where('korisnik_id','=',session('LogiraniKorisnik'))->first();
+            $data=[
+                'LogiraniKorisnikPodaci'=>$user
+            ];
+        }
+        $dataLaptopiUser = DB::table('racunalos')->where('kategorija_fk', '2')->get();
+        return view('User.userLaptopi',$data,['dataLaptopiUser'=>$dataLaptopiUser]);
+    }
+    function userOnama(){
+        if(session()->has('LogiraniKorisnik')){
+            $user=Korisnik::where('korisnik_id','=',session('LogiraniKorisnik'))->first();
+            $data=[
+                'LogiraniKorisnikPodaci'=>$user
+            ];
+        }
+        
+        return view('User.userOnama',$data);
+    }
+    function userOprema(){
+        if(session()->has('LogiraniKorisnik')){
+            $user=Korisnik::where('korisnik_id','=',session('LogiraniKorisnik'))->first();
+            $data=[
+                'LogiraniKorisnikPodaci'=>$user
+            ];
+        }
+        $PodaciOpremeUser = DB::table('opremas')->get(); 
+        return view('User.userOprema',$data,['PodaciOpremeUser'=>$PodaciOpremeUser]);
+    }
+    function userRacunala(){
+        if(session()->has('LogiraniKorisnik')){
+            $user=Korisnik::where('korisnik_id','=',session('LogiraniKorisnik'))->first();
+            $data=[
+                'LogiraniKorisnikPodaci'=>$user
+            ];
+        }
+        $dataRacunalaUser = DB::table('racunalos')->where('kategorija_fk', '1')->get();
+        return view('User.userRacunala',$data,['dataRacunalaUser'=>$dataRacunalaUser]);
+    }
+    function logout(){
+        if(session()->has('LogiraniKorisnik')){
+            session()->forget('LogiraniKorisnik');
+            return redirect('index.html');
         }
     }
 }

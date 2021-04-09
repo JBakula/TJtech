@@ -22,6 +22,10 @@
         <link href="assets/css/ionicons.css" rel="stylesheet">
         <link href="assets/css/main.css" rel="stylesheet">
 
+        <link href="assets/jquery-ui/jquery-ui.css" rel="stylesheet">
+        <link href="assets/jquery-ui/jquery-ui.structure.css" rel="stylesheet">
+        <link href="assets/jquery-ui/jquery-ui.theme.css" rel="stylesheet">
+
     </head>
     <body>
 
@@ -36,18 +40,18 @@
 
                     <!--Košarica i User-->
                     <div class="dropdown-user">
-                        <span style="padding-right: 10px;">Ime Prezime</span><button><i class="fas fa-user btn btn-default user"></i></button><br>
+                        <span style="padding-right: 10px;">{{$LogiraniKorisnikPodaci->Ime_prezime}}</span><button><i class="fas fa-user btn btn-default user"></i></button><br>
                         <ul>
                             <li><a href="#">Profil</a></li>
-                            <li><a href="#">Logout</a></li>
+                            <li><a href="logout">Logout</a></li>
                         </ul>
                     </div>
 
                     <form>
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="">
+                            <input id="Search" type="text" class="form-control" placeholder="Pretraga..." autocomplete="off">
                             <span class="input-group-btn">
-                                <button class="btn btn-default btn-robot" type="button">Pretraga</button>
+                                <button id="Pretrazi" class="btn btn-default btn-robot" type="button">Pretraga</button>
                             </span>
                         </div><!-- /input-group -->
                     </form>
@@ -121,13 +125,14 @@
                 <div class="row">
                     <div class="boxed">
                         <!-- 1 -->
+                        @foreach($PodaciOpremeUser as $item)
                         <div class="col-sm-6">
                             <div class="shop-box">
-                                <img class="img-full img-responsive" src="assets/images/shop-111.jpg" alt="shop">
+                                <img class="img-full img-responsive" src= "{{$item->Slika}}" alt="shop">
                                 <div class="shop-box-hover text-center">
                                     <div class="c-table">
                                         <div class="c-cell">
-                                            <a class="test-popup-link" href="assets/images/shop-big-111.jpg">
+                                            <a class="test-popup-link" href="{{$item->Povecana_slika}}">
                                                 <span class="ion-ios-search-strong just-img"></span>
                                             </a>
                                             <a href="#">
@@ -140,20 +145,28 @@
                             <div class="shop-box-title">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <h4>
-                                            Monitor Asus 27" TUF GAMING VG27VH1B, VA, Gaming, Adaptive-sync, FreeSync Premium 165Hz, 
-                                            VGA, HDMI, Zvučnici, Zakrivljeni 1500R, Full HD
+                                        <h4>{{$item->Opis}}
+                                            
                                         </h4><br>
+                                        @if($item->oprema_id==2)
+                                        <br>
+                                        <br>
+                                        <br>
+                                        @endif
+                                        @if($item->oprema_id==8)
+                                        <br>
+                                        @endif
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="shop-price">
-                                            $ 354,59
+                                        {{$item->Cijena}}<!--$ 354,59-->
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- 2 -->
+                        @endforeach
+                        <!-- 2 
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" src="assets/images/shop-222.jpg" alt="shop">
@@ -188,8 +201,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- 3 -->
+                        </div>-->
+                        <!-- 3 
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" src="assets/images/shop-333.jpg" alt="shop">
@@ -218,8 +231,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- 4 -->
+                        </div>-->
+                        <!-- 4 
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" src="assets/images/shop-444.jpg" alt="shop">
@@ -248,8 +261,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- 5 -->
+                        </div>-->
+                        <!-- 5
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" src="assets/images/shop-555.jpg" alt="shop">
@@ -278,8 +291,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- 6 -->
+                        </div> -->
+                        <!-- 6 
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" src="assets/images/shop-666.jpg" alt="shop">
@@ -308,8 +321,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- 7 -->
+                        </div>-->
+                        <!-- 7 
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" id="foure" src="assets/images/shop-777.jpg" alt="shop">
@@ -338,8 +351,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- 8 -->
+                        </div>-->
+                        <!-- 8 
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" src="assets/images/shop-888.jpg" alt="shop">
@@ -369,8 +382,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- 9 -->
+                        </div>-->
+                        <!-- 9 
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" src="assets/images/shop-999.jpg" alt="shop">
@@ -399,8 +412,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- 10 -->
+                        </div>-->
+                        <!-- 10
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" id="three" src="assets/images/shop-100.jpg" alt="shop">
@@ -429,7 +442,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!--
                         <div class="col-sm-12">
                             <nav>
@@ -471,7 +484,7 @@
                         <li><i class="fab fa-css3-alt" style="font-size: 50px; padding-left: 5px; color: blue;"></i><a href="userOnama.html#Jezici" style="padding-left: 20px;">CSS3</a></li>
                     </ul>
                 </div>
-                <div class="col-sm-4">userOnama.html
+                <div class="col-sm-4">
                     <h3>Korisne informacije</h3>
                     <ul>
                         <li><a href="userOnama.html">O nama</a></li>
@@ -496,5 +509,6 @@
         <script src="assets/js/owl.carousel.min.js"></script>
         <script src="assets/js/script.js"></script>
 
+        <script src="assets/jquery-ui/jquery-ui.js"></script>
     </body>
 </html>

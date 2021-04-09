@@ -38,17 +38,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    <a href="userIndex.html"><img src="assets/images/logo.png" alt="logo"></a>
+                    <a href="adminIndex.html"><img src="assets/images/logo.png" alt="logo"></a>
                 </div>
                 <div class="col-sm-3 col-sm-offset-3 text-right">
 
                     <!--Košarica i User-->
                     
-                    <div class="dropdown-user">
+                    <div class="admin-dropdown-user">
                         <span style="padding-right: 10px;">{{$LogiraniKorisnikPodaci->Ime_prezime}}</span><button><i class="fas fa-user btn btn-default user"></i></button><br>
                         <ul>
                             <li><a href="#">Profil</a></li>
                             <li><a href="logout">Logout</a></li>
+                            <li><a href="#">Proizvodi</a></li>
+                            <li><a href="#">Korisnici</a></li>
                         </ul>
                     </div>
 
@@ -83,11 +85,11 @@
 
                     <div class="collapse navbar-collapse" id="site-nav-bar">
                         <ul class="nav navbar-nav">
-                            <li><a href="userIndex.html">Početna</a></li>
-                            <li class="active"><a href="userOnama.html">O nama</a></li>
-                            <li><a href="userLaptopi.html"><b><i><u>Laptopi</u></i></b></a></li>
-                            <li><a href="userRacunala.html"><b><i><u>Računala</u></i></b></a></li>
-                            <li><a href="userOprema.html"><b><i><u>Oprema</u></i></b></a></li>
+                            <li><a href="adminIndex.html">Početna</a></li>
+                            <li class="active"><a href="adminOnama.html">O nama</a></li>
+                            <li><a href="adminLaptopi.html"><b><i><u>Laptopi</u></i></b></a></li>
+                            <li><a href="adminRačunala.html"><b><i><u>Računala</u></i></b></a></li>
+                            <li><a href="adminOprema.html"><b><i><u>Oprema</u></i></b></a></li>
                             <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
                             <li><span class="ion-android-cart btn btn-default"style="margin-top: 10px; cursor: default;"> 0 produkata </span></li>
                             <!--
@@ -107,7 +109,7 @@
                 <div class="overlay"></div>
                 <div class="col-sm-12">
                     <ol class="breadcrumb">
-                        <li><a href="userIndex.html">Početna</a></li>
+                        <li><a href="adminIndex.html">Početna</a></li>
                         <li class="active">O nama</li>
                     </ol>
                 </div>
@@ -308,31 +310,31 @@
                 <div class="col-sm-4">
                     <h3>Popularni proizvodi</h3>
                     <ul>
-                        <li><a href="userLaptopi.html">NOTEBOOK ACER ASPIRE 3</a></li>
-                        <li><a href="userRacunala.html">RAČUNALO GAMER DIABLO 3600</a></li>
-                        <li><a href="userOprema.html">GAMING STOLICA LC-POWER LC-GC-600BR</a></li>
-                        <li><a href="userOprema.html">SLUŠALICE LOGITECH H650E</a></li>
+                        <li><a href="adminLaptopi.html">NOTEBOOK ACER ASPIRE 3</a></li>
+                        <li><a href="adminRačunala.html">RAČUNALO GAMER DIABLO 3600</a></li>
+                        <li><a href="adminOprema.html">GAMING STOLICA LC-POWER LC-GC-600BR</a></li>
+                        <li><a href="adminOprema.html">SLUŠALICE LOGITECH H650E</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-4">
                     <h3>Programski jezici</h3>
                     <ul>
-                        <li><i class="fab fa-js-square" style="font-size: 50px; padding-left: 5px; color: rgb(241, 241, 53);"></i><a href="userOnama.html#Jezici" style="padding-left: 20px;"> Java Script</a></li>
-                        <li><i class="fab fa-php" style="font-size: 50px; padding-left: 5px; color: purple;"></i><a href="userOnama.html#Jezici" style="padding-left: 20px;">PHP</a></li>
-                        <li><i class="fas fa-database" style="font-size: 50px; padding-left: 5px; color: #fabe12;"></i><a href="userOnama.html#Jezici" style="padding-left: 20px;">SQL Database</a></li>
-                        <li><i class="fab fa-html5" style="font-size: 50px; padding-left: 5px; color: orangered;"></i><a href="userOnama.html#Jezici" style="padding-left: 20px;">HTML5</a></li>
-                        <li><i class="fab fa-css3-alt" style="font-size: 50px; padding-left: 5px; color: blue;"></i><a href="userOnama.html#Jezici" style="padding-left: 20px;">CSS3</a></li>
+                        <li><i class="fab fa-js-square" style="font-size: 50px; padding-left: 5px; color: rgb(241, 241, 53);"></i><a href="adminOnama.html" style="padding-left: 20px;"> Java Script</a></li>
+                        <li><i class="fab fa-php" style="font-size: 50px; padding-left: 5px; color: purple;"></i><a href="adminOnama.html" style="padding-left: 20px;">PHP</a></li>
+                        <li><i class="fas fa-database" style="font-size: 50px; padding-left: 5px; color: #fabe12;"></i><a href="adminOnama.html" style="padding-left: 20px;">SQL Database</a></li>
+                        <li><i class="fab fa-html5" style="font-size: 50px; padding-left: 5px; color: orangered;"></i><a href="adminOnama.html" style="padding-left: 20px;">HTML5</a></li>
+                        <li><i class="fab fa-css3-alt" style="font-size: 50px; padding-left: 5px; color: blue;"></i><a href="adminOnama.html" style="padding-left: 20px;">CSS3</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-4">userOnama.html
                     <h3>Korisne informacije</h3>
                     <ul>
-                        <li><a href="userOnama.html">O nama</a></li>
+                        <li><a href="adminOnama.html">O nama</a></li>
                         <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
-                        <li><a href="userIndex.html">Početna</a></li>
-                        <li><a href="userLaptopi.html">Laptopi</a></li>
-                        <li><a href="userRacunala.html">Računala</a></li>
-                        <li><a href="userOprema.html">Oprema</a></li>
+                        <li><a href="adminIndex.html">Početna</a></li>
+                        <li><a href="adminLaptopi.html">Laptopi</a></li>
+                        <li><a href="adminRačunala.html">Računala</a></li>
+                        <li><a href="adminOprema.html">Oprema</a></li>
                     </ul>
                 </div>
             </div>

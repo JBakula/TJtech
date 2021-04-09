@@ -22,6 +22,10 @@
         <link href="assets/css/ionicons.css" rel="stylesheet">
         <link href="assets/css/main.css" rel="stylesheet">
 
+        <link href="assets/jquery-ui/jquery-ui.css" rel="stylesheet">
+        <link href="assets/jquery-ui/jquery-ui.structure.css" rel="stylesheet">
+        <link href="assets/jquery-ui/jquery-ui.theme.css" rel="stylesheet">
+
     </head>
     <body>
 
@@ -43,9 +47,9 @@
 
                     <form>
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="">
+                            <input id="Search" type="text" class="form-control" placeholder="Pretraga..." autocomplete="off">
                             <span class="input-group-btn">
-                                <button class="btn btn-default btn-robot" type="button">Pretraga</button>
+                                <button id="Pretrazi" class="btn btn-default btn-robot" type="button">Pretraga</button>
                             </span>
                         </div><!-- /input-group -->
                     </form>
@@ -116,13 +120,14 @@
                 <div class="row">
                     <div class="boxed">
                         <!-- 1 -->
+                        @foreach($dataRacunala as $item)
                         <div class="col-sm-6">
                             <div class="shop-box">
-                                <img class="img-full img-responsive" src="assets/images/shop-11.jpg" alt="shop">
+                                <img class="img-full img-responsive" src="{{$item->Slika}}" alt="shop">
                                 <div class="shop-box-hover text-center">
                                     <div class="c-table">
                                         <div class="c-cell">
-                                            <a class="test-popup-link" href="assets/images/shop-big-11.jpg">
+                                            <a class="test-popup-link" href="{{$item->Velika_slika}}">
                                                 <span class="ion-ios-search-strong just-img"></span>
                                             </a>
                                             <a href="#">
@@ -135,21 +140,26 @@
                             <div class="shop-box-title">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <h4>Računalo Gamer HYDRA</h4><br>
-                                        <h4>CPU: <span class="thin">AMD Ryzen 5 3400G up to 4.2GHz</span></h4>
-                                        <h4>RAM: <span class="thin">8GB DDR4</span></h4>
-                                        <h4>Memory: <span class="thin">256GB NVMe SSD</span></h4>
-                                        <h4>Graphic Card: <span class="thin">AMD Radeon RX5500 XT 4GB</span></h4>
-                                    </div>
+                                        <h4>{{$item->Naziv_proizvoda}}</h4><br>
+                                        <h4>CPU: <span class="thin">{{$item->CPU}}</span></h4>
+                                        <h4>RAM: <span class="thin">{{$item->RAM}}</span></h4>
+                                        <h4>Memory: <span class="thin">{{$item->Memorija}}</span></h4>
+                                        <h4>Graphic Card: <span class="thin">{{$item->Graficka}}</span></h4>
+                                        @if($item->proizvod_id==4)
+                                        <br>
+                                        <br>
+                                        @endif
+                                    </div> 
                                     <div class="col-sm-6">
                                         <p class="shop-price">
-                                            $ 933,95
+                                        {{$item->Cijena}}
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- 2 -->
+                        @endforeach
+                        <!-- 2 
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" src="assets/images/shop-22.jpg" alt="shop">
@@ -182,8 +192,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- 3 -->
+                        </div>-->
+                        <!-- 3 
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" src="assets/images/shop-33.jpg" alt="shop">
@@ -216,8 +226,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- 4 -->
+                        </div>-->
+                        <!-- 4 
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" src="assets/images/shop-44.jpg" alt="shop">
@@ -250,8 +260,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- 5 -->
+                        </div>-->
+                        <!-- 5 
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" id="two" src="assets/images/shop-55.jpg" alt="shop">
@@ -284,8 +294,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- 6 -->
+                        </div>-->
+                        <!-- 6 
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" src="assets/images/shop-66.jpg" alt="shop">
@@ -318,7 +328,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                         <!--
                         <div class="col-sm-12">
                             <nav>
@@ -385,5 +395,6 @@
         <script src="assets/js/owl.carousel.min.js"></script>
         <script src="assets/js/script.js"></script>
 
+        <script src="assets/jquery-ui/jquery-ui.js"></script>
     </body>
 </html>

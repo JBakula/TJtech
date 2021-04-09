@@ -34,17 +34,20 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6">
-                        <a href="index.html"><img src="assets/images/logo.png" alt="logo"></a>
+                        <a href="adminIndex.html"><img src="assets/images/logo.png" alt="logo"></a>
                     </div>
                     <div class="col-sm-3 col-sm-offset-3 text-right">
 
                         <!--Košarica i User-->
-                        
-                       <!-- @if(Session::has('Ime'))   provjera je li uspostavljena sesija, ako je pojavi se ime i kosara
-                        <span style="padding-right: 10px;">{{Session::get('Ime')}}</span><a href="#"><i class="fas fa-user btn btn-default user"></i></a><br>
-                        <span class="ion-android-cart btn btn-default"style="margin-bottom: 15px"> 0 produkata </span>
-                        
-                        @endif--->
+                        <div class="admin-dropdown-user">
+                            <span style="padding-right: 10px;">{{$LogiraniKorisnikPodaci->Ime_prezime}}</span><button><i class="fas fa-user btn btn-default user"></i></button><br>
+                            <ul>
+                                <li><a href="#">Profil</a></li>
+                                <li><a href="logout">Logout</a></li>
+                                <li><a href="#">Proizvodi</a></li>
+                                <li><a href="#">Korisnici</a></li>
+                            </ul>
+                        </div>
 
                         <form>
                             <div class="input-group">
@@ -73,28 +76,25 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                        </div> 
+                        </div>
 
                         <div class="collapse navbar-collapse" id="site-nav-bar">
                             <ul class="nav navbar-nav">
-                                <li class="active"><a href="index.html">Početna</a></li>
-                                <li><a href="Onama.html">O nama</a></li>
-                                <li><a href="Laptopi.html"><b><i><u>Laptopi</u></i></b></a></li>
-                                <li><a href="Računala.html"><b><i><u>Računala</u></i></b></a></li>
-                                <li><a href="Oprema.html"><b><i><u>Oprema</u></i></b></a></li>
+                                <li class="active"><a href="adminIndex.html">Početna</a></li>
+                                <li><a href="adminOnama.html">O nama</a></li>
+                                <li><a href="adminLaptopi.html"><b><i><u>Laptopi</u></i></b></a></li>
+                                <li><a href="adminRačunala.html"><b><i><u>Računala</u></i></b></a></li>
+                                <li><a href="adminOprema.html"><b><i><u>Oprema</u></i></b></a></li>
                                 <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
-                                <!-- @if(!Session::has('Ime'))  ako sesija nije uspostavljena, ostaju signup i login gumbovi --->
+                                <li><span class="ion-android-cart btn btn-default"style="margin-top: 10px; cursor: default;"> 0 produkata </span></li>
+                                <!--
                                 <li><a href="login.html" style="margin: 0; padding: 0;">
                                     <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;">Login</button>
                                 </a></li>
                                 <li><a href="signup.html" style="margin: 0; padding: 0;">
                                     <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;">Signup</button>
                                 </a></li>
-                               <!-- @else  ako je sesija uspostavljena, pojavljuje se gumb za odjavu
-                                <li><a href="index.html" style="margin: 0; padding: 0;">
-                                    <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;" >Odjava {{Session::forget('Ime')}}</button>
-                                </a></li>
-                                @endif-->
+                                -->
                             </ul>
                         </div><!-- /.navbar-collapse -->
                     </nav>
@@ -130,19 +130,19 @@
                     <div class="col-sm-4">
                         <div class="porduct-box">
                             <img class="img-responsive" src="assets/images/product-1.jpg" alt="product">
-                            <a href="Laptopi.html" class="btn btn-default btn-robot"><h3>Laptopi</h3></a>
+                            <a href="adminLaptopi.html" class="btn btn-default btn-robot"><h3>Laptopi</h3></a>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="porduct-box">
                             <img class="img-responsive" src="assets/images/product-2.jpg" alt="product">
-                            <a href="Računala.html" class="btn btn-default btn-robot"><h3>Računala</h3></a>
+                            <a href="adminRačunala.html" class="btn btn-default btn-robot"><h3>Računala</h3></a>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="porduct-box">
                             <img class="img-responsive" src="assets/images/product-3.jpg" alt="product">
-                            <a href="Oprema.html" class="btn btn-default btn-robot"><h3>Oprema</h3></a>
+                            <a href="adminOprema.html" class="btn btn-default btn-robot"><h3>Oprema</h3></a>
                         </div>
                     </div>
                 </div>
@@ -203,31 +203,31 @@
                     <div class="col-sm-4">
                         <h3>Popularni proizvodi</h3>
                         <ul>
-                            <li><a href="Laptopi.html#one">NOTEBOOK ACER ASPIRE 3</a></li>
-                            <li><a href="Računala.html#two">RAČUNALO GAMER DIABLO 3600</a></li>
-                            <li><a href="Oprema.html#three">GAMING STOLICA LC-POWER LC-GC-600BR</a></li>
-                            <li><a href="Oprema.html#foure">SLUŠALICE LOGITECH H650E</a></li>
+                            <li><a href="adminLaptopi.html">NOTEBOOK ACER ASPIRE 3</a></li>
+                            <li><a href="adminRačunala.html">RAČUNALO GAMER DIABLO 3600</a></li>
+                            <li><a href="adminOprema.html">GAMING STOLICA LC-POWER LC-GC-600BR</a></li>
+                            <li><a href="adminOprema.html">SLUŠALICE LOGITECH H650E</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-4">
                         <h3>Programski jezici</h3>
                         <ul>
-                            <li><i class="fab fa-js-square" style="font-size: 50px; padding-left: 5px; color: rgb(241, 241, 53);"></i><a href="Onama.html#Jezici" style="padding-left: 20px;"> Java Script</a></li>
-                            <li><i class="fab fa-php" style="font-size: 50px; padding-left: 5px; color: purple;"></i><a href="Onama.html#Jezici" style="padding-left: 20px;">PHP</a></li>
-                            <li><i class="fas fa-database" style="font-size: 50px; padding-left: 5px; color: #fabe12;"></i><a href="Onama.html#Jezici" style="padding-left: 20px;">SQL Database</a></li>
-                            <li><i class="fab fa-html5" style="font-size: 50px; padding-left: 5px; color: orangered;"></i><a href="Onama.html#Jezici" style="padding-left: 20px;">HTML5</a></li>
-                            <li><i class="fab fa-css3-alt" style="font-size: 50px; padding-left: 5px; color: blue;"></i><a href="Onama.html#Jezici" style="padding-left: 20px;">CSS3</a></li>
+                            <li><i class="fab fa-js-square" style="font-size: 50px; padding-left: 5px; color: rgb(241, 241, 53);"></i><a href="adminOnama.html" style="padding-left: 20px;"> Java Script</a></li>
+                            <li><i class="fab fa-php" style="font-size: 50px; padding-left: 5px; color: purple;"></i><a href="adminOnama.html" style="padding-left: 20px;">PHP</a></li>
+                            <li><i class="fas fa-database" style="font-size: 50px; padding-left: 5px; color: #fabe12;"></i><a href="adminOnama.html" style="padding-left: 20px;">SQL Database</a></li>
+                            <li><i class="fab fa-html5" style="font-size: 50px; padding-left: 5px; color: orangered;"></i><a href="adminOnama.html" style="padding-left: 20px;">HTML5</a></li>
+                            <li><i class="fab fa-css3-alt" style="font-size: 50px; padding-left: 5px; color: blue;"></i><a href="adminOnama.html" style="padding-left: 20px;">CSS3</a></li>
                         </ul>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-4">userOnama.html
                         <h3>Korisne informacije</h3>
                         <ul>
-                            <li><a href="Onama.html">O nama</a></li>
+                            <li><a href="adminOnama.html">O nama</a></li>
                             <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
-                            <li><a href="index.html">Početna</a></li>
-                            <li><a href="Laptopi.html">Laptopi</a></li>
-                            <li><a href="Računala.html">Računala</a></li>
-                            <li><a href="Oprema.html">Oprema</a></li>
+                            <li><a href="adminIndex.html">Početna</a></li>
+                            <li><a href="adminLaptopi.html">Laptopi</a></li>
+                            <li><a href="adminRačunala.html">Računala</a></li>
+                            <li><a href="adminOprema.html">Oprema</a></li>
                         </ul>
                     </div>
                 </div>

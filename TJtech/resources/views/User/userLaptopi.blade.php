@@ -22,6 +22,10 @@
         <link href="assets/css/ionicons.css" rel="stylesheet">
         <link href="assets/css/main.css" rel="stylesheet">
 
+        <link href="assets/jquery-ui/jquery-ui.css" rel="stylesheet">
+        <link href="assets/jquery-ui/jquery-ui.structure.css" rel="stylesheet">
+        <link href="assets/jquery-ui/jquery-ui.theme.css" rel="stylesheet">
+
     </head>
     <body>
 
@@ -36,21 +40,21 @@
 
                     <!--Košarica i User-->
                     <div class="dropdown-user">
-                        <span style="padding-right: 10px;">Ime Prezime</span><button><i class="fas fa-user btn btn-default user"></i></button><br>
+                        <span style="padding-right: 10px;">{{$LogiraniKorisnikPodaci->Ime_prezime}}</span><button><i class="fas fa-user btn btn-default user"></i></button><br>
                         <ul>
                             <li><a href="#">Profil</a></li>
-                            <li><a href="#">Logout</a></li>
+                            <li><a href="logout">Logout</a></li>
                         </ul>
                     </div>
 
                     <form>
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default btn-robot" type="button">Pretraga</button>
-                            </span>
-                        </div><!-- /input-group -->
-                    </form>
+                            <div class="input-group">
+                                <input id="Search" type="text" class="form-control" placeholder="Pretraga..." autocomplete="off">
+                                <span class="input-group-btn">
+                                    <button id="Pretrazi" class="btn btn-default btn-robot" type="button">Pretraga</button>
+                                </span>
+                            </div><!-- /input-group -->
+                        </form>
                 </div>
             </div>
         </div>
@@ -121,13 +125,14 @@
                 <div class="row">
                     <div class="boxed">
                         <!-- 1 -->
+                        @foreach($dataLaptopiUser as $item)
                         <div class="col-sm-6">
                             <div class="shop-box">
-                                <img class="img-full img-responsive" id="one" src="assets/images/shop-1.jpg" alt="shop">
+                                <img class="img-full img-responsive" id="one" src="{{$item->Slika}}" alt="shop">
                                 <div class="shop-box-hover text-center">
                                     <div class="c-table">
                                         <div class="c-cell">
-                                            <a class="test-popup-link" href="assets/images/shop-big-1.jpg">
+                                            <a class="test-popup-link" href="{{$item->Velika_slika}}">
                                                 <span class="ion-ios-search-strong just-img"></span>
                                             </a>
                                             <a href="#">
@@ -140,21 +145,22 @@
                             <div class="shop-box-title">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <h4>Notebook Acer Aspire 3, NX.HEREX.008, 14</h4><br>
-                                        <h4>CPU: <span class="thin">AMD Dual-Core A4 9120E</span></h4>
-                                        <h4>RAM: <span class="thin">8GB DDR4</span></h4>
-                                        <h4>Memory: <span class="thin">256GB NVMe SSD</span></h4>
-                                        <h4>Graphic Card: <span class="thin">AMD Radeon R3 Graphics</span></h4>
+                                        <h4>{{$item->Naziv_proizvoda}}</h4><br>
+                                        <h4>CPU: <span class="thin">{{$item->CPU}}</span></h4>
+                                        <h4>RAM: <span class="thin">{{$item->RAM}}</span></h4>
+                                        <h4>Memory: <span class="thin">{{$item->Memorija}}</span></h4>
+                                        <h4>Graphic Card: <span class="thin">{{$item->Graficka}}</span></h4>
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-6"> 
                                         <p class="shop-price">
-                                            $ 393,41
+                                        {{$item->Cijena}}
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- 2 -->
+                        @endforeach
+                        <!-- 2 
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" src="assets/images/shop-2.jpg" alt="shop">
@@ -187,8 +193,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- 3 -->
+                        </div>-->
+                        <!-- 3 
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" src="assets/images/shop-3.jpg" alt="shop">
@@ -221,8 +227,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- 4 -->
+                        </div>-->
+                        <!-- 4 
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" src="assets/images/shop-4.jpg" alt="shop">
@@ -255,8 +261,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- 5 -->
+                        </div>-->
+                        <!-- 5 
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" src="assets/images/shop-5.jpg" alt="shop">
@@ -289,8 +295,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- 6 -->
+                        </div>-->
+                        <!-- 6 
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" src="assets/images/shop-6.jpg" alt="shop">
@@ -323,7 +329,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                         <!--
                         <div class="col-sm-12">
                             <nav>
@@ -365,7 +371,7 @@
                         <li><i class="fab fa-css3-alt" style="font-size: 50px; padding-left: 5px; color: blue;"></i><a href="userOnama.html#Jezici" style="padding-left: 20px;">CSS3</a></li>
                     </ul>
                 </div>
-                <div class="col-sm-4">userOnama.html
+                <div class="col-sm-4">
                     <h3>Korisne informacije</h3>
                     <ul>
                         <li><a href="userOnama.html">O nama</a></li>
@@ -390,5 +396,6 @@
         <script src="assets/js/owl.carousel.min.js"></script>
         <script src="assets/js/script.js"></script>
 
+        <script src="assets/jquery-ui/jquery-ui.js"></script>
     </body>
 </html>

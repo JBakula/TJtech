@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>TJ-tech | Oprema</title>
+        <title>TJ-tech | Računala</title>
 
         <!-- CSS -->
 
@@ -34,16 +34,20 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    <a href="index.html"><img src="assets/images/logo.png" alt="logo"></a>
+                    <a href="adminIndex.html"><img src="assets/images/logo.png" alt="logo"></a>
                 </div>
                 <div class="col-sm-3 col-sm-offset-3 text-right">
 
                     <!--Košarica i User-->
-                    
-                    <!--
-                    <span style="padding-right: 10px;">Ime Prezime</span><a href="#"><i class="fas fa-user btn btn-default user"></i></a><br>
-                    <span class="ion-android-cart btn btn-default"style="margin-bottom: 15px"> 0 produkata </span>
-                    -->
+                    <div class="admin-dropdown-user">
+                        <span style="padding-right: 10px;">{{$LogiraniKorisnikPodaci->Ime_prezime}}</span><button><i class="fas fa-user btn btn-default user"></i></button><br>
+                        <ul>
+                            <li><a href="#">Profil</a></li>
+                            <li><a href="logout">Logout</a></li>
+                            <li><a href="#">Proizvodi</a></li>
+                            <li><a href="#">Korisnici</a></li>
+                        </ul>
+                    </div>
 
                     <form>
                         <div class="input-group">
@@ -60,7 +64,7 @@
         
     <!-- Header -->
 
-        <section id="header" class="main-header shop-header3 inner-header">
+        <section id="header" class="main-header shop-header2 inner-header">
             <div class="container">
 
                 <div class="row">
@@ -76,18 +80,21 @@
 
                         <div class="collapse navbar-collapse" id="site-nav-bar">
                             <ul class="nav navbar-nav">
-                                <li><a href="index.html">Početna</a></li>
-                                <li><a href="Onama.html">O nama</a></li>
-                                <li><a href="Laptopi.html"><b><i><u>Laptopi</u></i></b></a></li>
-                                <li><a href="Računala.html"><b><i><u>Računala</u></i></b></a></li>
-                                <li class="active"><a href="Oprema.html"><b><i><u>Oprema</u></i></b></a></li>
+                                <li><a href="adminIndex.html">Početna</a></li>
+                                <li><a href="adminOnama.html">O nama</a></li>
+                                <li><a href="adminLaptopi.html"><b><i><u>Laptopi</u></i></b></a></li>
+                                <li class="active"><a href="adminRačunala.html"><b><i><u>Računala</u></i></b></a></li>
+                                <li><a href="adminOprema.html"><b><i><u>Oprema</u></i></b></a></li>
                                 <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
+                                <li><span class="ion-android-cart btn btn-default"style="margin-top: 10px; cursor: default;"> 0 produkata </span></li>
+                                <!--
                                 <li><a href="login.html" style="margin: 0; padding: 0;">
                                     <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;">Login</button>
                                 </a></li>
                                 <li><a href="signup.html" style="margin: 0; padding: 0;">
                                     <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;">Signup</button>
                                 </a></li>
+                                -->
                             </ul>
                         </div><!-- /.navbar-collapse -->
                     </nav>
@@ -97,8 +104,8 @@
                     <div class="overlay"></div>
                     <div class="col-sm-12">
                         <ol class="breadcrumb">
-                            <li><a href="index.html">Početna</a></li>
-                            <li class="active">Oprema</li>
+                            <li><a href="adminIndex.html">Početna</a></li>
+                            <li class="active">Računala</li>
                         </ol>
                     </div>
                 </div> <!-- /.intro.row -->
@@ -112,22 +119,21 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="title-box">
-                            <p>Dođite po našu</p>
-                            <h2 class="title mt0">Opremu</h2>
+                            <p>Dođite po naša</p>
+                            <h2 class="title mt0">Računala</h2>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="boxed">
                         <!-- 1 -->
-                        @foreach($data as $item) 
                         <div class="col-sm-6">
                             <div class="shop-box">
-                                <img class="img-full img-responsive" src= "{{$item->Slika}}" alt="shop">
+                                <img class="img-full img-responsive" src="assets/images/shop-11.jpg" alt="shop">
                                 <div class="shop-box-hover text-center">
                                     <div class="c-table">
                                         <div class="c-cell">
-                                            <a class="test-popup-link" href="{{$item->Povecana_slika}}">
+                                            <a class="test-popup-link" href="assets/images/shop-big-11.jpg">
                                                 <span class="ion-ios-search-strong just-img"></span>
                                             </a>
                                             <a href="#">
@@ -140,35 +146,28 @@
                             <div class="shop-box-title">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <h4>{{$item->Opis}}
-                                            
-                                        </h4><br>
-                                        @if($item->oprema_id==2)
-                                        <br>
-                                        <br>
-                                        <br>
-                                        @endif
-                                        @if($item->oprema_id==8)
-                                        <br>
-                                        @endif
+                                        <h4>Računalo Gamer HYDRA</h4><br>
+                                        <h4>CPU: <span class="thin">AMD Ryzen 5 3400G up to 4.2GHz</span></h4>
+                                        <h4>RAM: <span class="thin">8GB DDR4</span></h4>
+                                        <h4>Memory: <span class="thin">256GB NVMe SSD</span></h4>
+                                        <h4>Graphic Card: <span class="thin">AMD Radeon RX5500 XT 4GB</span></h4>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="shop-price">
-                                        {{$item->Cijena}}<!--$ 354,59-->
+                                            $ 933,95
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        @endforeach
-                        <!-- 2 
+                        <!-- 2 -->
                         <div class="col-sm-6">
                             <div class="shop-box">
-                                <img class="img-full img-responsive" src="assets/images/shop-222.jpg" alt="shop">
+                                <img class="img-full img-responsive" src="assets/images/shop-22.jpg" alt="shop">
                                 <div class="shop-box-hover text-center">
                                     <div class="c-table">
                                         <div class="c-cell">
-                                            <a class="test-popup-link" href="assets/images/shop-big-222.jpg">
+                                            <a class="test-popup-link" href="assets/images/shop-big-22.jpg">
                                                 <span class="ion-ios-search-strong just-img"></span>
                                             </a>
                                             <a href="#">
@@ -181,30 +180,28 @@
                             <div class="shop-box-title">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <h4>
-                                            Monitor Philips 24" 241B8QJEB, IPS, 
-                                            VGA, DVI, HDMI, DP, 2xUSB3.0, 2xUSB2.0, Pivot, Zvučnici, Full HD
-                                        </h4><br>
-                                        <br>
-                                        <br>
-                                        <br>
+                                        <h4>Računalo Master G6400</h4><br>
+                                        <h4>CPU: <span class="thin">Intel Pentium G6400</span></h4>
+                                        <h4>RAM: <span class="thin">8GB DDR4</span></h4>
+                                        <h4>Memory: <span class="thin">250GB NVMe SSD</span></h4>
+                                        <h4>Graphic Card: <span class="thin">Intel UHD Graphics 610</span></h4>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="shop-price">
-                                            $ 216,21
+                                            $ 384,79
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                         3 
+                        <!-- 3 -->
                         <div class="col-sm-6">
                             <div class="shop-box">
-                                <img class="img-full img-responsive" src="assets/images/shop-333.jpg" alt="shop">
+                                <img class="img-full img-responsive" src="assets/images/shop-33.jpg" alt="shop">
                                 <div class="shop-box-hover text-center">
                                     <div class="c-table">
                                         <div class="c-cell">
-                                            <a class="test-popup-link" href="assets/images/shop-big-333.jpg">
+                                            <a class="test-popup-link" href="assets/images/shop-big-33.jpg">
                                                 <span class="ion-ios-search-strong just-img"></span>
                                             </a>
                                             <a href="#">
@@ -217,54 +214,28 @@
                             <div class="shop-box-title">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <h4>Miš Genius Scorpion Spear, RGB LED, crni</h4><br>
+                                        <h4>All in one Lenovo IdeaCentre AIO 3, F0EW008ESC, 23.8" FHD</h4><br>
+                                        <h4>CPU: <span class="thin">AMD Ryzen 3 4300U up to 3.7GHz</span></h4>
+                                        <h4>RAM: <span class="thin">8GB DDR4</span></h4>
+                                        <h4>Memory: <span class="thin">512GB NVMe SSD</span></h4>
+                                        <h4>Graphic Card: <span class="thin">AMD Radeon Graphics</span></h4>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="shop-price">
-                                            $ 12,61
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
-                        <!-- 4 
-                        <div class="col-sm-6">
-                            <div class="shop-box">
-                                <img class="img-full img-responsive" src="assets/images/shop-444.jpg" alt="shop">
-                                <div class="shop-box-hover text-center">
-                                    <div class="c-table">
-                                        <div class="c-cell">
-                                            <a class="test-popup-link" href="assets/images/shop-big-444.jpg">
-                                                <span class="ion-ios-search-strong just-img"></span>
-                                            </a>
-                                            <a href="#">
-                                                <span class="ion-ios-cart"></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="shop-box-title">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <h4>Podloga za miš MS TERIS M105, gaming</h4><br>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="shop-price">
-                                            $ 1,56
+                                            $ 796,82
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- 5 
+                        <!-- 4 -->
                         <div class="col-sm-6">
                             <div class="shop-box">
-                                <img class="img-full img-responsive" src="assets/images/shop-555.jpg" alt="shop">
+                                <img class="img-full img-responsive" src="assets/images/shop-44.jpg" alt="shop">
                                 <div class="shop-box-hover text-center">
                                     <div class="c-table">
                                         <div class="c-cell">
-                                            <a class="test-popup-link" href="assets/images/shop-big-555.jpg">
+                                            <a class="test-popup-link" href="assets/images/shop-big-44.jpg">
                                                 <span class="ion-ios-search-strong just-img"></span>
                                             </a>
                                             <a href="#">
@@ -277,24 +248,28 @@
                             <div class="shop-box-title">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <h4>Tipkovnica MS FLARE gaming LED</h4><br>
+                                        <h4>Stolno računalo Acer Veriton X2665G SFF, DT.VSEEX.010</h4><br>
+                                        <h4>CPU: <span class="thin">Intel Core i3 9100 up to 4.20GHz</span></h4><br>
+                                        <h4>RAM: <span class="thin">8GB DDR4</span></h4>
+                                        <h4>Memory: <span class="thin">256GB SSD</span></h4>
+                                        <h4>Graphic Card: <span class="thin">Intel UHD Graphics 630</span></h4>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="shop-price">
-                                            $ 216,21
+                                            $ 736,42
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                         6 
+                        <!-- 5 -->
                         <div class="col-sm-6">
                             <div class="shop-box">
-                                <img class="img-full img-responsive" src="assets/images/shop-666.jpg" alt="shop">
+                                <img class="img-full img-responsive" id="two" src="assets/images/shop-55.jpg" alt="shop">
                                 <div class="shop-box-hover text-center">
                                     <div class="c-table">
                                         <div class="c-cell">
-                                            <a class="test-popup-link" href="assets/images/shop-big-666.jpg">
+                                            <a class="test-popup-link" href="assets/images/shop-big-55.jpg">
                                                 <span class="ion-ios-search-strong just-img"></span>
                                             </a>
                                             <a href="#">
@@ -307,24 +282,28 @@
                             <div class="shop-box-title">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <h4>Slušalice Sony WH-CH510, bežične, NFC/Bluetooth, crne</h4><br>
+                                        <h4>Računalo Gamer Diablo 3600</h4><br>
+                                        <h4>CPU: <span class="thin">AMD Ryzen 5 3600 up to 4.2GHz</span></h4>
+                                        <h4>RAM: <span class="thin">8GB DDR4</span></h4>
+                                        <h4>Memory: <span class="thin">1TB NVMe SSD</span></h4>
+                                        <h4>Graphic Card: <span class="thin">NVIDIA GTX1660 SUPER 6GB</span></h4><br>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="shop-price">
-                                            $ 48,88
+                                            $ 1392,53
                                         </p>
                                     </div>
                                 </div>
                             </div>
-                        </div>-->
-                        <!-- 7 
+                        </div>
+                        <!-- 6 -->
                         <div class="col-sm-6">
                             <div class="shop-box">
-                                <img class="img-full img-responsive" id="foure" src="assets/images/shop-777.jpg" alt="shop">
+                                <img class="img-full img-responsive" src="assets/images/shop-66.jpg" alt="shop">
                                 <div class="shop-box-hover text-center">
                                     <div class="c-table">
                                         <div class="c-cell">
-                                            <a class="test-popup-link" href="assets/images/shop-big-777.jpg">
+                                            <a class="test-popup-link" href="assets/images/shop-big-66.jpg">
                                                 <span class="ion-ios-search-strong just-img"></span>
                                             </a>
                                             <a href="#">
@@ -337,107 +316,20 @@
                             <div class="shop-box-title">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <h4>Slušalice Logitech H650e, stereo, s mikrofonom, USB</h4><br>
+                                        <h4>Računalo Gamer Anubis Pro</h4><br>
+                                        <h4>CPU: <span class="thin">Intel Core i9 10900K up to 5.3GHz</span></h4>
+                                        <h4>RAM: <span class="thin">32GB DDR4</span></h4>
+                                        <h4>Memory: <span class="thin">1TB NVMe SSD</span></h4>
+                                        <h4>Graphic Card: <span class="thin">NVIDIA RTX3090 24GB</span></h4><br>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="shop-price">
-                                            $ 93,08
+                                            $ 4898,90
                                         </p>
                                     </div>
                                 </div>
                             </div>
-                        </div>-->
-                        <!-- 8 
-                        <div class="col-sm-6">
-                            <div class="shop-box">
-                                <img class="img-full img-responsive" src="assets/images/shop-888.jpg" alt="shop">
-                                <div class="shop-box-hover text-center">
-                                    <div class="c-table">
-                                        <div class="c-cell">
-                                            <a class="test-popup-link" href="assets/images/shop-big-888.jpg">
-                                                <span class="ion-ios-search-strong just-img"></span>
-                                            </a>
-                                            <a href="#">
-                                                <span class="ion-ios-cart"></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="shop-box-title">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <h4>Miš MS IMPERATOR 2, gaming, žični</h4><br>
-                                        <br>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="shop-price">
-                                            $ 9,81
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
-                        <!-- 9 
-                        <div class="col-sm-6">
-                            <div class="shop-box">
-                                <img class="img-full img-responsive" src="assets/images/shop-999.jpg" alt="shop">
-                                <div class="shop-box-hover text-center">
-                                    <div class="c-table">
-                                        <div class="c-cell">
-                                            <a class="test-popup-link" href="assets/images/shop-big-999.jpg">
-                                                <span class="ion-ios-search-strong just-img"></span>
-                                            </a>
-                                            <a href="#">
-                                                <span class="ion-ios-cart"></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="shop-box-title">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <h4>Tipkovnica Speedlink Niala, UK/HR Layout, crna</h4><br>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="shop-price">
-                                            $ 7,94
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
-                        <!-- 10 
-                        <div class="col-sm-6">
-                            <div class="shop-box">
-                                <img class="img-full img-responsive" id="three" src="assets/images/shop-100.jpg" alt="shop">
-                                <div class="shop-box-hover text-center">
-                                    <div class="c-table">
-                                        <div class="c-cell">
-                                            <a class="test-popup-link" href="assets/images/shop-big-100.jpg">
-                                                <span class="ion-ios-search-strong just-img"></span>
-                                            </a>
-                                            <a href="#">
-                                                <span class="ion-ios-cart"></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="shop-box-title">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <h4>Gaming stolica LC-Power LC-GC-600BR, crno/crvena</h4><br>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="shop-price">
-                                            $ 182,12
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
+                        </div>
                         <!--
                         <div class="col-sm-12">
                             <nav>
@@ -463,39 +355,39 @@
                 <div class="col-sm-4">
                     <h3>Popularni proizvodi</h3>
                     <ul>
-                        <li><a href="Laptopi.html#one">NOTEBOOK ACER ASPIRE 3</a></li>
-                        <li><a href="Računala.html#two">RAČUNALO GAMER DIABLO 3600</a></li>
-                        <li><a href="Oprema.html#three">GAMING STOLICA LC-POWER LC-GC-600BR</a></li>
-                        <li><a href="Oprema.html#foure">SLUŠALICE LOGITECH H650E</a></li>
+                        <li><a href="adminLaptopi.html">NOTEBOOK ACER ASPIRE 3</a></li>
+                        <li><a href="adminRačunala.html">RAČUNALO GAMER DIABLO 3600</a></li>
+                        <li><a href="adminOprema.html">GAMING STOLICA LC-POWER LC-GC-600BR</a></li>
+                        <li><a href="adminOprema.html">SLUŠALICE LOGITECH H650E</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-4">
                     <h3>Programski jezici</h3>
                     <ul>
-                        <li><i class="fab fa-js-square" style="font-size: 50px; padding-left: 5px; color: rgb(241, 241, 53);"></i><a href="Onama.html#Jezici" style="padding-left: 20px;"> Java Script</a></li>
-                        <li><i class="fab fa-php" style="font-size: 50px; padding-left: 5px; color: purple;"></i><a href="Onama.html#Jezici" style="padding-left: 20px;">PHP</a></li>
-                        <li><i class="fas fa-database" style="font-size: 50px; padding-left: 5px; color: #fabe12;"></i><a href="Onama.html#Jezici" style="padding-left: 20px;">SQL Database</a></li>
-                        <li><i class="fab fa-html5" style="font-size: 50px; padding-left: 5px; color: orangered;"></i><a href="Onama.html#Jezici" style="padding-left: 20px;">HTML5</a></li>
-                        <li><i class="fab fa-css3-alt" style="font-size: 50px; padding-left: 5px; color: blue;"></i><a href="Onama.html#Jezici" style="padding-left: 20px;">CSS3</a></li>
+                        <li><i class="fab fa-js-square" style="font-size: 50px; padding-left: 5px; color: rgb(241, 241, 53);"></i><a href="adminOnama.html" style="padding-left: 20px;"> Java Script</a></li>
+                        <li><i class="fab fa-php" style="font-size: 50px; padding-left: 5px; color: purple;"></i><a href="adminOnama.html" style="padding-left: 20px;">PHP</a></li>
+                        <li><i class="fas fa-database" style="font-size: 50px; padding-left: 5px; color: #fabe12;"></i><a href="adminOnama.html" style="padding-left: 20px;">SQL Database</a></li>
+                        <li><i class="fab fa-html5" style="font-size: 50px; padding-left: 5px; color: orangered;"></i><a href="adminOnama.html" style="padding-left: 20px;">HTML5</a></li>
+                        <li><i class="fab fa-css3-alt" style="font-size: 50px; padding-left: 5px; color: blue;"></i><a href="adminOnama.html" style="padding-left: 20px;">CSS3</a></li>
                     </ul>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4">userOnama.html
                     <h3>Korisne informacije</h3>
                     <ul>
-                        <li><a href="Onama.html">O nama</a></li>
+                        <li><a href="adminOnama.html">O nama</a></li>
                         <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
-                        <li><a href="index.html">Početna</a></li>
-                        <li><a href="Laptopi.html">Laptopi</a></li>
-                        <li><a href="Računala.html">Računala</a></li>
-                        <li><a href="Oprema.html">Oprema</a></li>
+                        <li><a href="adminIndex.html">Početna</a></li>
+                        <li><a href="adminLaptopi.html">Laptopi</a></li>
+                        <li><a href="adminRačunala.html">Računala</a></li>
+                        <li><a href="adminOprema.html">Oprema</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
-        <footer class="footer text-center">
-            <h3>Copyright &copy; 2021 My Website</h3>
-        </footer>
+    <footer class="footer text-center">
+        <h3>Copyright &copy; 2021 My Website</h3>
+    </footer>
 
     <!-- Scripts -->
         <script src="assets/js/jquery-1.12.3.min.js"></script>

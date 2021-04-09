@@ -22,6 +22,10 @@
         <link href="assets/css/ionicons.css" rel="stylesheet">
         <link href="assets/css/main.css" rel="stylesheet">
 
+        <link href="assets/jquery-ui/jquery-ui.css" rel="stylesheet">
+        <link href="assets/jquery-ui/jquery-ui.structure.css" rel="stylesheet">
+        <link href="assets/jquery-ui/jquery-ui.theme.css" rel="stylesheet">
+
     </head>
     <body>
 
@@ -36,18 +40,18 @@
 
                         <!--Košarica i User-->
                         <div class="dropdown-user">
-                            <span style="padding-right: 10px;">Ime Prezime</span><button><i class="fas fa-user btn btn-default user"></i></button><br>
+                            <span style="padding-right: 10px;">{{$LogiraniKorisnikPodaci->Ime_prezime}}</span><button><i class="fas fa-user btn btn-default user"></i></button><br>
                             <ul>
                                 <li><a href="#">Profil</a></li>
-                                <li><a href="#">Logout</a></li>
+                                <li><a href="logout">Logout</a></li>
                             </ul>
                         </div>
 
                         <form>
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="">
+                                <input id="Search" type="text" class="form-control" placeholder="Pretraga..." autocomplete="off">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-default btn-robot" type="button">Pretraga</button>
+                                    <button id="Pretrazi" class="btn btn-default btn-robot" type="button">Pretraga</button>
                                 </span>
                             </div><!-- /input-group -->
                         </form>
@@ -237,3 +241,7 @@
         <script src="assets/js/jquery.magnific-popup.min.js"></script>
         <script src="assets/js/owl.carousel.min.js"></script>
         <script src="assets/js/script.js"></script>
+
+        <script src="assets/jquery-ui/jquery-ui.js"></script>
+    </body>
+</html>
