@@ -20,9 +20,39 @@ class ProizvodiController extends Controller
     function prikazRacunala(){
         $dataRacunala = DB::table('racunalos')->where('kategorija_fk', '1')->get();
         return view('racunala',['dataRacunala'=>$dataRacunala]);
-    }/*
-    function searchBar(){
-        $trazeniPojam=$_GET['pretraga'];
-        $proizvodi=DB::table('racunalos')->where('Naziv_proizvoda','LIKE','%'.$trazeniPojam.'%')->get();
+    }
+    /*public function prikaz(){
+        return view('index');
     }*/
+    /*function searchBar(Request $request){
+        
+        $proizvodi=DB::table("racunalos")
+                        ->where("Naziv_proizvoda","LIKE","%{$request->terms}%")
+                        /*->orWhere("CPU","LIKE","%{$request->terms}%")
+                        ->orWhere("RAM","LIKE","%{$request->terms}%")
+                        ->orWhere("Memorija","LIKE","%{$request->terms}%")
+                        ->orWhere("Graficka","LIKE","%{$request->terms}%")*/
+                     /*   ->get();
+        return response()->json($proizvodi);
+    }*/
+    
+    function fetch(Request $request)
+    {
+     if($request->get('query'))
+     {
+      $query = $request->get('query');
+      $data = DB::table('racunalos')
+        ->where('Naziv_proizvoda', 'LIKE', "%{$query}%")
+        ->get();
+      $output = '<ul class="dropdown-menu" style="display:block; position:relative">';
+      foreach($data as $row)
+      {
+       $output .= '
+       <li><a href="#">'.$row->Naziv_proizvoda.'</a></li>
+       ';
+      }
+      $output .= '</ul>';
+      echo $output;
+     }
+    }
 }
