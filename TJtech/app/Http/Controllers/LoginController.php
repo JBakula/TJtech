@@ -32,12 +32,14 @@ class LoginController extends Controller
                 
                 if($podaci->Uloga=="korisnik"){
                     return redirect('userIndex.html'); 
+                }elseif($podaci->Uloga=="admin"){
+                    return redirect('adminIndex.html');
                 }else{
-                    
+                    echo "Ups, dogodila se greska";
                 }
                 // redirektanje na pocetnu stranicu nakon uspjesne prijave
             }else{
-                return back()->withInput();
+                return back()->withInput(); 
             }
         }
     }
@@ -50,6 +52,15 @@ class LoginController extends Controller
         }
         return view('User.userIndex',$data);
     }
+    function profileAdmin(){
+        if(session()->has('LogiraniKorisnik')){
+            $user=Korisnik::where('korisnik_id','=',session('LogiraniKorisnik'))->first();
+            $data=[
+                'LogiraniKorisnikPodaci'=>$user
+            ];
+        }
+        return view('Admin.adminIndex',$data);
+    }
     function userLaptopi(){
         if(session()->has('LogiraniKorisnik')){
             $user=Korisnik::where('korisnik_id','=',session('LogiraniKorisnik'))->first();
@@ -59,6 +70,16 @@ class LoginController extends Controller
         }
         $dataLaptopiUser = DB::table('racunalos')->where('kategorija_fk', '2')->get();
         return view('User.userLaptopi',$data,['dataLaptopiUser'=>$dataLaptopiUser]);
+    }
+    function adminLaptopi(){
+        if(session()->has('LogiraniKorisnik')){
+            $user=Korisnik::where('korisnik_id','=',session('LogiraniKorisnik'))->first();
+            $data=[
+                'LogiraniKorisnikPodaci'=>$user
+            ]; 
+        }
+        $dataLaptopiAdmin = DB::table('racunalos')->where('kategorija_fk', '2')->get();
+        return view('Admin.adminLaptopi',$data,['dataLaptopiAdmin'=>$dataLaptopiAdmin]);
     }
     function userOnama(){
         if(session()->has('LogiraniKorisnik')){
@@ -70,6 +91,16 @@ class LoginController extends Controller
         
         return view('User.userOnama',$data);
     }
+    function adminOnama(){
+        if(session()->has('LogiraniKorisnik')){
+            $user=Korisnik::where('korisnik_id','=',session('LogiraniKorisnik'))->first();
+            $data=[
+                'LogiraniKorisnikPodaci'=>$user
+            ];
+        }
+        
+        return view('Admin.adminOnama',$data);
+    }
     function userOprema(){
         if(session()->has('LogiraniKorisnik')){
             $user=Korisnik::where('korisnik_id','=',session('LogiraniKorisnik'))->first();
@@ -80,6 +111,16 @@ class LoginController extends Controller
         $PodaciOpremeUser = DB::table('opremas')->get(); 
         return view('User.userOprema',$data,['PodaciOpremeUser'=>$PodaciOpremeUser]);
     }
+    function adminOprema(){
+        if(session()->has('LogiraniKorisnik')){
+            $user=Korisnik::where('korisnik_id','=',session('LogiraniKorisnik'))->first();
+            $data=[
+                'LogiraniKorisnikPodaci'=>$user
+            ];
+        }
+        $PodaciOpremeAdmin = DB::table('opremas')->get(); 
+        return view('Admin.adminOprema',$data,['PodaciOpremeAdmin'=>$PodaciOpremeAdmin]);
+    }
     function userRacunala(){
         if(session()->has('LogiraniKorisnik')){
             $user=Korisnik::where('korisnik_id','=',session('LogiraniKorisnik'))->first();
@@ -89,6 +130,16 @@ class LoginController extends Controller
         }
         $dataRacunalaUser = DB::table('racunalos')->where('kategorija_fk', '1')->get();
         return view('User.userRacunala',$data,['dataRacunalaUser'=>$dataRacunalaUser]);
+    }
+    function adminRacunala(){
+        if(session()->has('LogiraniKorisnik')){
+            $user=Korisnik::where('korisnik_id','=',session('LogiraniKorisnik'))->first();
+            $data=[
+                'LogiraniKorisnikPodaci'=>$user
+            ];
+        }
+        $dataRacunalaAdmin = DB::table('racunalos')->where('kategorija_fk', '1')->get();
+        return view('Admin.adminRačunala',$data,['dataRacunalaAdmin'=>$dataRacunalaAdmin]); 
     }
     function logout(){
         if(session()->has('LogiraniKorisnik')){

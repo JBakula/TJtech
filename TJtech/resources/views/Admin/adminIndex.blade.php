@@ -22,19 +22,15 @@
         <link href="assets/css/ionicons.css" rel="stylesheet">
         <link href="assets/css/main.css" rel="stylesheet">
 
-        <link href="assets/jquery-ui/jquery-ui.css" rel="stylesheet">
-        <link href="assets/jquery-ui/jquery-ui.structure.css" rel="stylesheet">
-        <link href="assets/jquery-ui/jquery-ui.theme.css" rel="stylesheet">
-
     </head>
     <body>
 
     <!-- Site Header -->
-        <div class="site-header-bg">
+        <div class="site-header-bg"> 
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6">
-                        <a href="adminIndex.html"><img src="assets/images/logo.png" alt="logo"></a>
+                        <a href="{{route('adminProfile')}}"><img src="assets/images/logo.png" alt="logo"></a>
                     </div>
                     <div class="col-sm-3 col-sm-offset-3 text-right">
 
@@ -44,19 +40,33 @@
                             <ul>
                                 <li><a href="#">Profil</a></li>
                                 <li><a href="logout">Logout</a></li>
-                                <li><a href="#">Proizvodi</a></li>
+                                <li><a href="#">Proizvodi</a></li> 
                                 <li><a href="#">Korisnici</a></li>
                             </ul>
                         </div>
 
-                        <form>
-                            <div class="input-group">
-                                <input id="Search" type="text" class="form-control" placeholder="Pretraga..." autocomplete="off">
-                                <span class="input-group-btn">
-                                    <button id="Pretrazi" class="btn btn-default btn-robot" type="button">Pretraga</button>
-                                </span>
-                            </div><!-- /input-group -->
+                        <form id="form-data" class="input-group" method="post" data-route="{{ route('search.fetch') }}">
+                            {{ csrf_field() }}
+                            <input type="text" name="Naziv_proizvoda" id="Naziv_proizvoda" 
+                                class="form-control" placeholder="Search..." autocomplete="off"> 
+                            <span class="input-group-btn">
+                                <button class="btn btn-default btn-robot" type="button">Pretraga</button>
+                            </span>
+                            <div id="countryList" class="dropdown-menu" style="display:block; position:absolute; background-color: transparent">
+                            </div>
                         </form>
+                        <!--
+                        <div class="input-group">
+                            <input type="text" name="Naziv_proizvoda" id="Naziv_proizvoda" class="form-control input-lg" placeholder="" autocomplete="off"> 
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default btn-robot" type="button">Pretraga</button>
+                                </span>
+                                <div id="countryList">
+                                </div>
+                                {{ csrf_field() }}
+                            </div>
+                        </div>
+                        -->
                     </div>
                 </div>
             </div>
@@ -80,11 +90,11 @@
 
                         <div class="collapse navbar-collapse" id="site-nav-bar">
                             <ul class="nav navbar-nav">
-                                <li class="active"><a href="adminIndex.html">Početna</a></li>
-                                <li><a href="adminOnama.html">O nama</a></li>
-                                <li><a href="adminLaptopi.html"><b><i><u>Laptopi</u></i></b></a></li>
-                                <li><a href="adminRačunala.html"><b><i><u>Računala</u></i></b></a></li>
-                                <li><a href="adminOprema.html"><b><i><u>Oprema</u></i></b></a></li>
+                                <li class="active"><a href="{{route('adminProfile')}}">Početna</a></li>
+                                <li><a href="{{route('OnamaAdmin')}}">O nama</a></li>
+                                <li><a href="{{route('laptopiAdmin')}}"><b><i><u>Laptopi</u></i></b></a></li>
+                                <li><a href="{{route('racunalaAdmin')}}"><b><i><u>Računala</u></i></b></a></li>
+                                <li><a href="{{route('opremaAdmin')}}"><b><i><u>Oprema</u></i></b></a></li>
                                 <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
                                 <li><span class="ion-android-cart btn btn-default"style="margin-top: 10px; cursor: default;"> 0 produkata </span></li>
                                 <!--
@@ -219,16 +229,16 @@
                             <li><i class="fab fa-css3-alt" style="font-size: 50px; padding-left: 5px; color: blue;"></i><a href="adminOnama.html" style="padding-left: 20px;">CSS3</a></li>
                         </ul>
                     </div>
-                    <div class="col-sm-4">userOnama.html
+                    <div class="col-sm-4">
                         <h3>Korisne informacije</h3>
                         <ul>
-                            <li><a href="adminOnama.html">O nama</a></li>
-                            <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
-                            <li><a href="adminIndex.html">Početna</a></li>
-                            <li><a href="adminLaptopi.html">Laptopi</a></li>
-                            <li><a href="adminRačunala.html">Računala</a></li>
-                            <li><a href="adminOprema.html">Oprema</a></li>
-                        </ul>
+                        <li><a href="{{route('OnamaAdmin')}}">O nama</a></li>
+                        <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
+                        <li><a href="{{route('adminProfile')}}">Početna</a></li>
+                        <li><a href="{{route('laptopiAdmin')}}">Laptopi</a></li>
+                        <li><a href="{{route('racunalaAdmin')}}">Računala</a></li>
+                        <li><a href="{{route('opremaAdmin')}}">Oprema</a></li>
+                        </ul> 
                     </div>
                 </div>
             </div>
@@ -243,7 +253,4 @@
         <script src="assets/js/jquery.magnific-popup.min.js"></script>
         <script src="assets/js/owl.carousel.min.js"></script>
         <script src="assets/js/script.js"></script>
-
-        <script src="assets/jquery-ui/jquery-ui.js"></script>
     </body>
-</html>

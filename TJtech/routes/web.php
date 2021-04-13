@@ -27,7 +27,7 @@ Route::get('/Onama.html', function () {
 });
 
 /*Route::get('/Računala.html', function () {
-    return view('racunala');
+    return view('racunala'); 
 });*/
   
 Route::get('Oprema.html',[ProizvodiController::class,'prikazOpreme']);
@@ -38,8 +38,16 @@ Route::get('login.html', [LoginController::class,'index']);
 Route::post('login.html',[LoginController::class,'check'])->name('provjera');
 Route::post('signup.html', [SignUpController::class,'store'])->name('spremi');
 Route::get('userIndex.html',[LoginController::class,'profile']);
+Route::get('adminIndex.html',[LoginController::class,'profileAdmin'])->name('adminProfile');
 Route::get('userLaptopi.html',[LoginController::class,'userLaptopi']);
+Route::get('adminLaptopi.html',[LoginController::class,'adminLaptopi'])->name('laptopiAdmin');
 Route::get('userOnama.html',[LoginController::class,'userOnama']);
+Route::get('adminOnama.html',[LoginController::class,'adminOnama'])->name('OnamaAdmin');
 Route::get('userOprema.html',[LoginController::class,'userOprema']);
+Route::get('adminOprema.html',[LoginController::class,'adminOprema'])->name('opremaAdmin');
 Route::get('userRacunala.html',[LoginController::class,'userRacunala']);
+Route::get('adminRačunala.html',[LoginController::class,'adminRacunala'])->name('racunalaAdmin');
+Route::post('/index.html/fetch',[ProizvodiController::class,'fetch'])->name('search.fetch');
+//Route::get('/index.html',[ProizvodiController::class,'indexblade'])->name('indexblade');
+
 Route::get('logout',[LoginController::class,'logout']);

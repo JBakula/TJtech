@@ -22,10 +22,6 @@
         <link href="assets/css/ionicons.css" rel="stylesheet">
         <link href="assets/css/main.css" rel="stylesheet">
 
-        <link href="assets/jquery-ui/jquery-ui.css" rel="stylesheet">
-        <link href="assets/jquery-ui/jquery-ui.structure.css" rel="stylesheet">
-        <link href="assets/jquery-ui/jquery-ui.theme.css" rel="stylesheet">
-
     </head>
     <body>
 
@@ -49,14 +45,28 @@
                         </ul>
                     </div>
 
-                    <form>
-                        <div class="input-group">
-                            <input id="Search" type="text" class="form-control" placeholder="Pretraga..." autocomplete="off">
+                    <form id="form-data" class="input-group" method="post" data-route="{{ route('search.fetch') }}">
+                            {{ csrf_field() }}
+                            <input type="text" name="Naziv_proizvoda" id="Naziv_proizvoda" 
+                                class="form-control" placeholder="Search..." autocomplete="off"> 
                             <span class="input-group-btn">
-                                <button id="Pretrazi" class="btn btn-default btn-robot" type="button">Pretraga</button>
+                                <button class="btn btn-default btn-robot" type="button">Pretraga</button>
                             </span>
-                        </div><!-- /input-group -->
-                    </form>
+                            <div id="countryList" class="dropdown-menu" style="display:block; position:absolute; background-color: transparent">
+                            </div>
+                        </form>
+                        <!--
+                        <div class="input-group">
+                            <input type="text" name="Naziv_proizvoda" id="Naziv_proizvoda" class="form-control input-lg" placeholder="" autocomplete="off"> 
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default btn-robot" type="button">Pretraga</button>
+                                </span>
+                                <div id="countryList">
+                                </div>
+                                {{ csrf_field() }}
+                            </div>
+                        </div>
+                        -->
                 </div>
             </div>
         </div>
@@ -101,13 +111,13 @@
                 </div>
                 
                 <div class="intro row">
-                    <div class="overlay"></div>
+                    <div class="overlay"></div> 
                     <div class="col-sm-12">
                         <ol class="breadcrumb">
                             <li><a href="adminIndex.html">Početna</a></li>
                             <li class="active">Računala</li>
                         </ol>
-                    </div>
+                    </div> 
                 </div> <!-- /.intro.row -->
             </div> <!-- /.container -->
             <div class="nutral"></div>
@@ -127,13 +137,14 @@
                 <div class="row">
                     <div class="boxed">
                         <!-- 1 -->
+                        @foreach($dataRacunalaAdmin as $item)
                         <div class="col-sm-6">
                             <div class="shop-box">
-                                <img class="img-full img-responsive" src="assets/images/shop-11.jpg" alt="shop">
+                                <img class="img-full img-responsive" src="{{$item->Slika}}" alt="shop">
                                 <div class="shop-box-hover text-center">
                                     <div class="c-table">
                                         <div class="c-cell">
-                                            <a class="test-popup-link" href="assets/images/shop-big-11.jpg">
+                                            <a class="test-popup-link" href="{{$item->Velika_slika}}">
                                                 <span class="ion-ios-search-strong just-img"></span>
                                             </a>
                                             <a href="#">
@@ -146,21 +157,26 @@
                             <div class="shop-box-title">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <h4>Računalo Gamer HYDRA</h4><br>
-                                        <h4>CPU: <span class="thin">AMD Ryzen 5 3400G up to 4.2GHz</span></h4>
-                                        <h4>RAM: <span class="thin">8GB DDR4</span></h4>
-                                        <h4>Memory: <span class="thin">256GB NVMe SSD</span></h4>
-                                        <h4>Graphic Card: <span class="thin">AMD Radeon RX5500 XT 4GB</span></h4>
+                                        <h4>{{$item->Naziv_proizvoda}}</h4><br>
+                                        <h4>CPU: <span class="thin">{{$item->CPU}}</span></h4>
+                                        <h4>RAM: <span class="thin">{{$item->RAM}}</span></h4>
+                                        <h4>Memory: <span class="thin">{{$item->Memorija}}</span></h4>
+                                        <h4>Graphic Card: <span class="thin">{{$item->Graficka}}</span></h4>
+                                        @if($item->proizvod_id==4)
+                                        <br>
+                                        <br>
+                                        @endif
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="shop-price">
-                                            $ 933,95
+                                        {{$item->Cijena}}
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- 2 -->
+                        @endforeach
+                        <!-- 2
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" src="assets/images/shop-22.jpg" alt="shop">
@@ -193,8 +209,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- 3 -->
+                        </div> -->
+                        <!-- 3 
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" src="assets/images/shop-33.jpg" alt="shop">
@@ -227,8 +243,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- 4 -->
+                        </div>-->
+                        <!-- 4
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" src="assets/images/shop-44.jpg" alt="shop">
@@ -261,8 +277,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- 5 -->
+                        </div> -->
+                        <!-- 5 
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" id="two" src="assets/images/shop-55.jpg" alt="shop">
@@ -295,8 +311,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- 6 -->
+                        </div>-->
+                        <!-- 6 
                         <div class="col-sm-6">
                             <div class="shop-box">
                                 <img class="img-full img-responsive" src="assets/images/shop-66.jpg" alt="shop">
@@ -329,7 +345,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                         <!--
                         <div class="col-sm-12">
                             <nav>
@@ -371,15 +387,15 @@
                         <li><i class="fab fa-css3-alt" style="font-size: 50px; padding-left: 5px; color: blue;"></i><a href="adminOnama.html" style="padding-left: 20px;">CSS3</a></li>
                     </ul>
                 </div>
-                <div class="col-sm-4">userOnama.html
+                <div class="col-sm-4">
                     <h3>Korisne informacije</h3>
                     <ul>
-                        <li><a href="adminOnama.html">O nama</a></li>
+                        <li><a href="{{route('OnamaAdmin')}}">O nama</a></li>
                         <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
-                        <li><a href="adminIndex.html">Početna</a></li>
-                        <li><a href="adminLaptopi.html">Laptopi</a></li>
-                        <li><a href="adminRačunala.html">Računala</a></li>
-                        <li><a href="adminOprema.html">Oprema</a></li>
+                        <li><a href="{{route('adminProfile')}}">Početna</a></li>
+                        <li><a href="{{route('laptopiAdmin')}}">Laptopi</a></li>
+                        <li><a href="{{route('racunalaAdmin')}}">Računala</a></li>
+                        <li><a href="{{route('opremaAdmin')}}">Oprema</a></li>
                     </ul>
                 </div>
             </div>
@@ -395,7 +411,5 @@
         <script src="assets/js/jquery.magnific-popup.min.js"></script>
         <script src="assets/js/owl.carousel.min.js"></script>
         <script src="assets/js/script.js"></script>
-
-        <script src="assets/jquery-ui/jquery-ui.js"></script>
     </body>
 </html>

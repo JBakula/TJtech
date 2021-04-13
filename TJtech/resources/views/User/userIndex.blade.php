@@ -22,10 +22,6 @@
         <link href="assets/css/ionicons.css" rel="stylesheet">
         <link href="assets/css/main.css" rel="stylesheet">
 
-        <link href="assets/jquery-ui/jquery-ui.css" rel="stylesheet">
-        <link href="assets/jquery-ui/jquery-ui.structure.css" rel="stylesheet">
-        <link href="assets/jquery-ui/jquery-ui.theme.css" rel="stylesheet">
-
     </head>
     <body>
 
@@ -47,14 +43,28 @@
                             </ul>
                         </div>
 
-                        <form>
-                            <div class="input-group">
-                                <input id="Search" type="text" class="form-control" placeholder="Pretraga..." autocomplete="off">
-                                <span class="input-group-btn">
-                                    <button id="Pretrazi" class="btn btn-default btn-robot" type="button">Pretraga</button>
-                                </span>
-                            </div><!-- /input-group -->
+                        <form id="form-data" class="input-group" method="post" data-route="{{ route('search.fetch') }}">
+                            {{ csrf_field() }}
+                            <input type="text" name="Naziv_proizvoda" id="Naziv_proizvoda" 
+                                class="form-control" placeholder="Search..." autocomplete="off"> 
+                            <span class="input-group-btn">
+                                <button class="btn btn-default btn-robot" type="button">Pretraga</button>
+                            </span>
+                            <div id="countryList" class="dropdown-menu" style="display:block; position:absolute; background-color: transparent">
+                            </div>
                         </form>
+                        <!--
+                        <div class="input-group">
+                            <input type="text" name="Naziv_proizvoda" id="Naziv_proizvoda" class="form-control input-lg" placeholder="" autocomplete="off"> 
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default btn-robot" type="button">Pretraga</button>
+                                </span>
+                                <div id="countryList">
+                                </div>
+                                {{ csrf_field() }}
+                            </div>
+                        </div>
+                        -->
                     </div>
                 </div>
             </div>
@@ -241,7 +251,3 @@
         <script src="assets/js/jquery.magnific-popup.min.js"></script>
         <script src="assets/js/owl.carousel.min.js"></script>
         <script src="assets/js/script.js"></script>
-
-        <script src="assets/jquery-ui/jquery-ui.js"></script>
-    </body>
-</html>

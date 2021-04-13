@@ -6,6 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>TJ-tech</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
 
         <!-- CSS -->
 
@@ -21,10 +25,6 @@
         <link href="assets/css/owl.carousel.theme.min.css" rel="stylesheet">
         <link href="assets/css/ionicons.css" rel="stylesheet">
         <link href="assets/css/main.css" rel="stylesheet">
-
-        <link href="assets/jquery-ui/jquery-ui.css" rel="stylesheet">
-        <link href="assets/jquery-ui/jquery-ui.structure.css" rel="stylesheet">
-        <link href="assets/jquery-ui/jquery-ui.theme.css" rel="stylesheet">
 
     </head>
     <body>
@@ -45,15 +45,28 @@
                         <span class="ion-android-cart btn btn-default"style="margin-bottom: 15px"> 0 produkata </span>
                         
                         @endif--->
-
-                        <form>
-                            <div class="input-group">
-                                <input id="Search" type="text" class="form-control" placeholder="Pretraga..." autocomplete="off">
-                                <span class="input-group-btn">
-                                    <button id="Pretrazi" class="btn btn-default btn-robot" type="button">Pretraga</button>
-                                </span>
-                            </div><!-- /input-group -->
+                        <form id="form-data" class="input-group" method="post" data-route="{{ route('search.fetch') }}">
+                            {{ csrf_field() }}
+                            <input type="text" name="Naziv_proizvoda" id="Naziv_proizvoda" 
+                                class="form-control" placeholder="Search..." autocomplete="off"> 
+                            <span class="input-group-btn">
+                                <button class="btn btn-default btn-robot" type="button">Pretraga</button>
+                            </span>
+                            <div id="countryList" class="dropdown-menu" style="display:block; position:absolute; background-color: transparent">
+                            </div>
                         </form>
+                        <!--
+                        <div class="input-group">
+                            <input type="text" name="Naziv_proizvoda" id="Naziv_proizvoda" class="form-control input-lg" placeholder="" autocomplete="off"> 
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default btn-robot" type="button">Pretraga</button>
+                                </span>
+                                <div id="countryList">
+                                </div>
+                                {{ csrf_field() }}
+                            </div>
+                        </div>
+                        -->
                     </div>
                 </div>
             </div>
@@ -71,7 +84,7 @@
                                 <span class="sr-only">Toggle navigation</span>
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span> 
                             </button>
                         </div> 
 
@@ -94,7 +107,7 @@
                                 <li><a href="index.html" style="margin: 0; padding: 0;">
                                     <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;" >Odjava {{Session::forget('Ime')}}</button>
                                 </a></li>
-                                @endif-->
+                                @endif-->  
                             </ul>
                         </div><!-- /.navbar-collapse -->
                     </nav>
@@ -202,7 +215,7 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <h3>Popularni proizvodi</h3>
-                        <ul>
+                        <ul> 
                             <li><a href="Laptopi.html#one">NOTEBOOK ACER ASPIRE 3</a></li>
                             <li><a href="Računala.html#two">RAČUNALO GAMER DIABLO 3600</a></li>
                             <li><a href="Oprema.html#three">GAMING STOLICA LC-POWER LC-GC-600BR</a></li>
@@ -243,7 +256,19 @@
         <script src="assets/js/jquery.magnific-popup.min.js"></script>
         <script src="assets/js/owl.carousel.min.js"></script>
         <script src="assets/js/script.js"></script>
+        <script src="assets/js/script.js"></script>
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js" integrity="sha512-HWlJyU4ut5HkEj0QsK/IxBCY55n5ZpskyjVlAoV9Z7XQwwkqXoYdCIC93/htL3Gu5H3R4an/S0h2NXfbZk3g7w==" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        -->
+<!--
+<script>
+    $(document).ready(function(){
+        $("#Naziv_proizvoda").autocomplete({
+            source: "{{ route('search.fetch') }}"
+        })
+    });
+</script>   
+-->
 
-        <script src="assets/jquery-ui/jquery-ui.js"></script>
     </body>
 </html>
