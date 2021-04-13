@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>TJ-tech</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
         
 
         <!-- CSS -->
@@ -55,7 +55,7 @@
                                 </span>
                                 {{ csrf_field() }}
                             </div><!-- /input-group 
-                        </form> -->
+                        </form> 
                         <div class="input-group">
                             <input type="text" name="Naziv_proizvoda" id="Naziv_proizvoda" class="form-control input-lg" placeholder="" > 
                                 <span class="input-group-btn">
@@ -64,8 +64,18 @@
                                 <div id="countryList">
                                 </div>
                                 {{ csrf_field() }}
-                        </div>
+                        </div>-->
+                        <form id="form-data" class="input-group" method="post" data-route="{{ route('search.fetch') }}">
+                            {{ csrf_field() }}
+                            <input type="text" name="Naziv_proizvoda" id="Naziv_proizvoda" 
+                                class="form-control" placeholder="Search..." autocomplete="off"> 
+                            <span class="input-group-btn">
+                                <button class="btn btn-default btn-robot" type="button" name="btn">Pretraga</button>
+                            </span>
+                            <div id="countryList" class="dropdown-menu" style="display:block; position:absolute; background-color: transparent">
                             </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -213,11 +223,11 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <h3>Popularni proizvodi</h3>
-                        <ul> 
-                            <li><a href="Laptopi.html#one">NOTEBOOK ACER ASPIRE 3</a></li>
-                            <li><a href="Računala.html#two">RAČUNALO GAMER DIABLO 3600</a></li>
-                            <li><a href="Oprema.html#three">GAMING STOLICA LC-POWER LC-GC-600BR</a></li>
-                            <li><a href="Oprema.html#foure">SLUŠALICE LOGITECH H650E</a></li>
+                        <ul>
+                            <li><a href="{{route('laptopi')}}#7">NOTEBOOK ACER ASPIRE 3</a></li>
+                            <li><a href="{{route('racunala')}}#5">RAČUNALO GAMER DIABLO 3600</a></li>
+                            <li><a href="{{route('oprema')}}#22">GAMING STOLICA LC-POWER LC-GC-600BR</a></li>
+                            <li><a href="{{route('oprema')}}#19">SLUŠALICE LOGITECH H650E</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-4">
@@ -256,7 +266,10 @@
         <script src="assets/js/script.js"></script>
         <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js" integrity="sha512-HWlJyU4ut5HkEj0QsK/IxBCY55n5ZpskyjVlAoV9Z7XQwwkqXoYdCIC93/htL3Gu5H3R4an/S0h2NXfbZk3g7w==" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        -->
+ 
+ 
+-->
+<!--
 <script>
     $(document).ready(function(){
         $('#Naziv_proizvoda').keyup(function(){ 
@@ -281,6 +294,6 @@
         $('#countryList').fadeOut();  
     });    
 });
-</script>   
+</script>   -->
     </body>
 </html>

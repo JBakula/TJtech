@@ -67,69 +67,32 @@ $(document).ready(function(){
         })
 
     // Search dropdown 
-    
-
-    
+    $("#form-data").click(function(e){
+        e.preventDefault();
         $('#Naziv_proizvoda').keyup(function(){ 
-        var query = $(this).val();
-        if(query != '')
-        {
-         var _token = $('input[name="_token"]').val();
-         $.ajax({
-          url:"{{ route('search.fetch') }}",
-          method:"POST",
-          data:{query:query, _token:_token},
-          success:function(data){
-           $('#countryList').fadeIn();  
-            $('#countryList').html(data);
-          }
-         });
-        }
-    });
-
-    $(document).on('click', 'li', function(){  
-        $('#Naziv_proizvoda').val($(this).text());  
-        $('#countryList').fadeOut();  
-    });    
-
-
-        /*$('#Search').autocomplete({
-
-            // U source: "PHP-dio"... samo sam stavio primjer niza
-            source: path,
-            minLength: 1,
-        })
-
-        // Button click Pretrazi
-        $("#Pretrazi").click(function (e) { 
-            e.preventDefault();
-            var proizvod = $("#Search").val();
-            var pom = false;
-            proizvod = proizvod.toLowerCase();
-
-            // Isto dodat taj niz od PHP-a... umijesto varijable niz
-            path.forEach((item, index, arr) =>{
-                item = item.toLowerCase();
-                if(item === proizvod){
-
-                    // Dodat lokaciju gdje se nalazi taj proizvod... umijesto Laptopi.html
-                    window.location.href = "#"; // Unijeti gdje je relocirati
-                    pom = true;
-                }
-            })
-
-            // Namijestanje stranice Nema Proizvoda
-            if(pom === false){
-                var doc = document.URL;
-                if(doc.includes("user")){
-                    window.location.href = "userNemaproizvoda.html";
-                }else if(doc.includes("admin")){
-                    window.location.href = "adminNemaproizvoda.html";
-                }else {
-                    window.location.href = "nemaproizvoda.html";
-                }
+            console.log("RADII");
+            var route = $("#form-data").data("route");
+            var query = $(this).val();
+            if(query != ''){
+                var _token = $('input[name="_token"]').val();
+                $.ajax({
+                    type: "POST",
+                    url: route,
+                    data:{query:query, _token:_token},
+                    success:function(data){
+                        $('#countryList').fadeIn();  
+                        $('#countryList').html(data);
+                    }
+                })
+            }else{
+                $('#countryList').hide();
             }
-        });*/
+        })
+    })
 
+    $(".site-header-bg").on('click', 'li', function(){  
+        $('#Naziv_proizvoda').val($(this).text());  
+        $('#countryList').fadeOut();
+    });
 
 }); // end of $(document).ready(function()
