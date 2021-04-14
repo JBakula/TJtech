@@ -95,5 +95,111 @@ $(document).ready(function(){
             $('#countryList').fadeOut();
         });
         
+        /*  /index.html
+            /Onama.html
+            /Laptopi.html
+            /Ra%C4%8Dunala.html
+            /Oprema.html
+        */
+       /*
+            /userIndex.html
+            /userOnama.html
+            /userLaptopi.html
+            /userRacunala.html
+            /userOprema.html
+       */
+      /*
+            /adminIndex.html
+            /adminOnama.html
+            /adminLaptopi.html
+            /adminRa%C4%8Dunala.html
+            /adminOprema.html
+      */
+        pom = window.location.href.split("/");
+        //console.log(pom);
+        //console.log(pom[pom.length-1])
+        pom.pop();
+        //console.log(pom);
+        //pom.push("Primjer");
+        //pom = pom.join("/");
+        /*
+        obicni = ["/index.html", "/Onama.html", "/Laptopi.html", "/Ra%C4%8Dunala.html", "/Oprema.html", "/"];
+        user = ["/userIndex.html", "/userOnama.html", "/userLaptopi.html", "/userRacunala.html", "/userOprema.html"];
+        admin = ["/adminIndex.html", "/adminOnama.html", "/adminLaptopi.html", "/adminRa%C4%8Dunala.html", "/adminOprema.html"];
+        */
+        $("#form-data button").click(function(e){
+            e.preventDefault;
+            ime = $("#form-data #Naziv_proizvoda").val()
+            //console.log(ime);
+            console.log(window.location.href);
+            //console.log(window.location.pathname.includes("user"));
+            duljinaImena = ime.length;
+            id = ime[duljinaImena-4] + ime[duljinaImena-3];
+            id = parseInt(id);
+            kategorijaKey = ime[duljinaImena-1];
+
+            if(window.location.pathname.includes("user")){
+                if(kategorijaKey == 1){
+                    pom.push("userRacunala.html#"+String(id));
+                    pom = pom.join("/");
+                    window.location.href = pom;
+                }else if(kategorijaKey == 2){
+                    pom.push("userLaptopi.html#"+String(id));
+                    pom = pom.join("/");
+                    window.location.href = pom;
+                }else if(kategorijaKey == 3){
+                    pom.push("userOprema.html#"+String(id));
+                    pom = pom.join("/");
+                    window.location.href = pom;
+                }else if(ime == ""){
+
+                }else{
+                    pom.push("userNemaproizvoda.html#"+String(id));
+                    pom = pom.join("/");
+                    window.location.href = pom;
+                }
+            }else if(window.location.pathname.includes("admin")){
+                if(kategorijaKey == 1){
+                    pom.push("adminRa%C4%8Dunala.html#"+String(id));
+                    pom = pom.join("/");
+                    window.location.href = pom;
+                }else if(kategorijaKey == 2){
+                    pom.push("adminLaptopi.html#"+String(id));
+                    pom = pom.join("/");
+                    window.location.href = pom;
+                }else if(kategorijaKey == 3){
+                    pom.push("adminOprema.html#"+String(id));
+                    pom = pom.join("/");
+                    window.location.href = pom;
+                }else if(ime == ""){
+
+                }else{
+                    pom.push("adminNemaproizvoda.html#"+String(id));
+                    pom = pom.join("/");
+                    window.location.href = pom;
+                }
+            }else{
+                if(kategorijaKey == 1){
+                    pom.push("Ra%C4%8Dunala.html#"+String(id));
+                    pom = pom.join("/");
+                    window.location.href = pom;
+                }else if(kategorijaKey == 2){
+                    pom.push("Laptopi.html#"+String(id));
+                    pom = pom.join("/");
+                    window.location.href = pom;
+                }else if(kategorijaKey == 3){
+                    pom.push("Oprema.html#"+String(id));
+                    pom = pom.join("/");
+                    window.location.href = pom;
+                }else if(ime == ""){
+
+                }else{
+                    pom.push("nemaproizvoda.html#"+String(id));
+                    pom = pom.join("/");
+                    window.location.href = pom;
+                }
+            }
+        })
+    //END OF SEARCH-BAR
 
 }); // end of $(document).ready(function()

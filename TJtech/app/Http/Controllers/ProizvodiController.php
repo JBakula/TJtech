@@ -38,11 +38,11 @@ class ProizvodiController extends Controller
             $data = DB::table('racunalos')
                 ->where('Naziv_proizvoda', 'LIKE', "%{$query}%")
                 ->get();
-                $output = '<ul class="dropdown-menu" style="display:block; position:absolute; background-color: #eceaeadc;">';
+            $output = '<ul class="dropdown-menu" style="display:block; position:absolute; background-color: #eceaeadc;">';
             foreach($data as $row)
             {
             $output .= '
-            <li><a href="#">'.$row->Naziv_proizvoda.'</a></li>
+            <li><a href="#">'.$row->Naziv_proizvoda.' '.$row->proizvod_id.':'.$row->kategorija_fk.'</a></li>
             ';
             }
             $output .= '</ul>';

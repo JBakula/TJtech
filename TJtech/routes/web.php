@@ -21,7 +21,6 @@ Route::get('/', function () {
 Route::get('/index.html', function () {
     return view('index');
 });
-
 Route::get('/Onama.html', function () {
     return view('oNama');
 });
@@ -34,9 +33,11 @@ Route::get('/userNemaproizvoda.html',function(){
 Route::get('/adminNemaproizvoda.html',function(){
     return view('adminNemaproizvoda');
 });
-/*Route::get('/Računala.html', function () {
+/*
+Route::get('/Računala.html', function () {
     return view('racunala'); 
-});*/
+});
+*/
   
 Route::get('Oprema.html',[ProizvodiController::class,'prikazOpreme'])->name('oprema');
 Route::get('Laptopi.html',[ProizvodiController::class,'prikazLaptopa'])->name('laptopi');
