@@ -67,32 +67,33 @@ $(document).ready(function(){
         })
 
     // Search dropdown 
-    $("#form-data").click(function(e){
-        e.preventDefault();
-        $('#Naziv_proizvoda').keyup(function(){ 
-            console.log("RADII");
-            var route = $("#form-data").data("route");
-            var query = $(this).val();
-            if(query != ''){
-                var _token = $('input[name="_token"]').val();
-                $.ajax({
-                    type: "POST",
-                    url: route,
-                    data:{query:query, _token:_token},
-                    success:function(data){
-                        $('#countryList').fadeIn();  
-                        $('#countryList').html(data);
-                    }
-                })
-            }else{
-                $('#countryList').hide();
-            }
+        $("#form-data").click(function(e){
+            e.preventDefault();
+            $('#Naziv_proizvoda').keyup(function(){ 
+                //console.log("RADII");
+                var route = $("#form-data").data("route");
+                var query = $(this).val();
+                if(query != ''){
+                    var _token = $('input[name="_token"]').val();
+                    $.ajax({
+                        type: "POST",
+                        url: route,
+                        data:{query:query, _token:_token},
+                        success:function(data){
+                            $('#countryList').fadeIn();  
+                            $('#countryList').html(data);
+                        }
+                    })
+                }else{
+                    $('#countryList').hide();
+                }
+            })
         })
-    })
 
-    $(".site-header-bg").on('click', 'li', function(){  
-        $('#Naziv_proizvoda').val($(this).text());  
-        $('#countryList').fadeOut();
-    });
+        $(".site-header-bg").on('click', 'li', function(){  
+            $('#Naziv_proizvoda').val($(this).text());
+            $('#countryList').fadeOut();
+        });
+        
 
 }); // end of $(document).ready(function()

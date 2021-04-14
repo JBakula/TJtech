@@ -1,3 +1,7 @@
+<?php
+    use App\Http\Controllers\ProizvodiController;
+    $ukupanBrojProizvoda=ProizvodiController::brojProizvodaUKosari();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -52,19 +56,7 @@
                             </span>
                             <div id="countryList" class="dropdown-menu" style="display:block; position:absolute; background-color: transparent">
                             </div>
-                        </form>
-                        <!--
-                        <div class="input-group">
-                            <input type="text" name="Naziv_proizvoda" id="Naziv_proizvoda" class="form-control input-lg" placeholder="" autocomplete="off"> 
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default btn-robot" type="button">Pretraga</button>
-                                </span>
-                                <div id="countryList">
-                                </div>
-                                {{ csrf_field() }}
-                            </div>
-                        </div>
-                        -->
+                    </form>
                 </div>
             </div>
         </div>
@@ -92,9 +84,9 @@
                                 <li><a href="userOnama.html">O nama</a></li>
                                 <li><a href="userLaptopi.html"><b><i><u>Laptopi</u></i></b></a></li>
                                 <li class="active"><a href="userRacunala.html"><b><i><u>Računala</u></i></b></a></li>
-                                <li><a href="userOprema.html"><b><i><u>Oprema</u></i></b></a></li>
+                                <li><a href="userOprema.html"><b><i><u>Oprema</u></i></b></a></li> 
                                 <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
-                                <li><span class="ion-android-cart btn btn-default"style="margin-top: 10px; cursor: default;"> 0 produkata </span></li>
+                                <li><span class="ion-android-cart btn btn-default"style="margin-top: 10px; cursor: default;"> {{$ukupanBrojProizvoda}} proizvoda </span></li>
                                 <!--
                                 <li><a href="login.html" style="margin: 0; padding: 0;">
                                     <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;">Login</button>
@@ -138,16 +130,21 @@
                         @foreach($dataRacunalaUser as $item)
                         <div class="col-sm-6">
                             <div class="shop-box">
-                                <img class="img-full img-responsive" src="{{$item->Slika}}" alt="shop">
+                                <img class="img-full img-responsive" id="{{$item->proizvod_id}}" src="{{$item->Slika}}" alt="shop">
                                 <div class="shop-box-hover text-center">
                                     <div class="c-table">
                                         <div class="c-cell">
                                             <a class="test-popup-link" href="{{$item->Velika_slika}}">
                                                 <span class="ion-ios-search-strong just-img"></span>
                                             </a>
-                                            <a href="#">
+                                            <!--<a href="#">
                                                 <span class="ion-ios-cart"></span>
-                                            </a>
+                                            </a>-->
+                                            <form action="{{route('dodajUserRacunalaUKosaru')}}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="proizvod_id" value="{{$item->proizvod_id}}">
+                                                <button class="ion-ios-cart"> Dodaj u košaru</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -369,10 +366,10 @@
                 <div class="col-sm-4">
                     <h3>Popularni proizvodi</h3>
                     <ul>
-                        <li><a href="userLaptopi.html">NOTEBOOK ACER ASPIRE 3</a></li>
-                        <li><a href="userRacunala.html">RAČUNALO GAMER DIABLO 3600</a></li>
-                        <li><a href="userOprema.html">GAMING STOLICA LC-POWER LC-GC-600BR</a></li>
-                        <li><a href="userOprema.html">SLUŠALICE LOGITECH H650E</a></li>
+                        <li><a href="{{route('laptopiUser')}}#7">NOTEBOOK ACER ASPIRE 3</a></li>
+                        <li><a href="{{route('racunalaUser')}}#5">RAČUNALO GAMER DIABLO 3600</a></li>
+                        <li><a href="{{route('opremaUser')}}#22">GAMING STOLICA LC-POWER LC-GC-600BR</a></li>
+                        <li><a href="{{route('opremaUser')}}#19">SLUŠALICE LOGITECH H650E</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-4">

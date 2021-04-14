@@ -108,7 +108,7 @@ class LoginController extends Controller
                 'LogiraniKorisnikPodaci'=>$user
             ];
         }
-        $PodaciOpremeUser = DB::table('opremas')->get(); 
+        $PodaciOpremeUser = DB::table('racunalos')->where('kategorija_fk', '3')->get();
         return view('User.userOprema',$data,['PodaciOpremeUser'=>$PodaciOpremeUser]);
     }
     function adminOprema(){
@@ -118,7 +118,7 @@ class LoginController extends Controller
                 'LogiraniKorisnikPodaci'=>$user
             ];
         }
-        $PodaciOpremeAdmin = DB::table('opremas')->get(); 
+        $PodaciOpremeAdmin = DB::table('racunalos')->where('kategorija_fk', '3')->get(); 
         return view('Admin.adminOprema',$data,['PodaciOpremeAdmin'=>$PodaciOpremeAdmin]);
     }
     function userRacunala(){

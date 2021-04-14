@@ -23,10 +23,6 @@
         <link href="assets/css/ionicons.css" rel="stylesheet">
         <link href="assets/css/main.css" rel="stylesheet">
 
-        <link href="assets/jquery-ui/jquery-ui.css" rel="stylesheet">
-        <link href="assets/jquery-ui/jquery-ui.structure.css" rel="stylesheet">
-        <link href="assets/jquery-ui/jquery-ui.theme.css" rel="stylesheet">
-
     </head>
 <body style="background-color: white;">
     <div class="nema">
