@@ -183,7 +183,7 @@ body{
 }
 .admin-dropdown-user ul.active{
 	transform: perspective(1000px) rotateX(0deg);
-	height: 180px;
+	height: 140px;
 }
 .admin-dropdown-user ul li{
 	list-style: none;
@@ -736,6 +736,42 @@ body{
 	transition: 0.25s;
 }
 .nema a:hover{
+	color: rgb(223, 223, 24);
+	text-shadow: 0px 0px 10px yellow,
+				0px 0px 20px yellow,
+				0px 0px 40px yellow,
+				0px 0px 80px yellow,
+				0px 0px 120px yellow,
+				0px 0px 160px yellow;
+}
+
+
+
+
+/*======================================================================
+##		Kosarica
+=======================================================================*/
+#Kosarica{
+	background-color: white;
+	font-family: 'Oswald';
+	position: relative;
+	padding: 50px 0;
+}
+.nema-proizvoda{
+	display: flex;
+	justify-content: space-evenly;
+	text-align: center;
+}
+.nema-proizvoda h1{
+	font-size: 50px;
+	color: #000;
+}
+.nema-proizvoda a{
+	text-decoration: none;
+	color: #fabe12;
+	transition: 0.25s;
+}
+.nema-proizvoda a:hover{
 	color: rgb(223, 223, 24);
 	text-shadow: 0px 0px 10px yellow,
 				0px 0px 20px yellow,

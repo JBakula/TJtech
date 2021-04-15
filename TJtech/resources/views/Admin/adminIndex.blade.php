@@ -1,7 +1,4 @@
-<?php
-    use App\Http\Controllers\ProizvodiController;
-    $ukupanBrojProizvoda=ProizvodiController::brojProizvodaUKosari();
-?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -26,10 +23,6 @@
         <link href="assets/css/ionicons.css" rel="stylesheet">
         <link href="assets/css/main.css" rel="stylesheet">
 
-        <link href="assets/jquery-ui/jquery-ui.css" rel="stylesheet">
-        <link href="assets/jquery-ui/jquery-ui.structure.css" rel="stylesheet">
-        <link href="assets/jquery-ui/jquery-ui.theme.css" rel="stylesheet">
-
     </head>
     <body>
 
@@ -46,7 +39,6 @@
                         <div class="admin-dropdown-user">
                             <span style="padding-right: 10px;">{{$LogiraniKorisnikPodaci->Ime_prezime}}</span><button><i class="fas fa-user btn btn-default user"></i></button><br>
                             <ul>
-                                <li><a href="#">Profil</a></li>
                                 <li><a href="logout">Logout</a></li>
                                 <li><a href="#">Proizvodi</a></li> 
                                 <li><a href="#">Korisnici</a></li>
@@ -92,7 +84,6 @@
                                 <li><a href="{{route('racunalaAdmin')}}"><b><i><u>Računala</u></i></b></a></li>
                                 <li><a href="{{route('opremaAdmin')}}"><b><i><u>Oprema</u></i></b></a></li>
                                 <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
-                                <li><span class="ion-android-cart btn btn-default"style="margin-top: 10px; cursor: default;"> {{$ukupanBrojProizvoda}} proizvoda </span></li>
                                 <!--
                                 <li><a href="login.html" style="margin: 0; padding: 0;">
                                     <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;">Login</button>
@@ -249,6 +240,4 @@
         <script src="assets/js/jquery.magnific-popup.min.js"></script>
         <script src="assets/js/owl.carousel.min.js"></script>
         <script src="assets/js/script.js"></script>
-
-        <script src="assets/jquery-ui/jquery-ui.js"></script>
     </body>

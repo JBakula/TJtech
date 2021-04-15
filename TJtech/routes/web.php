@@ -68,5 +68,8 @@ Route::post('laptopi.html',[ProizvodiController::class,'dodajUKosaru'])->name('d
 Route::post('oprema.html',[ProizvodiController::class,'dodajUKosaru'])->name('dodajOpremuUKosaru');
 Route::post('racunala.html',[ProizvodiController::class,'dodajUKosaru'])->name('dodajRacunalaUKosaru');
 
-Route::post('/index.html',[ProizvodiController::class,'pretrazivanjePrekoSearchBara'])->name('searchBarIndex');
+Route::get('userPunaKosarica.html',[LoginController::class,'userKosara'])->name('kosara');
+Route::get('userPraznaKosarica.html',[LoginController::class,'praznaKosaraUser'])->name('praznaKosara');
+
+//Route::post('index.html',[ProizvodiController::class,'pretrazivanjePrekoSearchBara']);//->name('searchBarIndex');
 Route::get('logout',[LoginController::class,'logout']); 

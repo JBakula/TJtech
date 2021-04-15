@@ -91,6 +91,31 @@ class LoginController extends Controller
         
         return view('User.userOnama',$data);
     }
+    function userKosara(){
+        if(session()->has('LogiraniKorisnik')){
+            $user=Korisnik::where('korisnik_id','=',session('LogiraniKorisnik'))->first();
+            $data=[
+                'LogiraniKorisnikPodaci'=>$user
+            ];
+        }
+        //$PodaciKosaraUser = DB::table('kosaricas')->where('korisnik_fk',$user->korisnik_id)->get();
+       //echo $user;
+       $PodaciKosaraUser = DB::table('kosaricas')
+            ->join('racunalos','kosaricas.proizvod_fk','=','proizvod_id')
+            ->where('kosaricas.korisnik_fk','=',$user->korisnik_id)
+            ->select('racunalos.*')
+            ->get();
+        return view('User.userPunaKosarica',$data,['PodaciKosaraUser'=>$PodaciKosaraUser]);
+    }
+    function praznaKosaraUser(){
+        if(session()->has('LogiraniKorisnik')){
+            $user=Korisnik::where('korisnik_id','=',session('LogiraniKorisnik'))->first();
+            $data=[
+                'LogiraniKorisnikPodaci'=>$user
+            ];
+        }
+        return view('User.userPraznaKosarica',$data);
+    }
     function adminOnama(){
         if(session()->has('LogiraniKorisnik')){
             $user=Korisnik::where('korisnik_id','=',session('LogiraniKorisnik'))->first();
