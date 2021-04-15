@@ -1,7 +1,4 @@
-<?php
-    use App\Http\Controllers\ProizvodiController;
-    $ukupanBrojProizvoda=ProizvodiController::brojProizvodaUKosari();
-?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>

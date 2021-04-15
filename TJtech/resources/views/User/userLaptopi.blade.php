@@ -42,7 +42,11 @@
                     <div class="dropdown-user">
                         <span style="padding-right: 10px;">{{$LogiraniKorisnikPodaci->Ime_prezime}}</span><button><i class="fas fa-user btn btn-default user"></i></button><br>
                         <ul>
-                            <li><a href="#">Profil</a></li>
+                            @if($ukupanBrojProizvoda>0)
+                                <li><a href="{{route('kosara')}}">Profil</a></li>
+                                @else
+                                <li><a href="{{route('praznaKosara')}}">Profil</a></li>
+                            @endif
                             <li><a href="logout">Logout</a></li>
                         </ul>
                     </div>
@@ -86,7 +90,14 @@
                                 <li><a href="userRacunala.html"><b><i><u>Računala</u></i></b></a></li>
                                 <li><a href="userOprema.html"><b><i><u>Oprema</u></i></b></a></li>
                                 <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
-                                <li><span class="ion-android-cart btn btn-default"style="margin-top: 10px; cursor: default;"> {{$ukupanBrojProizvoda}} proizvoda </span></li>
+                                <li><span class="ion-android-cart btn btn-default"style="margin-top: 10px; cursor: default;">
+                                    @if($ukupanBrojProizvoda>0)
+                                        <a href="{{route('kosara')}}"> {{$ukupanBrojProizvoda}} proizvoda </a>
+                                        @else
+                                        <a href="{{route('praznaKosara')}}"> {{$ukupanBrojProizvoda}} proizvoda </a>
+                                    @endif
+                                        </span>
+                                </li>
                                 <!--
                                 <li><a href="login.html" style="margin: 0; padding: 0;">
                                     <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;">Login</button>
@@ -125,7 +136,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="boxed">
+                    <div class="boxed"> 
                         <!-- 1 -->
                         @foreach($dataLaptopiUser as $item)
                         <div class="col-sm-6">
@@ -160,183 +171,14 @@
                                     </div>
                                     <div class="col-sm-6"> 
                                         <p class="shop-price">
-                                        {{$item->Cijena}}
+                                        {{$item->Cijena}} KM
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         @endforeach
-                        <!-- 2 
-                        <div class="col-sm-6">
-                            <div class="shop-box">
-                                <img class="img-full img-responsive" src="assets/images/shop-2.jpg" alt="shop">
-                                <div class="shop-box-hover text-center">
-                                    <div class="c-table">
-                                        <div class="c-cell">
-                                            <a class="test-popup-link" href="assets/images/shop-big-2.jpg">
-                                                <span class="ion-ios-search-strong just-img"></span>
-                                            </a>
-                                            <a href="#">
-                                                <span class="ion-ios-cart"></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="shop-box-title">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <h4>Notebook Lenovo IdeaPad Ultraslim 1, 82GW0067SC, 14</h4><br>
-                                        <h4>CPU: <span class="thin">AMD 3020e up to 2.6GHz</span></h4>
-                                        <h4>RAM: <span class="thin">4GB DDR4</span></h4>
-                                        <h4>Memory: <span class="thin">64GB eMMC</span></h4>
-                                        <h4>Graphic Card: <span class="thin">AMD Radeon Graphics</span></h4>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="shop-price">
-                                            $ 442,65
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
-                        <!-- 3 
-                        <div class="col-sm-6">
-                            <div class="shop-box">
-                                <img class="img-full img-responsive" src="assets/images/shop-3.jpg" alt="shop">
-                                <div class="shop-box-hover text-center">
-                                    <div class="c-table">
-                                        <div class="c-cell">
-                                            <a class="test-popup-link" href="assets/images/shop-big-3.jpg">
-                                                <span class="ion-ios-search-strong just-img"></span>
-                                            </a>
-                                            <a href="#">
-                                                <span class="ion-ios-cart"></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="shop-box-title">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <h4>Notebook HP 17-by4003nm, 2R6A2EA, 17.3</h4><br>
-                                        <h4>CPU: <span class="thin">Intel Core 15 1135G7</span></h4>
-                                        <h4>RAM: <span class="thin">8GB DDR4</span></h4>
-                                        <h4>Memory: <span class="thin">512GB NVMe SSD</span></h4>
-                                        <h4>Graphic Card: <span class="thin">Intel Iris Xe Graphics</span></h4>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="shop-price">
-                                            $ 863,93
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
-                        <!-- 4 
-                        <div class="col-sm-6">
-                            <div class="shop-box">
-                                <img class="img-full img-responsive" src="assets/images/shop-4.jpg" alt="shop">
-                                <div class="shop-box-hover text-center">
-                                    <div class="c-table">
-                                        <div class="c-cell">
-                                            <a class="test-popup-link" href="assets/images/shop-big-4.jpg">
-                                                <span class="ion-ios-search-strong just-img"></span>
-                                            </a>
-                                            <a href="#">
-                                                <span class="ion-ios-cart"></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="shop-box-title">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <h4>Notebook HP Pavilion Gaming 15-ec0014nm, 8PL54EA, 15.6</h4><br>
-                                        <h4>CPU: <span class="thin">AMD Ryzen 5 3550H up to 3.70GHz</span></h4>
-                                        <h4>RAM: <span class="thin">8GB DDR4</span></h4>
-                                        <h4>Memory: <span class="thin">256GB NVMe SSD</span></h4>
-                                        <h4>Graphic Card: <span class="thin">NVIDIA GTX1650 4GB</span></h4>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="shop-price">
-                                            $ 918,17
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
-                        <!-- 5 
-                        <div class="col-sm-6">
-                            <div class="shop-box">
-                                <img class="img-full img-responsive" src="assets/images/shop-5.jpg" alt="shop">
-                                <div class="shop-box-hover text-center">
-                                    <div class="c-table">
-                                        <div class="c-cell">
-                                            <a class="test-popup-link" href="assets/images/shop-big-5.jpg">
-                                                <span class="ion-ios-search-strong just-img"></span>
-                                            </a>
-                                            <a href="#">
-                                                <span class="ion-ios-cart"></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="shop-box-title">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <h4>Ultrabook Lenovo Yoga Slim 9, 82D10038SC,14</h4><br>
-                                        <h4>CPU: <span class="thin">Intel Core i7 1165G7 up to 4.7GHz</span></h4>
-                                        <h4>RAM: <span class="thin">16GB DDR4</span></h4>
-                                        <h4>Memory: <span class="thin">1TB NVMe SSD</span></h4>
-                                        <h4>Graphic Card: <span class="thin">Intel Iris Xe Graphics</span></h4><br>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="shop-price">
-                                            $ 2797,03
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
-                        <!-- 6 
-                        <div class="col-sm-6">
-                            <div class="shop-box">
-                                <img class="img-full img-responsive" src="assets/images/shop-6.jpg" alt="shop">
-                                <div class="shop-box-hover text-center">
-                                    <div class="c-table">
-                                        <div class="c-cell">
-                                            <a class="test-popup-link" href="assets/images/shop-big-6.jpg">
-                                                <span class="ion-ios-search-strong just-img"></span>
-                                            </a>
-                                            <a href="#">
-                                                <span class="ion-ios-cart"></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="shop-box-title">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <h4>Notebook Razer Blade 15 Base, 15.6" QHD 165Hz</h4><br>
-                                        <h4>CPU: <span class="thin">Intel Core i7 10750H up to 5.0GHz</span></h4>
-                                        <h4>RAM: <span class="thin">16GB DDR4</span></h4>
-                                        <h4>Memory: <span class="thin">512GB NVMe SSD</span></h4>
-                                        <h4>Graphic Card: <span class="thin">NVIDIA RTX3070 8GB</span></h4><br>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="shop-price">
-                                            $ 3194,03
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
+                        
                         <!--
                         <div class="col-sm-12">
                             <nav>

@@ -42,7 +42,11 @@
                     <div class="dropdown-user">
                         <span style="padding-right: 10px;">{{$LogiraniKorisnikPodaci->Ime_prezime}}</span><button><i class="fas fa-user btn btn-default user"></i></button><br>
                         <ul>
-                            <li><a href="#">Profil</a></li>
+                        @if($ukupanBrojProizvoda>0)
+                                <li><a href="{{route('kosara')}}">Profil</a></li>
+                                @else
+                                <li><a href="{{route('praznaKosara')}}">Profil</a></li>
+                        @endif
                             <li><a href="logout">Logout</a></li>
                         </ul>
                     </div>
@@ -86,7 +90,15 @@
                                 <li><a href="userRacunala.html"><b><i><u>Računala</u></i></b></a></li>
                                 <li class="active"><a href="userOprema.html"><b><i><u>Oprema</u></i></b></a></li>
                                 <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
-                                <li><span class="ion-android-cart btn btn-default"style="margin-top: 10px; cursor: default;"> {{$ukupanBrojProizvoda}} proizvoda </span></li>
+                                <li><span class="ion-android-cart btn btn-default"style="margin-top: 10px; cursor: default;">
+                                    @if($ukupanBrojProizvoda>0)
+                                        <a href="{{route('kosara')}}"> {{$ukupanBrojProizvoda}} proizvoda </a>
+                                        @else
+                                        <a href="{{route('praznaKosara')}}"> {{$ukupanBrojProizvoda}} proizvoda </a>
+                                    @endif
+                                        </span>
+                                    </span>
+                                </li>
                                 <!--
                                 <li><a href="login.html" style="margin: 0; padding: 0;">
                                     <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;">Login</button>
@@ -166,290 +178,14 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="shop-price">
-                                        {{$item->Cijena}}<!--$ 354,59-->
+                                        {{$item->Cijena}} KM
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         @endforeach
-                        <!-- 2 
-                        <div class="col-sm-6">
-                            <div class="shop-box">
-                                <img class="img-full img-responsive" src="assets/images/shop-222.jpg" alt="shop">
-                                <div class="shop-box-hover text-center">
-                                    <div class="c-table">
-                                        <div class="c-cell">
-                                            <a class="test-popup-link" href="assets/images/shop-big-222.jpg">
-                                                <span class="ion-ios-search-strong just-img"></span>
-                                            </a>
-                                            <a href="#">
-                                                <span class="ion-ios-cart"></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="shop-box-title">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <h4>
-                                            Monitor Philips 24" 241B8QJEB, IPS, 
-                                            VGA, DVI, HDMI, DP, 2xUSB3.0, 2xUSB2.0, Pivot, Zvučnici, Full HD
-                                        </h4><br>
-                                        <br>
-                                        <br>
-                                        <br>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="shop-price">
-                                            $ 216,21
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
-                        <!-- 3 
-                        <div class="col-sm-6">
-                            <div class="shop-box">
-                                <img class="img-full img-responsive" src="assets/images/shop-333.jpg" alt="shop">
-                                <div class="shop-box-hover text-center">
-                                    <div class="c-table">
-                                        <div class="c-cell">
-                                            <a class="test-popup-link" href="assets/images/shop-big-333.jpg">
-                                                <span class="ion-ios-search-strong just-img"></span>
-                                            </a>
-                                            <a href="#">
-                                                <span class="ion-ios-cart"></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="shop-box-title">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <h4>Miš Genius Scorpion Spear, RGB LED, crni</h4><br>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="shop-price">
-                                            $ 12,61
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
-                        <!-- 4 
-                        <div class="col-sm-6">
-                            <div class="shop-box">
-                                <img class="img-full img-responsive" src="assets/images/shop-444.jpg" alt="shop">
-                                <div class="shop-box-hover text-center">
-                                    <div class="c-table">
-                                        <div class="c-cell">
-                                            <a class="test-popup-link" href="assets/images/shop-big-444.jpg">
-                                                <span class="ion-ios-search-strong just-img"></span>
-                                            </a>
-                                            <a href="#">
-                                                <span class="ion-ios-cart"></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="shop-box-title">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <h4>Podloga za miš MS TERIS M105, gaming</h4><br>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="shop-price">
-                                            $ 1,56
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
-                        <!-- 5
-                        <div class="col-sm-6">
-                            <div class="shop-box">
-                                <img class="img-full img-responsive" src="assets/images/shop-555.jpg" alt="shop">
-                                <div class="shop-box-hover text-center">
-                                    <div class="c-table">
-                                        <div class="c-cell">
-                                            <a class="test-popup-link" href="assets/images/shop-big-555.jpg">
-                                                <span class="ion-ios-search-strong just-img"></span>
-                                            </a>
-                                            <a href="#">
-                                                <span class="ion-ios-cart"></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="shop-box-title">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <h4>Tipkovnica MS FLARE gaming LED</h4><br>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="shop-price">
-                                            $ 216,21
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-                        <!-- 6 
-                        <div class="col-sm-6">
-                            <div class="shop-box">
-                                <img class="img-full img-responsive" src="assets/images/shop-666.jpg" alt="shop">
-                                <div class="shop-box-hover text-center">
-                                    <div class="c-table">
-                                        <div class="c-cell">
-                                            <a class="test-popup-link" href="assets/images/shop-big-666.jpg">
-                                                <span class="ion-ios-search-strong just-img"></span>
-                                            </a>
-                                            <a href="#">
-                                                <span class="ion-ios-cart"></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="shop-box-title">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <h4>Slušalice Sony WH-CH510, bežične, NFC/Bluetooth, crne</h4><br>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="shop-price">
-                                            $ 48,88
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
-                        <!-- 7 
-                        <div class="col-sm-6">
-                            <div class="shop-box">
-                                <img class="img-full img-responsive" id="foure" src="assets/images/shop-777.jpg" alt="shop">
-                                <div class="shop-box-hover text-center">
-                                    <div class="c-table">
-                                        <div class="c-cell">
-                                            <a class="test-popup-link" href="assets/images/shop-big-777.jpg">
-                                                <span class="ion-ios-search-strong just-img"></span>
-                                            </a>
-                                            <a href="#">
-                                                <span class="ion-ios-cart"></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="shop-box-title">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <h4>Slušalice Logitech H650e, stereo, s mikrofonom, USB</h4><br>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="shop-price">
-                                            $ 93,08
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
-                        <!-- 8 
-                        <div class="col-sm-6">
-                            <div class="shop-box">
-                                <img class="img-full img-responsive" src="assets/images/shop-888.jpg" alt="shop">
-                                <div class="shop-box-hover text-center">
-                                    <div class="c-table">
-                                        <div class="c-cell">
-                                            <a class="test-popup-link" href="assets/images/shop-big-888.jpg">
-                                                <span class="ion-ios-search-strong just-img"></span>
-                                            </a>
-                                            <a href="#">
-                                                <span class="ion-ios-cart"></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="shop-box-title">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <h4>Miš MS IMPERATOR 2, gaming, žični</h4><br>
-                                        <br>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="shop-price">
-                                            $ 9,81
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
-                        <!-- 9 
-                        <div class="col-sm-6">
-                            <div class="shop-box">
-                                <img class="img-full img-responsive" src="assets/images/shop-999.jpg" alt="shop">
-                                <div class="shop-box-hover text-center">
-                                    <div class="c-table">
-                                        <div class="c-cell">
-                                            <a class="test-popup-link" href="assets/images/shop-big-999.jpg">
-                                                <span class="ion-ios-search-strong just-img"></span>
-                                            </a>
-                                            <a href="#">
-                                                <span class="ion-ios-cart"></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="shop-box-title">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <h4>Tipkovnica Speedlink Niala, UK/HR Layout, crna</h4><br>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="shop-price">
-                                            $ 7,94
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
-                        <!-- 10
-                        <div class="col-sm-6">
-                            <div class="shop-box">
-                                <img class="img-full img-responsive" id="three" src="assets/images/shop-100.jpg" alt="shop">
-                                <div class="shop-box-hover text-center">
-                                    <div class="c-table">
-                                        <div class="c-cell">
-                                            <a class="test-popup-link" href="assets/images/shop-big-100.jpg">
-                                                <span class="ion-ios-search-strong just-img"></span>
-                                            </a>
-                                            <a href="#">
-                                                <span class="ion-ios-cart"></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="shop-box-title">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <h4>Gaming stolica LC-Power LC-GC-600BR, crno/crvena</h4><br>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="shop-price">
-                                            $ 182,12
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
+                       
                         <!--
                         <div class="col-sm-12">
                             <nav>

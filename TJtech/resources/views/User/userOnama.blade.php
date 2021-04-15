@@ -47,7 +47,11 @@
                     <div class="dropdown-user">
                         <span style="padding-right: 10px;">{{$LogiraniKorisnikPodaci->Ime_prezime}}</span><button><i class="fas fa-user btn btn-default user"></i></button><br>
                         <ul>
-                            <li><a href="#">Profil</a></li>
+                            @if($ukupanBrojProizvoda>0)
+                                <li><a href="{{route('kosara')}}">Profil</a></li>
+                                @else
+                                <li><a href="{{route('praznaKosara')}}">Profil</a></li>
+                            @endif
                             <li><a href="logout">Logout</a></li>
                         </ul>
                     </div>
@@ -91,7 +95,15 @@
                             <li><a href="userRacunala.html"><b><i><u>Računala</u></i></b></a></li>
                             <li><a href="userOprema.html"><b><i><u>Oprema</u></i></b></a></li>
                             <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
-                            <li><span class="ion-android-cart btn btn-default"style="margin-top: 10px; cursor: default;"> {{$ukupanBrojProizvoda}} proizvoda </span></li>
+                            <li><span class="ion-android-cart btn btn-default"style="margin-top: 10px; cursor: default;">
+                                    @if($ukupanBrojProizvoda>0)
+                                        <a href="{{route('kosara')}}"> {{$ukupanBrojProizvoda}} proizvoda </a>
+                                        @else
+                                        <a href="{{route('praznaKosara')}}"> {{$ukupanBrojProizvoda}} proizvoda </a>
+                                    @endif
+                                        </span>
+                                    </span>
+                                </li>
                             <!--
                             <li><a href="login.html" style="margin: 0; padding: 0;">
                                 <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;">Login</button>

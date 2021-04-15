@@ -1,3 +1,8 @@
+<?php
+    use App\Http\Controllers\ProizvodiController;
+    $ukupanBrojProizvoda=ProizvodiController::brojProizvodaUKosari();
+    $ukupnaCijena=ProizvodiController::ukupnaCijenaProizvodaUKosarici();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -38,10 +43,14 @@
                         <div class="dropdown-user">
                             <span style="padding-right: 10px;">{{$LogiraniKorisnikPodaci->Ime_prezime}}</span><button><i class="fas fa-user btn btn-default user"></i></button><br>
                             <ul>
-                                <li><a href="#">Profil</a></li>
+                            @if($ukupanBrojProizvoda>0)
+                                <li><a href="{{route('kosara')}}">Profil</a></li>
+                                @else
+                                <li><a href="{{route('praznaKosara')}}">Profil</a></li>
+                            @endif
                                 <li><a href="logout">Logout</a></li>
                             </ul>
-                        </div>
+                        </div> 
 
                         <form id="form-data" class="input-group" method="post" data-route="{{ route('search.fetch') }}">
                             {{ csrf_field() }}
@@ -81,7 +90,15 @@
                                 <li><a href="userRacunala.html"><b><i><u>Računala</u></i></b></a></li>
                                 <li><a href="userOprema.html"><b><i><u>Oprema</u></i></b></a></li>
                                 <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
-                                <li><span class="ion-android-cart btn btn-default"style="margin-top: 10px; cursor: default;"> {{$ukupanBrojProizvoda}} proizvoda </span></li>
+                                <li><span class="ion-android-cart btn btn-default"style="margin-top: 10px; cursor: default;">
+                                    @if($ukupanBrojProizvoda>0)
+                                        <a href="{{route('kosara')}}"> {{$ukupanBrojProizvoda}} proizvoda </a>
+                                        @else
+                                        <a href="{{route('praznaKosara')}}"> {{$ukupanBrojProizvoda}} proizvoda </a>
+                                    @endif
+                                        </span>
+                                    </span>
+                                </li>
                                 <!--
                                 <li><a href="login.html" style="margin: 0; padding: 0;">
                                     <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;">Login</button>
@@ -98,16 +115,32 @@
         </section>
 
         <!-- Proizvodi u Kosarici -->
+        
+        
+        
         <section id="Kosarica">
             <div class="container">
-                <div class="row">
-                    <div class="Proizvodi">
-
-                    </div>
-                </div>
+                <div class="Kupljeno">
+                    <span class="opcijeProizvoda"><h3>Naziv Proizvoda - Cijena</h3><h3>Količina</h3><h3>Ukloni - Dodaj</h3></span>
+            @foreach($PodaciKosaraUser as $item)
+                    <div class="row">
+                        <div class="PunaKosara">
+                            <div class="Proizvodi">
+                                <h3>{{$item->Naziv_proizvoda}} - {{$item->Cijena}} KM</h3>
+                            </div>
+                            <div class="Gumbi">
+                                <button class="fas fa-minus-circle"><button class="fas fa-plus-circle">
+                            </div>
+                        </div>
+                    </div> 
+                    <hr>
+            @endforeach   
+                </div> 
             </div>
+            <span class="Kupi"><h2>Ukupna cijena proizvoda u košarici: <u>{{$ukupnaCijena}}</u> KM</h2><button class="btn btn-default btn-robot">Kupi</span>
         </section>
-
+        
+       
     <!-- Footer -->
         <section id="footer-widget" class="footer-widget" style="padding: 20px 0;">
             <div class="container header-bg">

@@ -751,7 +751,8 @@ body{
 /*======================================================================
 ##		Kosarica
 =======================================================================*/
-#Kosarica{
+/* Prazna Kosarica */
+#PraznaKosarica{
 	background-color: white;
 	font-family: 'Oswald';
 	position: relative;
@@ -780,3 +781,52 @@ body{
 				0px 0px 120px yellow,
 				0px 0px 160px yellow;
 }
+/* Puna Kosarica */
+#Kosarica{
+	background-color: white;
+	font-family: 'Oswald';
+	position: relative;
+	padding: 50px 0;
+}
+#Kosarica hr{
+	border-top: 2px solid #ebebeb;
+}
+.PunaKosara{
+	display: flex;
+	justify-content: space-between;
+	background-color: #ebebeb;
+	border-radius: 20px;
+	padding: 20px;
+}
+.Gumbi{
+	margin-right: 20px;
+	font-size: 30px;
+}
+.Proizvodi{
+	margin-left: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.Gumbi button{
+	border: none;
+	border-radius: 25px;
+	padding: 0;
+	margin-right: 20px;
+}
+.opcijeProizvoda{
+	display: flex;
+	justify-content: space-between;
+}
+.Kupi{
+	display: flex;
+	justify-content: space-around;
+	padding-top: 50px;
+	align-items: center;
+}
+.Kupi button{
+	font-size: 40px;
+}
+/* Admin Proizvodi */
+
+/* Admin Korisnici */

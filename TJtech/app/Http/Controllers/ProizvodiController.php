@@ -38,12 +38,12 @@ class ProizvodiController extends Controller
             $data = DB::table('racunalos')
                 ->where('Naziv_proizvoda', 'LIKE', "%{$query}%")
                 ->get();
-            $output = '<ul class="dropdown-menu" style="display:block; position:absolute; background-color: #eceaeadc;">';
+                $output = '<ul class="dropdown-menu" style="display:block; position:absolute; background-color: #eceaeadc;">';
             foreach($data as $row)
             {
-            $output .= '
-            <li><a href="#">'.$row->Naziv_proizvoda.' '.$row->proizvod_id.':'.$row->kategorija_fk.'</a></li>
-            ';
+                $output .= '
+                <li><a href="#">'.$row->Naziv_proizvoda.' '.$row->proizvod_id.':'.$row->kategorija_fk.'</a></li>
+                ';
             }
             $output .= '</ul>';
             echo $output;
@@ -74,28 +74,15 @@ class ProizvodiController extends Controller
         $idKorisnika=Session::get('LogiraniKorisnik');
         return Kosarica::where('korisnik_fk',$idKorisnika)->count();
     }
-    /*
-    function pretrazivanjePrekoSearchBara(){
-        if(isset($_POST['btn'])){
-            
-            $trazeniProizvod=$_POST['Naziv_proizvoda'];
-
-            if($trazeniProizvod=="" || $trazeniProizvod==null){
-                return redirect('nemaproizvoda.html');
-            }else{
-                $proizvod=Racunalo::where('Naziv_proizvoda','like',$trazeniProizvod)->get();
-            if($proizvod->kategorija_fk==1){ 
-                return redirect('racunala.html');
-            }elseif($proizvod->kategorija_fk==2){
-                return redirect("{{route('laptopi')}}#$proizvod->proizvod_id");
-            }elseif($proizvod->kategorija_fk==3){
-                return redirect("{{route('oprema')}}#$proizvod->proizvod_id");
-            }else{
-                echo "Oops, dogodila se greska";
-            }
-            }
-            
-        }
+    static function ukupnaCijenaProizvodaUKosarici(){
+        $idKorisnika=Session::get('LogiraniKorisnik');
+        $ukupnaCijena = DB::table('kosaricas')
+            ->join('racunalos','kosaricas.proizvod_fk','=','proizvod_id')
+            ->where('kosaricas.korisnik_fk','=',$idKorisnika)
+            ->sum('Cijena');
+        return $ukupnaCijena;
     }
-    */
+    
+    
 }
+

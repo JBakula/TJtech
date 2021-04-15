@@ -65,7 +65,7 @@
                                 </div>
                                 {{ csrf_field() }}
                         </div>-->
-                        <form id="form-data" class="input-group" method="post" data-route="{{ route('search.fetch') }}">
+                        <form action="index.html" id="form-data" class="input-group" method="post" data-route="{{ route('search.fetch') }}">
                             {{ csrf_field() }}
                             <input type="text" name="Naziv_proizvoda" id="Naziv_proizvoda" 
                                 class="form-control" placeholder="Search..." autocomplete="off"> 
