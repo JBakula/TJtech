@@ -29,10 +29,10 @@ Route::get('/nemaproizvoda.html',function(){
     return view('nemaproizvoda');
 });
 Route::get('/userNemaproizvoda.html',function(){
-    return view('userNemaproizvoda');
+    return view('User.userNemaproizvoda');
 });
 Route::get('/adminNemaproizvoda.html',function(){
-    return view('adminNemaproizvoda');
+    return view('Admin.adminNemaproizvoda');
 });
 /*Route::get('/Računala.html', function () {
     return view('racunala'); 
