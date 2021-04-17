@@ -2,6 +2,8 @@
     use App\Http\Controllers\ProizvodiController;
     $ukupanBrojProizvoda=ProizvodiController::brojProizvodaUKosari();
     $ukupnaCijena=ProizvodiController::ukupnaCijenaProizvodaUKosarici();
+    $pc=ProizvodiController::prebrojiModele();
+    //$kosaraid=ProizvodiController::dohvatiKosaru();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -115,21 +117,44 @@
         </section>
 
         <!-- Proizvodi u Kosarici -->
-        
-        
+        <ul>
+            @foreach($pc as $br) 
+            <li>{{$br->proizvod_fk}}</li>
+            @endforeach
+        </ul>
+       <!--<?php
+        //$obj_merged =  array_merge((array)$pc, ()$PodaciKosaraUser);
+       ?>-->
         
         <section id="Kosarica">
             <div class="container">
-            @foreach($PodaciKosaraUser as $item)
-                <div class="row">
-                    <div class="Proizvodi">
-                        <p>{{$item->Naziv_proizvoda}} - {{$item->Cijena}} KM</p>
-                        
-                    </div>
+                <div class="Kupljeno">
+                    <span class="opcijeProizvoda"><h3>Naziv Proizvoda - Cijena</h3><h3>Količina</h3><h3>Ukloni - Dodaj</h3></span>
+            @foreach($PodaciKosaraUser as $item)              
+                    <div class="row">
+                        <div class="PunaKosara">
+                            <div class="Proizvodi">
+                                <h3>  {{$item->Naziv_proizvoda}} - {{$item->Cijena}} KM   </h3>
+                            </div>
+                            <div class="Gumbi">
+                            <form action="{{route('ukloniJedanProizvod',$item->kosarica_id)}}" method="GET">
+                               <!-- <a href="{{route('ukloniJedanProizvod',$item->kosarica_id)}}" class="fas fa-minus-circle"></a>-->
+                               <button  class="fas fa-minus-circle">
+                            </form>
+                            <form action="{{route('dodajJedan',$item->proizvod_id)}}" method="POST">
+                                <!--<a href="{{route('dodajJedan',$item->proizvod_id)}}" class="fas fa-plus-circle"></a>-->
+                                <button  class="fas fa-plus-circle">
+                            </form>
+                               <!--<button  class="fas fa-minus-circle"></a><button  class="fas fa-plus-circle">-->
+                            <!--<a href="/removecart/{{$item->kosarica_id}}" class="fas fa-minus-circle"></a><!--<button  class="fas fa-minus-circle"></a><button  class="fas fa-plus-circle">-->
+                            </div>
+                        </div>
+                    </div> 
+                    <hr>
+            @endforeach   
                 </div> 
-            @endforeach    
             </div>
-            Ukupna cijena proizvoda u košarici: {{$ukupnaCijena}} KM
+            <span class="Kupi"><h2>Ukupna cijena proizvoda u košarici: <u>{{$ukupnaCijena}}</u> KM</h2><button class="btn btn-default btn-robot">Kupi</span>
         </section>
         
        
