@@ -2,8 +2,7 @@
     use App\Http\Controllers\ProizvodiController;
     $ukupanBrojProizvoda=ProizvodiController::brojProizvodaUKosari();
     $ukupnaCijena=ProizvodiController::ukupnaCijenaProizvodaUKosarici();
-    $pc=ProizvodiController::prebrojiModele();
-    //$kosaraid=ProizvodiController::dohvatiKosaru();
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -117,14 +116,7 @@
         </section>
 
         <!-- Proizvodi u Kosarici -->
-        <ul>
-            @foreach($pc as $br) 
-            <li>{{$br->proizvod_fk}}</li>
-            @endforeach
-        </ul>
-       <!--<?php
-        //$obj_merged =  array_merge((array)$pc, ()$PodaciKosaraUser);
-       ?>-->
+        
         
         <section id="Kosarica">
             <div class="container">
@@ -134,10 +126,10 @@
                     <div class="row">
                         <div class="PunaKosara">
                             <div class="Proizvodi">
-                                <h3>  {{$item->Naziv_proizvoda}} - {{$item->Cijena}} KM   </h3>
+                                <h3>  {{$item->Naziv_proizvoda}} - {{$item->Cijena*$item->Kolicina}} KM   {{$item->Kolicina}}</h3>
                             </div>
                             <div class="Gumbi">
-                            <form action="{{route('ukloniJedanProizvod',$item->kosarica_id)}}" method="GET">
+                            <form action="{{route('ukloniJedanProizvod',$item->proizvod_id)}}" method="GET">
                                <!-- <a href="{{route('ukloniJedanProizvod',$item->kosarica_id)}}" class="fas fa-minus-circle"></a>-->
                                <button  class="fas fa-minus-circle">
                             </form>

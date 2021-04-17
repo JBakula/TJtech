@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 15, 2021 at 02:15 AM
+-- Generation Time: Apr 18, 2021 at 01:08 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -97,25 +97,18 @@ CREATE TABLE `kosaricas` (
   `korisnik_fk` int(10) UNSIGNED NOT NULL,
   `proizvod_fk` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `Kolicina` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `kosaricas`
 --
 
-INSERT INTO `kosaricas` (`kosarica_id`, `korisnik_fk`, `proizvod_fk`, `created_at`, `updated_at`) VALUES
-(1, 4, 1, '2021-04-12 21:24:17', '2021-04-12 21:24:17'),
-(2, 4, 1, '2021-04-12 21:25:13', '2021-04-12 21:25:13'),
-(3, 4, 2, '2021-04-12 21:33:22', '2021-04-12 21:33:22'),
-(4, 4, 2, '2021-04-12 21:38:30', '2021-04-12 21:38:30'),
-(5, 4, 1, '2021-04-12 21:40:27', '2021-04-12 21:40:27'),
-(7, 4, 4, '2021-04-12 21:45:38', '2021-04-12 21:45:38'),
-(8, 4, 4, '2021-04-12 21:46:41', '2021-04-12 21:46:41'),
-(9, 4, 16, '2021-04-12 22:31:08', '2021-04-12 22:31:08'),
-(11, 3, 2, '2021-04-14 16:25:05', '2021-04-14 16:25:05'),
-(12, 5, 18, '2021-04-14 16:39:42', '2021-04-14 16:39:42'),
-(13, 5, 15, '2021-04-14 21:57:34', '2021-04-14 21:57:34');
+INSERT INTO `kosaricas` (`kosarica_id`, `korisnik_fk`, `proizvod_fk`, `created_at`, `updated_at`, `Kolicina`) VALUES
+(32, 4, 16, '2021-04-17 20:23:47', '2021-04-17 20:23:47', 5),
+(33, 4, 22, '2021-04-17 20:28:19', '2021-04-17 20:28:19', 2),
+(34, 4, 12, '2021-04-17 21:00:48', '2021-04-17 21:00:48', 1);
 
 -- --------------------------------------------------------
 
@@ -150,7 +143,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (18, '2021_04_07_234339_create_racunalos_table', 11),
 (19, '2021_04_12_162033_promjena_restrikcija', 12),
 (20, '2021_04_12_222925_create_kosaricas_table', 13),
-(21, '2021_04_14_231826_promjena_tipa_cijene', 14);
+(21, '2021_04_14_231826_promjena_tipa_cijene', 14),
+(22, '2021_04_17_211309_dodaj_kolicinu_u_kosaricu', 15);
 
 -- --------------------------------------------------------
 
@@ -314,13 +308,13 @@ ALTER TABLE `korisniks`
 -- AUTO_INCREMENT for table `kosaricas`
 --
 ALTER TABLE `kosaricas`
-  MODIFY `kosarica_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `kosarica_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `racunalos`

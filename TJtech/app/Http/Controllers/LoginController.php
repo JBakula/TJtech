@@ -91,7 +91,7 @@ class LoginController extends Controller
             $PodaciKosaraUser = DB::table('kosaricas')
             ->join('racunalos','kosaricas.proizvod_fk','=','proizvod_id')
             ->where('kosaricas.korisnik_fk','=',$user->korisnik_id)
-            ->select('racunalos.*','kosarica_id')
+            ->select('racunalos.*','kosaricas.*')
             ->distinct()                                    // racunala iz 
             ->get();
             

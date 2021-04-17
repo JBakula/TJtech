@@ -41,20 +41,32 @@ class ProizvodiController extends Controller
     } 
     function dodajUKosaru(Request $request){
         if($request->session()->has('LogiraniKorisnik')){
+            $provjeraProizvoda=DB::table('kosaricas')
+                    ->where('proizvod_fk','=',$request->proizvod_id)
+                    ->count();
+            if($provjeraProizvoda>0){
+                DB::table('kosaricas')
+                    ->where('proizvod_fk','=',$request->proizvod_id)
+                    ->increment('Kolicina');
+                return redirect()->back();
+            }else{
+                $cart=new Kosarica;
+                $cart->korisnik_fk=$request->session()->get('LogiraniKorisnik');
+                $cart->proizvod_fk=$request->proizvod_id;
+                $cart->Kolicina=1;
+                $cart->save();
+                return redirect()->back();
+            }
             
-            $cart=new Kosarica;
-            $cart->korisnik_fk=$request->session()->get('LogiraniKorisnik');
-            $cart->proizvod_fk=$request->proizvod_id;
-            $cart->save();
-            $podaciOKorisniku=Korisnik::where('korisnik_id','=',session('LogiraniKorisnik'))->first();
+            /*$podaciOKorisniku=Korisnik::where('korisnik_id','=',session('LogiraniKorisnik'))->first();
             if($podaciOKorisniku->Uloga=="admin"){
                 return redirect('adminIndex.html');
             }elseif($podaciOKorisniku->Uloga=="korisnik"){
                // return redirect('userIndex.html');
-               return redirect()->back();
+               
             }else{
                 echo "Oops, dogodila se greska";
-            }
+            }*/
             
         }else{
             return redirect('login.html');
@@ -62,7 +74,14 @@ class ProizvodiController extends Controller
     }
     static function brojProizvodaUKosari(){
         $idKorisnika=Session::get('LogiraniKorisnik');
-        return Kosarica::where('korisnik_fk',$idKorisnika)->count();
+        /*$brojRazlicitihProizvoda=DB::table('kosaricas')
+                ->where('korisnik_fk',$idKorisnika)
+                ->count();*/
+        $kolicinaProizvoda=DB::table('kosaricas')
+                ->where('korisnik_fk',$idKorisnika)
+                ->sum('Kolicina');
+        return $kolicinaProizvoda;
+
     }
     static function brojPrimjerakaPojedinogProizvoda(){
         $idKorisnika=Session::get('LogiraniKorisnik');
@@ -74,55 +93,57 @@ class ProizvodiController extends Controller
     }
     static function ukupnaCijenaProizvodaUKosarici(){
         $idKorisnika=Session::get('LogiraniKorisnik');
-        $ukupnaCijena = DB::table('kosaricas')
+        /*$ukupnaCijena = DB::table('kosaricas')
             ->join('racunalos','kosaricas.proizvod_fk','=','proizvod_id')
             ->where('kosaricas.korisnik_fk','=',$idKorisnika)
-            ->sum('Cijena');
-        return $ukupnaCijena;
-    }
-    static function prebrojiModele(){
-        $idKorisnika=Session::get('LogiraniKorisnik');
-        $product_count= DB::table('kosaricas')
-                ->select('proizvod_fk', DB::raw('count(proizvod_fk) as proizvod_fk'))
-                ->where('kosaricas.korisnik_fk','=',$idKorisnika)
-                ->groupBy('proizvod_fk')
-                ->orderBy('created_at')
-                ->get();
-            
-    
-        return $product_count;
-    }
-   static function dohvatiKosaru(){
-        $idKorisnika=Session::get('LogiraniKorisnik');
-        $kosara=DB::table('kosaricas')
-            ->select('kosarica_id','proizvod_fk')
-            ->where('korisnik_fk','=',$idKorisnika)
+            ->sum('Cijena','*','Kolicina');*/
+        $podaci=DB::table('kosaricas')
+            ->join('racunalos','kosaricas.proizvod_fk','=','proizvod_id')
+            ->where('kosaricas.korisnik_fk','=',$idKorisnika)
             ->get();
-        //return $kosara; 
-        echo $kosara;
+        $suma=0;
+        foreach($podaci as $var){
+            $suma+=($var->Cijena*$var->Kolicina);
+        }
+        
+        return $suma;
+        
     }
+    
      function izbrisiJedanModel($idProizvoda){
         $idKorisnika=Session::get('LogiraniKorisnik');
-        DB::table('kosaricas')
+        $provjeraKolicineProizvoda=DB::table('kosaricas')
+                        ->where('korisnik_fk','=',$idKorisnika)
+                        ->where('proizvod_fk','=',$idProizvoda)
+                        ->sum('Kolicina');
+                        
+        if($provjeraKolicineProizvoda>1){
+            DB::table('kosaricas')
+                ->where('kosaricas.korisnik_fk','=',$idKorisnika)
+                ->where('proizvod_fk','=',$idProizvoda)
+                ->decrement('Kolicina',1);
+                return redirect()->back();
+        }else{
+            DB::table('kosaricas')
             ->where('kosaricas.korisnik_fk','=',$idKorisnika)
-            ->where('kosarica_id','=',$idProizvoda)
+            ->where('proizvod_fk','=',$idProizvoda)
             ->delete();
+            return redirect()->back();
+        }
         
-        //Kosarica::destroy($id);
-        return redirect()->back();
+        //echo $provjeraKolicineProizvoda;
     }
     function dodajJedanModel($id){
         if(Session::has('LogiraniKorisnik')){
             $idKorisnika=Session::get('LogiraniKorisnik');
-            $cart=new Kosarica;
-            $cart->korisnik_fk=$idKorisnika;
-            $cart->proizvod_fk=$id;
-            $cart->save();
+            DB::table('kosaricas')
+                ->where('korisnik_fk','=',$idKorisnika)
+                ->where('proizvod_fk','=',$id)
+                ->increment('Kolicina',1);
             return redirect()->back();
         }else{
             echo "Ooop, dogodila se pogreska";
         }
-        
     }
 }
 
