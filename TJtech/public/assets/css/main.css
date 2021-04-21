@@ -788,45 +788,355 @@ body{
 	position: relative;
 	padding: 50px 0;
 }
-#Kosarica hr{
-	border-top: 2px solid #ebebeb;
+.tabla{
+	width: 100%;
+	border: 1px solid darkgray;
+	font-size: 20px;
+	box-shadow: 5px 10px 8px #888888;
 }
-.PunaKosara{
-	display: flex;
-	justify-content: space-between;
-	background-color: #ebebeb;
-	border-radius: 20px;
-	padding: 20px;
+.tabla td{
+	text-align: left;
+	border: 1px solid darkgray;
+	background-color:#d0d0d04b;
+	padding: 10px;
 }
-.Gumbi{
-	margin-right: 20px;
-	font-size: 30px;
+.tabla th{
+	text-align: center;
+	border: 1px solid darkgray;
+	background-color: #969595;
+	padding: 10px;
 }
-.Proizvodi{
-	margin-left: 20px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+.tabla .kolicina{
+	text-align: center;
 }
-.Gumbi button{
-	border: none;
-	border-radius: 25px;
+.tabla form, button{
+	text-align: center;
 	padding: 0;
-	margin-right: 20px;
-}
-.opcijeProizvoda{
-	display: flex;
-	justify-content: space-between;
+	margin: 0;
+	border-color: #d0d0d04b;
 }
 .Kupi{
-	display: flex;
-	justify-content: space-around;
-	padding-top: 50px;
-	align-items: center;
+	margin: 8px;
 }
 .Kupi button{
-	font-size: 40px;
+	font-size: 30px;
+	box-shadow: 5px 5px 8px #888888;
 }
-/* Admin Proizvodi */
+/* Nacin Placanja */
+.nacinPlacanja{
+	margin-top: 30px;
+	padding: 10px;
+	background-color: #d0d0d04b;
+	border-radius: 25px;
+}
+.radioBox{
+	margin: 0;
+}
+.radioBox h3{
+	border-left: 5px solid #fabe12;
+	padding-left: 16px;
+	margin: 16px 0;
+}
+.radioBox .radio{
+	display: inline-flex;
+	align-items: center;
+	padding: 8px 0px;
+	margin: 8px;
+	cursor: pointer;
+	font-size: 15px;
+}
+.radio__input{
+	display: none;
+}
+.radio__radio{
+	width: 1.25em;
+	height: 1.25em;
+	border: 2px solid #fabe12;
+	border-radius: 50%;
+	margin-right: 10px;
+	box-sizing: border-box;
+	padding: 2px;
+}
+.radio__radio::after{
+	content: "";
+	width: 100%;
+	height: 100%;
+	display: block;
+	background: #fabe12;
+	border-radius: 50%;
+	transform: scale(0);
+}
+.radio__input:checked + .radio__radio::after{
+	transform: scale(1);
+}
+.adress{
+	margin: 8px;
+	padding: 8px 20px;
+	font-size: 15px;
+	display: inline-flex;
+}
 
+
+
+
+/*======================================================================
+##		Admin (Proizvodi, Korisnici)
+=======================================================================*/
+/* Admin Proizvodi */
+#Proizvodi{
+	background-color: white;
+	font-family: 'Oswald';
+	position: relative;
+	padding: 50px 0;
+}
+.tablaProizvoda{
+	background-color: white;
+	width: 100%;
+	border: none;
+	font-size: 20px;
+	padding: 20px;
+}
+.tablaProizvoda tr{
+	box-shadow: 5px 10px 8px #888888;
+	border: none;
+	margin: 20px;
+}
+.tablaProizvoda th{
+	text-align: left;
+	border: none;
+	padding: 30px;
+}
+.tablaProizvoda tr th{
+	background-color: #000;
+	color: #fff;
+}
+.tablaProizvoda td{
+	text-align: left;
+	border: none;
+	padding: 15px;
+	padding-bottom: 35px;
+}
+.tablaProizvoda form, button{
+	text-align: center;
+	padding: 0;
+	margin: 0;
+	border-color: white;
+	color: black;
+}
 /* Admin Korisnici */
+#Korisnici{
+	background-color: white;
+	font-family: 'Oswald';
+	position: relative;
+	padding: 50px 0;
+}
+.tablaKorisnici{
+	background-color: white;
+	width: 100%;
+	border: none;
+	font-size: 20px;
+	padding: 20px;
+}
+.tablaKorisnici tr{
+	box-shadow: 5px 10px 8px #888888;
+	border: none;
+	margin: 20px;
+}
+.tablaKorisnici th{
+	text-align: left;
+	border: none;
+	padding: 30px;
+}
+.tablaKorisnici tr th{
+	background-color: #000;
+	color: #fff;
+}
+.adminDio{
+	color: red;
+}
+.tablaKorisnici td{
+	text-align: left;
+	border: none;
+	padding: 15px;
+	padding-bottom: 35px;
+}
+.tablaKorisnici form, button{
+	text-align: center;
+	padding: 0;
+	margin: 0;
+	border-color: white;
+	color: black;
+}
+
+
+
+
+/*======================================================================
+##		Admin Editing(Proizvodi, Korisnici)
+=======================================================================*/
+/* Dodavanje Proizvoda */
+#dodajProizvod{
+	background-color: white;
+	font-family: 'Oswald';
+	position: relative;
+	padding: 50px 0;
+}
+#dodajProizvod hr{
+	padding: 0;
+	margin: 5px 0;
+	border-bottom: 1px solid rgba(128, 128, 128, 0.514);
+	box-shadow: 2px 2px 5px #888888;
+}
+.pomLaptop{
+	text-align: center;
+	padding-top: 10px;
+}
+.pomRacunalo{
+	text-align: center;
+	padding-top: 10px;
+}
+.pomOprema{
+	text-align: center;
+	padding-top: 10px;
+}
+#dLaptop{
+	background-color: #000;
+	font-size: 20px;
+}
+#dLaptop:focus{
+	color: #fabe12;
+}
+#dRacunalo{
+	background-color: #000;
+	font-size: 20px;
+}
+#dRacunalo:focus{
+	color: #fabe12;
+}
+#dOprema{
+	background-color: #000;
+	font-size: 20px;
+}
+#dOprema:focus{
+	color: #fabe12;
+}
+/* Informacije Laptopa */
+.dodajLaptop{
+	padding: 15px;
+	padding-left: 8px;
+	background-color:white;
+	text-align: center;
+	color: black;
+	border-radius: 25px;
+	border: 2px solid black;
+	box-shadow: 5px 10px 8px #888888;
+}
+.dodajLaptop .dodaj{
+	text-align: right;
+	font-size: 21px;
+}
+.dodajLaptop .dodaj button{
+	background-color: #000;
+}
+.svakiLabel{
+	padding-top: 18px;
+	font-size: 20px;
+	text-align: left;
+}
+.svakiLabel input{
+	color: #000;
+}
+/* Informacije Računala */
+.dodajRacunalo{
+	padding: 15px;
+	padding-left: 8px;
+	background-color:white;
+	text-align: center;
+	color: black;
+	border-radius: 25px;
+	border: 2px solid black;
+	box-shadow: 5px 10px 8px #888888;
+}
+.dodajRacunalo .dodaj{
+	text-align: right;
+	font-size: 21px;
+}
+.dodajRacunalo .dodaj button{
+	background-color: #000;
+}
+/* Informacije Opreme */
+.dodajOpremu{
+	padding: 15px;
+	padding-left: 8px;
+	background-color:white;
+	text-align: center;
+	color: black;
+	border-radius: 25px;
+	border: 2px solid black;
+	box-shadow: 5px 10px 8px #888888;
+}
+.dodajOpremu .dodaj{
+	text-align: right;
+	font-size: 21px;
+}
+.dodajOpremu .dodaj button{
+	background-color: #000;
+}
+/* Dodavanje Korisnika */
+#dodajKorisnika{
+	background-color: white;
+	font-family: 'Oswald';
+	position: relative;
+	padding: 50px 0;
+}
+.trenutnoStanje{
+	background-color: white;
+	border: 1px solid black;
+	padding: 15px;
+	margin: 10px 0;
+	border-radius: 25px;
+	box-shadow: 5px 10px 8px #888888;
+}
+.trenutnoStanje h1{
+	border-left: 5px solid #fabe12;
+	padding-left: 15px;
+}
+.trenutnoStanje h3{
+	padding-left: 25px;
+	border-bottom: 1px solid black;
+	padding-bottom: 5px;
+}
+.promjenutoStanje{
+	background-color: white;
+	border: 1px solid black;
+	padding: 15px;
+	margin: 10px 0;
+	border-radius: 25px;
+	box-shadow: 5px 10px 8px #888888;
+}
+.promjenutoStanje h1{
+	border-left: 5px solid #fabe12;
+	padding-left: 15px;
+}
+.promjenutoStanje .ime{
+	padding-left: 25px;
+	align-items: left;
+	border-bottom: 1px solid black;
+	padding-bottom: 5px;
+}
+.promjenutoStanje .ime button{
+	margin: 0;
+}
+.promjenutoStanje .ime input{
+	font-size: 15px;
+}
+.promjenutoStanje .imeK{
+	padding-left: 25px;
+	text-align: left;
+	padding-bottom: 5px;
+}
+.promjenutoStanje .imeK #ukloniKorisnika{
+	font-size: 35px;
+	margin: 0;
+	background-color: red;
+}

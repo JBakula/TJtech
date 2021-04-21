@@ -45,8 +45,8 @@
                         <span style="padding-right: 10px;">{{$LogiraniKorisnikPodaci->Ime_prezime}}</span><button><i class="fas fa-user btn btn-default user"></i></button><br>
                         <ul>
                             <li><a href="logout">Logout</a></li>
-                            <li><a href="#">Proizvodi</a></li>
-                            <li><a href="#">Korisnici</a></li>
+                            <li><a href="{{route('adminUpravljanjeProizvodima')}}">Proizvodi</a></li>
+                            <li><a href="{{route('korisniciAdmin')}}">Korisnici</a></li>
                         </ul>
                     </div>
 

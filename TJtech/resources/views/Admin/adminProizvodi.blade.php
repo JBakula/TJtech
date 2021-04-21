@@ -40,8 +40,8 @@
                             <span style="padding-right: 10px;">{{$LogiraniKorisnikPodaci->Ime_prezime}}</span><button><i class="fas fa-user btn btn-default user"></i></button><br>
                             <ul>
                                 <li><a href="logout">Logout</a></li>
-                                <li><a href="#">Proizvodi</a></li> 
-                                <li><a href="#">Korisnici</a></li>
+                                <li><a href="{{route('adminUpravljanjeProizvodima')}}">Proizvodi</a></li>
+                                <li><a href="{{route('korisniciAdmin')}}">Korisnici</a></li>
                             </ul>
                         </div>
 
@@ -78,7 +78,7 @@
 
                         <div class="collapse navbar-collapse" id="site-nav-bar">
                             <ul class="nav navbar-nav">
-                                <li class="active"><a href="{{route('adminProfile')}}">Početna</a></li>
+                                <li><a href="{{route('adminProfile')}}">Početna</a></li>
                                 <li><a href="{{route('OnamaAdmin')}}">O nama</a></li>
                                 <li><a href="{{route('laptopiAdmin')}}"><b><i><u>Laptopi</u></i></b></a></li>
                                 <li><a href="{{route('racunalaAdmin')}}"><b><i><u>Računala</u></i></b></a></li>
@@ -98,20 +98,36 @@
                     </nav>
                 </div>
             </div> <!-- /.container -->
-            <div class="nutral"></div>
         </section> <!-- /#header -->
 
     <!-- Proizvodi -->
+    
         <section id="Proizvodi">
             <div class="container">
-                <div class="row">
-                    <h1>
-                        Ispis svih proizvoda
-                    </h1>
+                <div class="table-responsive">
+                    <table class="tablaProizvoda">
+                        <tr>
+                            <th>Naziv Proizvoda</th>
+                            <th>Cijena</th>
+                            <th>Ukloni</th>
+                        </tr>
+                        @foreach($proizvodi as $item)
+                        <div class="row">
+                            <tr>
+                                <td>{{$item->Naziv_proizvoda}}</td>
+                                <td style="text-align: center;">{{$item->Cijena}} KM</td>
+                                <td>
+                                    <form>
+                                        <button  class="fas fa-minus-circle">
+                                    </form>
+                                </td>
+                            </tr>
+                        </div>
+                        @endforeach
+                    </table>
                 </div>
             </div>
         </section> 
-    
 
     <!-- Footer -->
         <section id="footer-widget" class="footer-widget">

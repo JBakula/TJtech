@@ -28,8 +28,12 @@
     <div class="nema">
         <div class="container">
             <div class="row">
-                <h1>Nemamo taj proizvod. <a href="adminIndex.html">Početna</a></h1>
-                <img src="assets/images/confused.png" class="emoji">
+                <h1 style="margin: 0; padding: 0; margin-top: 20px;">
+                    Hvala vam!<br>
+                    Vaš proizvod bi uskoro trebao biti s vama
+                    <a href="userIndex.html">Početna</a>
+                </h1>
+                <img src="assets/images/succes.png">
             </div>
         </div>
     </div>

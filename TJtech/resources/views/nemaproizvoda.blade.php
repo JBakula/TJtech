@@ -23,17 +23,13 @@
         <link href="assets/css/ionicons.css" rel="stylesheet">
         <link href="assets/css/main.css" rel="stylesheet">
 
-        <link href="assets/jquery-ui/jquery-ui.css" rel="stylesheet">
-        <link href="assets/jquery-ui/jquery-ui.structure.css" rel="stylesheet">
-        <link href="assets/jquery-ui/jquery-ui.theme.css" rel="stylesheet">
-
     </head>
 <body style="background-color: white;">
     <div class="nema">
         <div class="container">
             <div class="row">
                 <h1>Nemamo taj proizvod. <a href="index.html">Početna</a></h1>
-                <img src="assets/images/confused.jpg" class="emoji">
+                <img src="assets/images/confused.png" class="emoji">
             </div>
         </div>
     </div>
