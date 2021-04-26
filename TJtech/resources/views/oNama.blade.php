@@ -12,15 +12,15 @@
         <!-- google fonts -->
         <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
-        <link href='fontawesome-free-5.15.1-web/css/all.css' rel='stylesheet'>
+        <link rel="stylesheet" href="{{ asset('fontawesome-free-5.15.1-web/css/all.css') }}">
 
         <!-- files -->
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-        <link href="assets/css/magnific-popup.css" rel="stylesheet">
-        <link href="assets/css/owl.carousel.css" rel="stylesheet">
-        <link href="assets/css/owl.carousel.theme.min.css" rel="stylesheet">
-        <link href="assets/css/ionicons.css" rel="stylesheet">
-        <link href="assets/css/main.css" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.theme.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/ionicons.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 
         <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -34,7 +34,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    <a href="index.html"><img src="assets/images/logo.png" alt="logo"></a>
+                <a href="{{route('indexIndex')}}"><img src="{{ asset('assets/images/logo.png') }}" alt="logo"></a>
                 </div>
                 <div class="col-sm-3 col-sm-offset-3 text-right">
 
@@ -78,16 +78,16 @@
 
                     <div class="collapse navbar-collapse" id="site-nav-bar">
                         <ul class="nav navbar-nav">
-                            <li><a href="index.html">Početna</a></li>
-                            <li class="active"><a href="Onama.html">O nama</a></li>
-                            <li><a href="Laptopi.html"><b><i><u>Laptopi</u></i></b></a></li>
-                            <li><a href="Računala.html"><b><i><u>Računala</u></i></b></a></li>
-                            <li><a href="Oprema.html"><b><i><u>Oprema</u></i></b></a></li>
-                            <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
-                            <li><a href="login.html" style="margin: 0; padding: 0;">
+                            <li><a href="{{route('indexIndex')}}">Početna</a></li>
+                            <li class="active"><a href="{{route('oNama')}}">O nama</a></li>
+                            <li><a href="{{route('laptopi')}}"><b><i><u>Laptopi</u></i></b></a></li>
+                            <li><a href="{{route('racunala')}}"><b><i><u>Računala</u></i></b></a></li>
+                            <li><a href="{{route('oprema')}}"><b><i><u>Oprema</u></i></b></a></li>
+                            <li><a href="{{ asset('assets\TJ-tech, vizija.pdf') }}">Vizija</a></li>
+                            <li><a href="{{route('loginIndex')}}" style="margin: 0; padding: 0;">
                                 <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;">Login</button>
                             </a></li>
-                            <li><a href="signup.html" style="margin: 0; padding: 0;">
+                            <li><a href="{{route('singUpIndex')}}" style="margin: 0; padding: 0;">
                                 <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;">Signup</button>
                             </a></li>
                         </ul>
@@ -99,7 +99,7 @@
                 <div class="overlay"></div>
                 <div class="col-sm-12">
                     <ol class="breadcrumb">
-                        <li><a href="index.html">Početna</a></li>
+                        <li><a href="{{route('indexIndex')}}">Početna</a></li>
                         <li class="active">O nama</li>
                     </ol>
                 </div>
@@ -248,7 +248,7 @@
                             <div class="col-sm-6">
                                 <div class="team-box">
                                     <div class="team-img">
-                                        <img class="team-img img-responsive" src="assets/images/team-1.png" alt="team">
+                                        <img class="team-img img-responsive" src="{{ asset('assets/images/team-1.png') }}" alt="team">
                                     </div>
                                     <div class="team-img-detail">
                                         <h4 class="member-name">Jure Bakula</h4>
@@ -271,7 +271,7 @@
                             <div class="col-sm-6">
                                 <div class="team-box">
                                     <div class="team-img">
-                                        <img class="team-img img-responsive" src="assets/images/team-2.png" alt="team">
+                                        <img class="team-img img-responsive" src="{{ asset('assets/images/team-2.png') }}" alt="team">
                                     </div>
                                     <div class="team-img-detail">
                                         <h4 class="member-name">Vinko-Tino Zlopaša</h4>
@@ -319,12 +319,12 @@
                 <div class="col-sm-4">
                     <h3>Korisne informacije</h3>
                     <ul>
-                        <li><a href="Onama.html">O nama</a></li>
-                        <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
-                        <li><a href="index.html">Početna</a></li>
-                        <li><a href="Laptopi.html">Laptopi</a></li>
-                        <li><a href="Računala.html">Računala</a></li>
-                        <li><a href="Oprema.html">Oprema</a></li>
+                    <li><a href="{{route('oNama')}}">O nama</a></li>
+                    <li><a href="{{ asset('assets\TJ-tech, vizija.pdf') }}">Vizija</a></li>
+                    <li><a href="{{route('indexIndex')}}">Početna</a></li>
+                    <li><a href="{{route('laptopi')}}">Laptopi</a></li>
+                    <li><a href="{{route('racunala')}}">Računala</a></li>
+                    <li><a href="{{route('oprema')}}">Oprema</a></li>
                     </ul>
                 </div>
             </div>
@@ -335,11 +335,11 @@
     </footer>
 
     <!-- Scripts -->
-        <script src="assets/js/jquery-1.12.3.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/jquery.magnific-popup.min.js"></script>
-        <script src="assets/js/owl.carousel.min.js"></script>
-        <script src="assets/js/script.js"></script>
+        <script  src="{{ asset('assets/js/jquery-1.12.3.min.js') }}"></script>
+        <script  src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+        <script  src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
+        <script  src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+        <script  src="{{ asset('assets/js/script.js') }}"></script>
 
     </body>
 </html>

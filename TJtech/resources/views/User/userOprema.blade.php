@@ -16,15 +16,15 @@
         <!-- google fonts -->
         <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
-        <link href='fontawesome-free-5.15.1-web/css/all.css' rel='stylesheet'>
+        <link rel="stylesheet" href="{{ asset('fontawesome-free-5.15.1-web/css/all.css') }}">
 
         <!-- files -->
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-        <link href="assets/css/magnific-popup.css" rel="stylesheet">
-        <link href="assets/css/owl.carousel.css" rel="stylesheet">
-        <link href="assets/css/owl.carousel.theme.min.css" rel="stylesheet">
-        <link href="assets/css/ionicons.css" rel="stylesheet">
-        <link href="assets/css/main.css" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.theme.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/ionicons.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 
     </head>
     <body>
@@ -34,7 +34,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    <a href="userIndex.html"><img src="assets/images/logo.png" alt="logo"></a>
+                <a href="{{route('userProfile')}}"><img src="{{ asset('assets/images/logo.png') }}" alt="logo"></a>
                 </div>
                 <div class="col-sm-3 col-sm-offset-3 text-right">
 
@@ -84,12 +84,12 @@
 
                         <div class="collapse navbar-collapse" id="site-nav-bar">
                             <ul class="nav navbar-nav">
-                                <li><a href="userIndex.html">Početna</a></li>
-                                <li><a href="userOnama.html">O nama</a></li>
-                                <li><a href="userLaptopi.html"><b><i><u>Laptopi</u></i></b></a></li>
-                                <li><a href="userRacunala.html"><b><i><u>Računala</u></i></b></a></li>
-                                <li class="active"><a href="userOprema.html"><b><i><u>Oprema</u></i></b></a></li>
-                                <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
+                                <li><a href="{{route('userProfile')}}">Početna</a></li>
+                                <li><a href="{{route('userOnama')}}">O nama</a></li>
+                                <li><a href="{{route('laptopiUser')}}"><b><i><u>Laptopi</u></i></b></a></li>
+                                <li><a href="{{route('racunalaUser')}}"><b><i><u>Računala</u></i></b></a></li>
+                                <li class="active"><a href="{{route('opremaUser')}}"><b><i><u>Oprema</u></i></b></a></li>
+                                <li><a href="{{ asset('assets\TJ-tech, vizija.pdf') }}">Vizija</a></li>
                                 <li><span class="ion-android-cart btn btn-default"style="margin-top: 10px; cursor: default;">
                                     @if($ukupanBrojProizvoda>0)
                                         <a href="{{route('kosara')}}"> {{$ukupanBrojProizvoda}} proizvoda </a>
@@ -116,7 +116,7 @@
                     <div class="overlay"></div>
                     <div class="col-sm-12">
                         <ol class="breadcrumb">
-                            <li><a href="userIndex.html">Početna</a></li>
+                            <li><a href="{{route('userProfile')}}">Početna</a></li>
                             <li class="active">Oprema</li>
                         </ol>
                     </div>
@@ -230,12 +230,12 @@
                 <div class="col-sm-4">
                     <h3>Korisne informacije</h3>
                     <ul>
-                        <li><a href="userOnama.html">O nama</a></li>
-                        <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
-                        <li><a href="userIndex.html">Početna</a></li>
-                        <li><a href="userLaptopi.html">Laptopi</a></li>
-                        <li><a href="userRacunala.html">Računala</a></li>
-                        <li><a href="userOprema.html">Oprema</a></li>
+                    <li><a href="{{route('userOnama')}}">O nama</a></li>
+                        <li><a href="{{ asset('assets\TJ-tech, vizija.pdf') }}">Vizija</a></li>
+                        <li><a href="{{route('userProfile')}}">Početna</a></li>
+                        <li><a href="{{route('laptopiUser')}}">Laptopi</a></li>
+                        <li><a href="{{route('racunalaUser')}}">Računala</a></li>
+                        <li><a href="{{route('opremaUser')}}">Oprema</a></li>
                     </ul>
                 </div>
             </div>
@@ -246,11 +246,11 @@
     </footer>
 
     <!-- Scripts -->
-        <script src="assets/js/jquery-1.12.3.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/jquery.magnific-popup.min.js"></script>
-        <script src="assets/js/owl.carousel.min.js"></script>
-        <script src="assets/js/script.js"></script>
+        <script  src="{{ asset('assets/js/jquery-1.12.3.min.js') }}"></script>
+        <script  src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+        <script  src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
+        <script  src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+        <script  src="{{ asset('assets/js/script.js') }}"></script>
 
     </body>
 </html>

@@ -16,15 +16,15 @@
         <!-- google fonts -->
         <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
-        <link href='fontawesome-free-5.15.1-web/css/all.css' rel='stylesheet'>
+        <link rel="stylesheet" href="{{ asset('fontawesome-free-5.15.1-web/css/all.css') }}">
 
         <!-- files -->
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-        <link href="assets/css/magnific-popup.css" rel="stylesheet">
-        <link href="assets/css/owl.carousel.css" rel="stylesheet">
-        <link href="assets/css/owl.carousel.theme.min.css" rel="stylesheet">
-        <link href="assets/css/ionicons.css" rel="stylesheet">
-        <link href="assets/css/main.css" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.theme.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/ionicons.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 
     </head>
     <body>
@@ -34,7 +34,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6">
-                        <a href="index.html"><img src="assets/images/logo.png" alt="logo"></a>
+                        <a href="{{route('indexIndex')}}"><img src="{{ asset('assets/images/logo.png') }}" alt="logo"></a>
                     </div>
                     <div class="col-sm-3 col-sm-offset-3 text-right">
 
@@ -65,7 +65,7 @@
                                 </div>
                                 {{ csrf_field() }}
                         </div>-->
-                        <form action="index.html" id="form-data" class="input-group" method="post" data-route="{{ route('search.fetch') }}">
+                        <form action="{{route('indexIndex')}}" id="form-data" class="input-group" method="post" data-route="{{ route('search.fetch') }}">
                             {{ csrf_field() }}
                             <input type="text" name="Naziv_proizvoda" id="Naziv_proizvoda" 
                                 class="form-control" placeholder="Search..." autocomplete="off"> 
@@ -98,24 +98,18 @@
 
                         <div class="collapse navbar-collapse" id="site-nav-bar">
                             <ul class="nav navbar-nav">
-                                <li class="active"><a href="index.html">Početna</a></li>
-                                <li><a href="Onama.html">O nama</a></li>
-                                <li><a href="Laptopi.html"><b><i><u>Laptopi</u></i></b></a></li>
-                                <li><a href="Računala.html"><b><i><u>Računala</u></i></b></a></li>
-                                <li><a href="Oprema.html"><b><i><u>Oprema</u></i></b></a></li>
-                                <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
-                                <!-- @if(!Session::has('Ime'))  ako sesija nije uspostavljena, ostaju signup i login gumbovi --->
-                                <li><a href="login.html" style="margin: 0; padding: 0;">
+                                <li class="active"><a href="{{route('indexIndex')}}">Početna</a></li>
+                                <li><a href="{{route('oNama')}}">O nama</a></li>
+                                <li><a href="{{route('laptopi')}}"><b><i><u>Laptopi</u></i></b></a></li>
+                                <li><a href="{{route('racunala')}}"><b><i><u>Računala</u></i></b></a></li>
+                                <li><a href="{{route('oprema')}}"><b><i><u>Oprema</u></i></b></a></li>
+                                <li><a href="{{ asset('assets\TJ-tech, vizija.pdf') }}">Vizija</a></li>
+                                <li><a href="{{route('loginIndex')}}" style="margin: 0; padding: 0;">
                                     <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;">Login</button>
                                 </a></li>
-                                <li><a href="signup.html" style="margin: 0; padding: 0;">
+                                <li><a href="{{route('singUpIndex')}}" style="margin: 0; padding: 0;">
                                     <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;">Signup</button>
-                                </a></li>
-                               <!-- @else  ako je sesija uspostavljena, pojavljuje se gumb za odjavu
-                                <li><a href="index.html" style="margin: 0; padding: 0;">
-                                    <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;" >Odjava {{Session::forget('Ime')}}</button>
-                                </a></li>
-                                @endif-->  
+                                </a></li> 
                             </ul>
                         </div><!-- /.navbar-collapse -->
                     </nav>
@@ -150,24 +144,24 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="porduct-box">
-                            <img class="img-responsive" src="assets/images/product-1.jpg" alt="product">
-                            <a href="Laptopi.html" class="btn btn-default btn-robot"><h3>Laptopi</h3></a>
+                            <img class="img-responsive" src="{{ asset('assets/images/product-1.jpg') }}" alt="product">
+                            <a href="{{route('laptopi')}}" class="btn btn-default btn-robot"><h3>Laptopi</h3></a>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="porduct-box">
-                            <img class="img-responsive" src="assets/images/product-2.jpg" alt="product">
-                            <a href="Računala.html" class="btn btn-default btn-robot"><h3>Računala</h3></a>
+                            <img class="img-responsive" src="{{ asset('assets/images/product-2.jpg') }}" alt="product">
+                            <a href="{{route('racunala')}}" class="btn btn-default btn-robot"><h3>Računala</h3></a>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="porduct-box">
-                            <img class="img-responsive" src="assets/images/product-3.jpg" alt="product">
-                            <a href="Oprema.html" class="btn btn-default btn-robot"><h3>Oprema</h3></a>
+                            <img class="img-responsive" src="{{ asset('assets/images/product-3.jpg') }}" alt="product">
+                            <a href="{{route('oprema')}}" class="btn btn-default btn-robot"><h3>Oprema</h3></a>
                         </div>
                     </div>
                 </div>
-
+                
                 <!-- Why we are the best -->
 
                 <div class="row">
@@ -201,12 +195,13 @@
                             <p>
                                 Mi smo shop koji nosi korijene iz Mostara sa fakulteta Računarstva FSRE, gdje smo dobili sve vještine koje su nam potrebne
                                 da ostvarimo naš TJ-tech shop. Zašto "TJ"? Jednostavno je i kratko, po kreatorima: Vinko-<b>T</b>ino Zlopaša i <b>J</b>ure Bakula.
-                                Za više informacija pogledajte <a href="assets\TJ-tech, vizija.pdf" style="color: #fabe12;"><u><b>VIZIJU</b></u></a>. 
+                                Za više informacija pogledajte <a href="{{ asset('assets\TJ-tech, vizija.pdf') }}" style="color: #fabe12;"><u><b>VIZIJU</b></u></a>. 
                             </p>
                         </div>
+                        
                         <div class="col-sm-12">
                             <a href="http://fsre.sum.ba/naslovnica" target="new tab">
-                                <img class="img-responsive" src="assets/images/history.jpg" alt="history">
+                                <img class="img-responsive" src="{{ asset('assets/images/history.jpg') }}" alt="history">
                             </a>
                         </div>
                     </div>
@@ -243,12 +238,12 @@
                     <div class="col-sm-4">
                         <h3>Korisne informacije</h3>
                         <ul>
-                            <li><a href="Onama.html">O nama</a></li>
-                            <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
-                            <li><a href="index.html">Početna</a></li>
-                            <li><a href="Laptopi.html">Laptopi</a></li>
-                            <li><a href="Računala.html">Računala</a></li>
-                            <li><a href="Oprema.html">Oprema</a></li>
+                            <li><a href="{{route('oNama')}}">O nama</a></li>
+                            <li><a href="{{ asset('assets\TJ-tech, vizija.pdf') }}">Vizija</a></li>
+                            <li><a href="{{route('indexIndex')}}">Početna</a></li>
+                            <li><a href="{{route('laptopi')}}">Laptopi</a></li>
+                            <li><a href="{{route('racunala')}}">Računala</a></li>
+                            <li><a href="{{route('oprema')}}">Oprema</a></li>
                         </ul>
                     </div>
                 </div>
@@ -259,41 +254,10 @@
         </footer>
 
     <!-- Scripts -->
-        <script src="assets/js/jquery-1.12.3.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/jquery.magnific-popup.min.js"></script>
-        <script src="assets/js/owl.carousel.min.js"></script>
-        <script src="assets/js/script.js"></script>
-        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js" integrity="sha512-HWlJyU4ut5HkEj0QsK/IxBCY55n5ZpskyjVlAoV9Z7XQwwkqXoYdCIC93/htL3Gu5H3R4an/S0h2NXfbZk3g7w==" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
- 
- 
--->
-<!--
-<script>
-    $(document).ready(function(){
-        $('#Naziv_proizvoda').keyup(function(){ 
-        var query = $(this).val();
-        if(query != '')
-        {
-         var _token = $('input[name="_token"]').val();
-         $.ajax({
-          url:"{{ route('search.fetch') }}",
-          method:"POST",
-          data:{query:query, _token:_token},
-          success:function(data){
-           $('#countryList').fadeIn();  
-            $('#countryList').html(data);
-          }
-         });
-        }
-    });
-
-    $(document).on('click', 'li', function(){  
-        $('#Naziv_proizvoda').val($(this).text());  
-        $('#countryList').fadeOut();  
-    });    
-});
-</script>   -->
+        <script  src="{{ asset('assets/js/jquery-1.12.3.min.js') }}"></script>
+        <script  src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+        <script  src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
+        <script  src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+        <script  src="{{ asset('assets/js/script.js') }}"></script>
     </body>
 </html>

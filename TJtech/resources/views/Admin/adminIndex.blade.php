@@ -13,15 +13,15 @@
         <!-- google fonts -->
         <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
-        <link href='fontawesome-free-5.15.1-web/css/all.css' rel='stylesheet'>
+        <link rel="stylesheet" href="{{ asset('fontawesome-free-5.15.1-web/css/all.css') }}">
 
         <!-- files -->
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-        <link href="assets/css/magnific-popup.css" rel="stylesheet">
-        <link href="assets/css/owl.carousel.css" rel="stylesheet">
-        <link href="assets/css/owl.carousel.theme.min.css" rel="stylesheet">
-        <link href="assets/css/ionicons.css" rel="stylesheet">
-        <link href="assets/css/main.css" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.theme.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/ionicons.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 
     </head>
     <body>
@@ -31,10 +31,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6">
-                        <a href="{{route('adminProfile')}}"><img src="assets/images/logo.png" alt="logo"></a>
+                        <a href="{{route('adminProfile')}}"><img src="{{ asset('assets/images/logo.png') }}" alt="logo"></a>
                     </div>
                     <div class="col-sm-3 col-sm-offset-3 text-right">
-
+                    
                         <!--Košarica i User-->
                         <div class="admin-dropdown-user">
                             <span style="padding-right: 10px;">{{$LogiraniKorisnikPodaci->Ime_prezime}}</span><button><i class="fas fa-user btn btn-default user"></i></button><br>
@@ -83,7 +83,8 @@
                                 <li><a href="{{route('laptopiAdmin')}}"><b><i><u>Laptopi</u></i></b></a></li>
                                 <li><a href="{{route('racunalaAdmin')}}"><b><i><u>Računala</u></i></b></a></li>
                                 <li><a href="{{route('opremaAdmin')}}"><b><i><u>Oprema</u></i></b></a></li>
-                                <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
+                                <li><a href="{{ asset('assets\TJ-tech, vizija.pdf') }}">Vizija</a></li>
+                                
                                 <!--
                                 <li><a href="login.html" style="margin: 0; padding: 0;">
                                     <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;">Login</button>
@@ -126,24 +127,24 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="porduct-box">
-                            <img class="img-responsive" src="assets/images/product-1.jpg" alt="product">
-                            <a href="adminLaptopi.html" class="btn btn-default btn-robot"><h3>Laptopi</h3></a>
+                            <img class="img-responsive" src="{{ asset('assets/images/product-1.jpg') }}" alt="product">
+                            <a href="{{route('laptopiAdmin')}}" class="btn btn-default btn-robot"><h3>Laptopi</h3></a>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="porduct-box">
-                            <img class="img-responsive" src="assets/images/product-2.jpg" alt="product">
-                            <a href="adminRačunala.html" class="btn btn-default btn-robot"><h3>Računala</h3></a>
+                            <img class="img-responsive" src="{{ asset('assets/images/product-2.jpg') }}" alt="product">
+                            <a href="{{route('racunalaAdmin')}}" class="btn btn-default btn-robot"><h3>Računala</h3></a>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="porduct-box">
-                            <img class="img-responsive" src="assets/images/product-3.jpg" alt="product">
-                            <a href="adminOprema.html" class="btn btn-default btn-robot"><h3>Oprema</h3></a>
+                            <img class="img-responsive" src="{{ asset('assets/images/product-3.jpg') }}" alt="product">
+                            <a href="{{route('opremaAdmin')}}" class="btn btn-default btn-robot"><h3>Oprema</h3></a>
                         </div>
                     </div>
                 </div>
-
+                
                 <!-- Why we are the best -->
 
                 <div class="row">
@@ -182,17 +183,14 @@
                         </div>
                         <div class="col-sm-12">
                             <a href="http://fsre.sum.ba/naslovnica" target="new tab">
-                                <img class="img-responsive" src="assets/images/history.jpg" alt="history">
+                                <img class="img-responsive" src="{{ asset('assets/images/history.jpg') }}" alt="history">
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
-    
-
-
+        
     <!-- Footer -->
         <section id="footer-widget" class="footer-widget">
             <div class="container header-bg">
@@ -220,7 +218,7 @@
                         <h3>Korisne informacije</h3>
                         <ul>
                         <li><a href="{{route('OnamaAdmin')}}">O nama</a></li>
-                        <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
+                        <li><a href="{{ asset('assets\TJ-tech, vizija.pdf') }}">Vizija</a></li>
                         <li><a href="{{route('adminProfile')}}">Početna</a></li>
                         <li><a href="{{route('laptopiAdmin')}}">Laptopi</a></li>
                         <li><a href="{{route('racunalaAdmin')}}">Računala</a></li>
@@ -233,11 +231,11 @@
         <footer class="footer text-center">
             <h3>Copyright &copy; 2021 My Website</h3>
         </footer>
-
+        
     <!-- Scripts -->
-        <script src="assets/js/jquery-1.12.3.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/jquery.magnific-popup.min.js"></script>
-        <script src="assets/js/owl.carousel.min.js"></script>
-        <script src="assets/js/script.js"></script>
+        <script  src="{{ asset('assets/js/jquery-1.12.3.min.js') }}"></script>
+        <script  src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+        <script  src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
+        <script  src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+        <script  src="{{ asset('assets/js/script.js') }}"></script>
     </body>
