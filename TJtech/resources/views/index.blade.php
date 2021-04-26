@@ -16,15 +16,15 @@
         <!-- google fonts -->
         <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
-        <link href='fontawesome-free-5.15.1-web/css/all.css' rel='stylesheet'>
+        <link rel="stylesheet" href="{{ asset('fontawesome-free-5.15.1-web/css/all.css') }}">
 
         <!-- files -->
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-        <link href="assets/css/magnific-popup.css" rel="stylesheet">
-        <link href="assets/css/owl.carousel.css" rel="stylesheet">
-        <link href="assets/css/owl.carousel.theme.min.css" rel="stylesheet">
-        <link href="assets/css/ionicons.css" rel="stylesheet">
-        <link href="assets/css/main.css" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.theme.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/ionicons.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 
     </head>
     <body>
@@ -259,41 +259,10 @@
         </footer>
 
     <!-- Scripts -->
-        <script src="assets/js/jquery-1.12.3.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/jquery.magnific-popup.min.js"></script>
-        <script src="assets/js/owl.carousel.min.js"></script>
-        <script src="assets/js/script.js"></script>
-        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js" integrity="sha512-HWlJyU4ut5HkEj0QsK/IxBCY55n5ZpskyjVlAoV9Z7XQwwkqXoYdCIC93/htL3Gu5H3R4an/S0h2NXfbZk3g7w==" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
- 
- 
--->
-<!--
-<script>
-    $(document).ready(function(){
-        $('#Naziv_proizvoda').keyup(function(){ 
-        var query = $(this).val();
-        if(query != '')
-        {
-         var _token = $('input[name="_token"]').val();
-         $.ajax({
-          url:"{{ route('search.fetch') }}",
-          method:"POST",
-          data:{query:query, _token:_token},
-          success:function(data){
-           $('#countryList').fadeIn();  
-            $('#countryList').html(data);
-          }
-         });
-        }
-    });
-
-    $(document).on('click', 'li', function(){  
-        $('#Naziv_proizvoda').val($(this).text());  
-        $('#countryList').fadeOut();  
-    });    
-});
-</script>   -->
+        <script  src="{{ asset('assets/js/jquery-1.12.3.min.js') }}"></script>
+        <script  src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+        <script  src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
+        <script  src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+        <script  src="{{ asset('assets/js/script.js') }}"></script>
     </body>
 </html>

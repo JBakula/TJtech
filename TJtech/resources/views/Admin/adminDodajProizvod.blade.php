@@ -13,15 +13,15 @@
         <!-- google fonts -->
         <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
-        <link href='fontawesome-free-5.15.1-web/css/all.css' rel='stylesheet'>
+        <link rel="stylesheet" href="{{ asset('fontawesome-free-5.15.1-web/css/all.css') }}">
 
         <!-- files -->
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-        <link href="assets/css/magnific-popup.css" rel="stylesheet">
-        <link href="assets/css/owl.carousel.css" rel="stylesheet">
-        <link href="assets/css/owl.carousel.theme.min.css" rel="stylesheet">
-        <link href="assets/css/ionicons.css" rel="stylesheet">
-        <link href="assets/css/main.css" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.theme.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/ionicons.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 
     </head>
     <body>
@@ -108,40 +108,45 @@
                     <div class="pomLaptop">
                         <button id="dLaptop" class="btn btn-default btn-robot">Laptop</button>
                         <div class="dodajLaptop">
-                            <form>
+                            <form action="{{route('dodajLaptop')}}" method="POST"> 
                                 <label for="na" class="svakiLabel">
                                     Slika laptopa:<br>
-                                    <input type="text" name="na">
+                                    <input type="text" name="slikaLaptopa">
+                                </label><br>
+                                <hr>
+                                <label for="na" class="svakiLabel">
+                                    Uvecana slika laptopa:<br>
+                                    <input type="text" name="uvecanaSlikaLaptopa">
                                 </label><br>
                                 <hr>
                                 <label for="na" class="svakiLabel">
                                     Naziv laptopa: <br>
-                                    <input type="text" name="na">
+                                    <input type="text" name="nazivLaptopa">
                                 </label><br>
                                 <hr>
                                 <label for="na" class="svakiLabel">
                                     CPU laptopa: <br>
-                                    <input type="text" name="na">
+                                    <input type="text" name="cpu">
                                 </label><br>
                                 <hr>
                                 <label for="na" class="svakiLabel">
                                     RAM laptopa: <br>
-                                    <input type="text" name="na">
+                                    <input type="text" name="ram">
                                 </label><br>
                                 <hr>
                                 <label for="na" class="svakiLabel">
                                     Memorija laptopa: <br>
-                                    <input type="text" name="na">
+                                    <input type="text" name="memorija">
                                 </label><br>
                                 <hr>
                                 <label for="na" class="svakiLabel">
                                     Grafička laptopa: <br>
-                                    <input type="text" name="na">
+                                    <input type="text" name="graficka">
                                 </label><br>
                                 <hr>
                                 <label for="na" class="svakiLabel">
                                     Cijena laptopa: <br>
-                                    <input type="text" name="na">
+                                    <input type="text" name="cijenaLaptopa">
                                 </label><br>
                                 <hr>
                                 <div class="dodaj">
@@ -155,40 +160,45 @@
                     <div class="pomRacunalo">
                         <button id="dRacunalo" class="btn btn-default btn-robot">Računalo</button>
                         <div class="dodajRacunalo">
-                            <form>
+                            <form action="{{route('dodajRacunalo')}}" method="POST">
                                 <label for="na" class="svakiLabel">
                                     Slika računala: <br>
-                                    <input type="text" name="na">
+                                    <input type="text" name="slikaRac">
+                                </label><br>
+                                <hr>
+                                <label for="na" class="svakiLabel">
+                                    Uvecana slika računala: <br>
+                                    <input type="text" name="velikaSlikaRac">
                                 </label><br>
                                 <hr>
                                 <label for="na" class="svakiLabel">
                                     Naziv računala: <br>
-                                    <input type="text" name="na">
+                                    <input type="text" name="nazivRac">
                                 </label><br>
                                 <hr>
                                 <label for="na" class="svakiLabel">
                                     CPU računala: <br>
-                                    <input type="text" name="na">
+                                    <input type="text" name="cpuRac">
                                 </label><br>
                                 <hr>
                                 <label for="na" class="svakiLabel">
                                     RAM računala: <br>
-                                    <input type="text" name="na">
+                                    <input type="text" name="ramRac">
                                 </label><br>
                                 <hr>
                                 <label for="na" class="svakiLabel">
                                     Memorija računala: <br>
-                                    <input type="text" name="na">
+                                    <input type="text" name="memorijaRac">
                                 </label><br>
                                 <hr>
                                 <label for="na" class="svakiLabel">
                                     Grafička računala: <br>
-                                    <input type="text" name="na">
+                                    <input type="text" name="grafickaRac">
                                 </label><br>
                                 <hr>
                                 <label for="na" class="svakiLabel">
                                     Cijena računala: <br>
-                                    <input type="text" name="na">
+                                    <input type="text" name="cijenaRac">
                                 </label>
                                 <hr>
                                 <div class="dodaj">
@@ -202,27 +212,28 @@
                     <div class="pomOprema">
                         <button id="dOprema" class="btn btn-default btn-robot">Oprema</button>
                         <div class="dodajOpremu">
-                            <form>
+                            <form action="{{route('dodajOpremu')}}" method='POST'>
                                 <label for="na" class="svakiLabel">
                                     Slika proizvoda: <br>
-                                    <input type="text" name="na">
+                                    <input type="text" name="slika">
+                                </label><br>
+                                <hr>
+                                <label for="na" class="svakiLabel">
+                                    Uvećana slika proizvoda: <br>
+                                    <input type="text" name="velikaSlika">
                                 </label><br>
                                 <hr>
                                 <label for="na" class="svakiLabel">
                                     Naziv proizvoda i opis: <br>
-                                    <input type="text" name="na">
+                                    <input type="text" name="naziv">
                                 </label><br>
                                 <hr>
                                 <label for="na" class="svakiLabel">
                                     Cijena proizvoda: <br>
-                                    <input type="text" name="na">
+                                    <input type="text" name="cijena">
                                 </label><br>
                                 <hr>
-                                <label for="na" class="svakiLabel">
-                                    Cijena proizvoda: <br>
-                                    <input type="text" name="na">
-                                </label>
-                                <hr>
+                                
                                 <div class="dodaj">
                                     <button class="btn btn-default btn-robot">Dodaj</button>
                                 </div>
@@ -276,9 +287,9 @@
         </footer>
 
     <!-- Scripts -->
-        <script src="assets/js/jquery-1.12.3.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/jquery.magnific-popup.min.js"></script>
-        <script src="assets/js/owl.carousel.min.js"></script>
-        <script src="assets/js/script.js"></script>
+        <script  src="{{ asset('assets/js/jquery-1.12.3.min.js') }}"></script>
+        <script  src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+        <script  src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
+        <script  src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+        <script  src="{{ asset('assets/js/script.js') }}"></script>
     </body>

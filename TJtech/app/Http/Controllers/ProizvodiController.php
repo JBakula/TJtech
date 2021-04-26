@@ -7,11 +7,15 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Kosarica;
 use App\Models\Korisnik;
 use App\Models\Racunalo;
+use App\Models\Kupovina;
 use Illuminate\Support\Facades\Session;
 class ProizvodiController extends Controller
 {
     public function index(){
         return view('oprema'); 
+    }
+    public function indexZahvala(){
+        return view('User.userZahvala'); 
     }/*
     function prikazOpreme(){
         $data = DB::table('opremas')->get();
@@ -144,6 +148,117 @@ class ProizvodiController extends Controller
         }else{
             echo "Ooop, dogodila se pogreska";
         }
+    }
+    
+    function kupi(Request $request){
+        $idKorisnika=Session::get('LogiraniKorisnik');
+        if(($request->address != null) && ($request->has('myRadioField'))){
+                $proizvodiIzKosare=DB::table('kosaricas')
+                ->join('racunalos','kosaricas.proizvod_fk','=','proizvod_id')
+                ->where('korisnik_fk','=',$idKorisnika)
+                ->get();
+            
+            foreach($proizvodiIzKosare as $items){
+                $buy=new Kupovina;
+                $buy->id_proizvoda=$items->proizvod_fk;
+                $buy->id_korisnika=$items->korisnik_fk;
+                $buy->Adresa=$request->address;
+                $buy->Nacin_placanja=$request->myRadioField;
+                $buy->Placeni_iznos=($items->Cijena * $items->Kolicina);
+                $buy->save();
+                DB::table('kosaricas')
+                ->where('korisnik_fk','=',$idKorisnika)
+                ->delete();
+            }
+            return redirect(route('zahvala'));
+        }else{
+            return redirect()->back();
+        }
+       
+        //return $request->input();
+    }
+    function ukloniProizvod($id){
+        DB::table('racunalos')
+            ->where('proizvod_id','=',$id)
+            ->delete();
+
+        return redirect()->back();
+    }
+    function dodajProizvod(){
+        if(session()->has('LogiraniKorisnik')){
+            $user=Korisnik::where('korisnik_id','=',session('LogiraniKorisnik'))->first();
+            $data=[
+                'LogiraniKorisnikPodaci'=>$user
+            ];
+        }
+        return view('Admin.adminDodajProizvod',$data);
+    }
+    function dodajOpremu(Request $request){
+        $this->validate($request,[
+            'slika'=>'required',
+            'naziv'=>'required',
+            'cijena'=>'required',
+            'velikaSlika'=>'required'
+        ]);
+
+        $novaOprema=new Racunalo;  
+        $novaOprema->Naziv_proizvoda=$request->naziv;
+        $novaOprema->Cijena=$request->cijena;
+        $novaOprema->Slika=$request->slika;
+        $novaOprema->Velika_slika=$request->velikaSlika;
+        $novaOprema->kategorija_fk=3;
+        $novaOprema->save();
+        return redirect()->back();
+    }
+    function dodajRacunalo(Request $request){
+        $this->validate($request,[
+            'slikaRac'=>'required',
+            'nazivRac'=>'required',
+            'cijenaRac'=>'required',
+            'velikaSlikaRac'=>'required',
+            'cpuRac'=>'required',
+            'ramRac'=>'required',
+            'memorijaRac'=>'required',
+            'grafickaRac'=>'required'
+        ]);
+
+        $novoRacunalo=new Racunalo;
+        $novoRacunalo->Naziv_proizvoda=$request->nazivRac;
+        $novoRacunalo->Cijena=$request->cijenaRac;
+        $novoRacunalo->Slika=$request->slikaRac;
+        $novoRacunalo->Velika_slika=$request->velikaSlikaRac;
+        $novoRacunalo->CPU=$request->cpuRac;
+        $novoRacunalo->RAM=$request->ramRac;
+        $novoRacunalo->Memorija=$request->memorijaRac;
+        $novoRacunalo->Graficka=$request->grafickaRac;
+        $novoRacunalo->kategorija_fk=1;
+        $novoRacunalo->save();
+        return redirect()->back();
+    }
+    function dodajLaptop(Request $request){
+        $this->validate($request,[
+            'slikaLaptopa'=>'required',
+            'nazivLaptopa'=>'required',
+            'cijenaLaptopa'=>'required',
+            'uvecanaSlikaLaptopa'=>'required',
+            'cpu'=>'required',
+            'ram'=>'required',
+            'memorija'=>'required',
+            'graficka'=>'required'
+        ]);
+ 
+        $noviLaptop=new Racunalo;
+        $noviLaptop->Naziv_proizvoda=$request->nazivLaptopa;
+        $noviLaptop->Cijena=$request->cijenaLaptopa;
+        $noviLaptop->Slika=$request->slikaLaptopa;
+        $noviLaptop->Velika_slika=$request->uvecanaSlikaLaptopa;
+        $noviLaptop->CPU=$request->cpu;
+        $noviLaptop->RAM=$request->ram;
+        $noviLaptop->Memorija=$request->memorija;
+        $noviLaptop->Graficka=$request->graficka;
+        $noviLaptop->kategorija_fk=2;
+        $noviLaptop->save();
+        return redirect()->back();
     }
 }
 

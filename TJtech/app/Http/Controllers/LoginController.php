@@ -52,7 +52,7 @@ class LoginController extends Controller
         }
         return view('User.userIndex',$data);
     }
-    function profileAdmin(){
+    function profileAdmin(){ 
         if(session()->has('LogiraniKorisnik')){
             $user=Korisnik::where('korisnik_id','=',session('LogiraniKorisnik'))->first();
             $data=[

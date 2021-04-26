@@ -18,15 +18,15 @@
         <!-- google fonts -->
         <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
-        <link href='fontawesome-free-5.15.1-web/css/all.css' rel='stylesheet'>
+        <link rel="stylesheet" href="{{ asset('fontawesome-free-5.15.1-web/css/all.css') }}">
 
         <!-- files -->
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-        <link href="assets/css/magnific-popup.css" rel="stylesheet">
-        <link href="assets/css/owl.carousel.css" rel="stylesheet">
-        <link href="assets/css/owl.carousel.theme.min.css" rel="stylesheet">
-        <link href="assets/css/ionicons.css" rel="stylesheet">
-        <link href="assets/css/main.css" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.theme.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/ionicons.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 
     </head>
     <body>
@@ -139,7 +139,7 @@
                                         <td class="kolicina">{{$item->Kolicina}}</td>
                                     </div>
                                     <div class="Gumbi">
-                                        <td class="jedan">
+                                        <td class="jedan"> 
                                             <form action="{{route('ukloniJedanProizvod',$item->proizvod_id)}}" method="GET">
                                             <!-- <a href="{{route('ukloniJedanProizvod',$item->kosarica_id)}}" class="fas fa-minus-circle"></a>-->
                                                 <button  class="fas fa-minus-circle">
@@ -162,34 +162,35 @@
                 </div>
                 <div class="col-sm-8 col-sm-offset-2 text-left">
                     <div class="nacinPlacanja">
-                        <form>
+                        <form action="{{route('buy')}}" method="POST" >
+                         @csrf
                             <div class="radioBox">
                                 <h3>Način plaćanja:</h3>
                                 <div class="row">
                                     <div class="col-sm-3">
                                         <label for="myRadioId1" class="radio">
-                                            <input type="radio" name="myRadioField" id="myRadioId1" class="radio__input">
+                                            <input type="radio" value="MasterCard" name="myRadioField" id="myRadioId1" class="radio__input">
                                             <div class="radio__radio"></div>
                                             Master Card
                                         </label>
                                     </div>
                                     <div class="col-sm-3">
                                         <label for="myRadioId2" class="radio">
-                                            <input type="radio" name="myRadioField" id="myRadioId2" class="radio__input">
+                                            <input type="radio" value="Visa" name="myRadioField" id="myRadioId2" class="radio__input">
                                             <div class="radio__radio"></div>
                                             Visa
                                         </label>
                                     </div>
                                     <div class="col-sm-3">
                                         <label for="myRadioId3" class="radio">
-                                            <input type="radio" name="myRadioField" id="myRadioId3" class="radio__input">
+                                            <input type="radio" value="Maestro" name="myRadioField" id="myRadioId3" class="radio__input">
                                             <div class="radio__radio"></div>
                                             Maestro
                                         </label>
                                     </div>
                                     <div class="col-sm-3">
                                         <label for="myRadioId4" class="radio">
-                                            <input type="radio" name="myRadioField" id="myRadioId4" class="radio__input">
+                                            <input type="radio" value="AmericanExpress" name="myRadioField" id="myRadioId4" class="radio__input">
                                             <div class="radio__radio"></div>
                                             American Express
                                         </label>
@@ -204,11 +205,12 @@
                                     </label>
                                 </div>
                             </div>
+                            <div class="Kupi">
+                                <h2>Ukupna cijena proizvoda u košarici: <u>{{$ukupnaCijena}}</u> KM</h2>
+                                <button class="btn btn-default btn-robot">Kupi
+                            </div>
                         </form>
-                        <div class="Kupi">
-                            <h2>Ukupna cijena proizvoda u košarici: <u>{{$ukupnaCijena}}</u> KM</h2>
-                            <button class="btn btn-default btn-robot">Kupi
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -258,10 +260,10 @@
         </footer>
 
     <!-- Scripts -->
-        <script src="assets/js/jquery-1.12.3.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/jquery.magnific-popup.min.js"></script>
-        <script src="assets/js/owl.carousel.min.js"></script>
-        <script src="assets/js/script.js"></script>
+        <script  src="{{ asset('assets/js/jquery-1.12.3.min.js') }}"></script>
+        <script  src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+        <script  src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
+        <script  src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+        <script  src="{{ asset('assets/js/script.js') }}"></script>
     </body>
 </html>

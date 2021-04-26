@@ -36,9 +36,7 @@ Route::get('/userNemaproizvoda.html',function(){
 Route::get('/adminNemaproizvoda.html',function(){
     return view('Admin.adminNemaproizvoda');
 });
-/*Route::get('/Računala.html', function () {
-    return view('racunala'); 
-});*/
+
   
 Route::get('Oprema.html',[PrikazProizvodaController::class,'prikazOpreme'])->name('oprema');
 Route::get('Laptopi.html',[PrikazProizvodaController::class,'prikazLaptopa'])->name('laptopi');
@@ -47,7 +45,7 @@ Route::get('signup.html', [SignUpController::class,'index']);
 Route::get('login.html', [LoginController::class,'index']);
 Route::post('login.html',[LoginController::class,'check'])->name('provjera');
 Route::post('signup.html', [SignUpController::class,'store'])->name('spremi');
-Route::get('userIndex.html',[LoginController::class,'profile']);
+Route::get('userIndex.html',[LoginController::class,'profile'])->name('userProfile');
 Route::get('adminIndex.html',[LoginController::class,'profileAdmin'])->name('adminProfile');
 Route::get('userLaptopi.html',[PrikazProizvodaController::class,'userLaptopi'])->name('laptopiUser');
 Route::get('adminLaptopi.html',[LoginController::class,'adminLaptopi'])->name('laptopiAdmin');
@@ -79,4 +77,18 @@ Route::get('adminProizvodi.html',[PrikazProizvodaController::class,'adminUpravlj
 Route::get('userPunaKosarica.html/{idProizvoda}',[ProizvodiController::class,'izbrisiJedanModel'])->name('ukloniJedanProizvod');
 Route::post('userPunaKosarica.html/{id}',[ProizvodiController::class,'dodajJedanModel'])->name('dodajJedan');
 //Route::get('/removecart/{id}',[ProizvodiController::class,'izbrisiJedanModel'])->name('ukloniJedan');
+Route::post('userPunaKosarica.html',[ProizvodiController::class,'kupi'])->name('buy');
+Route::get('userZahvala.html',[ProizvodiController::class,'indexZahvala'])->name('zahvala');
+//Route::get('adminUrediKorisnika.html',[ProizvodiController::class,'indexUrediKorisnika'])->name('indexUrediKorisnika');
+//Route::get('adminUrediKorisnika.html',[KorisniciController::class,'urediKorisnikaIndex'])->name('urediKorisnikaIndex');
+Route::get('adminUrediKorisnika.html/{idKorisnika}',[KorisniciController::class,'urediKorisnika'])->name('urediKorisnika');
+Route::get('adminUrediKorisnika.html',[KorisniciController::class,'promijeniImeKorisnika'])->name('promijeniImeKorisnika');
+Route::post('adminUrediKorisnika.html',[KorisniciController::class,'promijeniLozinku'])->name('promijeniLozinku');
+Route::post('adminUrediKorisnika.html/ukloniKorisnika',[KorisniciController::class,'ukloniKorisnika'])->name('ukloniKorisnika');
+//Route::get('adminUrediKorisnika.html',[KorisniciController::class,'ukloniKorisnika'])->name('ukloniKorisnika');
+Route::get('adminProizvodi.html/{id}',[ProizvodiController::class,'ukloniProizvod'])->name('ukloniProizvod');
+Route::get('adminDodajProizvod.html',[ProizvodiController::class,'dodajProizvod'])->name('dodajProizvod');
+Route::post('adminDodajProizvod.html',[ProizvodiController::class,'dodajOpremu'])->name('dodajOpremu');
+Route::post('adminDodajProizvod.html/dodajRacunalo',[ProizvodiController::class,'dodajRacunalo'])->name('dodajRacunalo');
+Route::post('adminDodajProizvod.html/dodajLaptop',[ProizvodiController::class,'dodajLaptop'])->name('dodajLaptop');
 Route::get('logout',[LoginController::class,'logout']); 
