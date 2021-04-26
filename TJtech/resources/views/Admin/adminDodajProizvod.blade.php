@@ -40,7 +40,7 @@
                             <span style="padding-right: 10px;">{{$LogiraniKorisnikPodaci->Ime_prezime}}</span><button><i class="fas fa-user btn btn-default user"></i></button><br>
                             <ul>
                                 <li><a href="logout">Logout</a></li>
-                                <li><a href="{{route('adminUpravljanjeProizvodima')}}">Proizvodi</a></li> 
+                                <li><a href="{{route('adminUpravljanjeProizvodima')}}">Proizvodi</a></li>
                                 <li><a href="{{route('korisniciAdmin')}}">Korisnici</a></li>
                             </ul>
                         </div>
@@ -100,49 +100,150 @@
         </section> <!-- /#header -->
 
     <!-- Proizvodi -->
-    <section id="Korisnici">
+    
+    <section id="dodajProizvod">
         <div class="container">
-            <div class="table-responsive">
-                <table class="tablaKorisnici">
-                <tr>
-                    <th>Ime Prezime</th>
-                    <th>Email</th>
-                    <th style="text-align: center;">Lozinka</th>
-                    <th style="text-align: center;">Uloga</th>
-                    <th style="text-align: center;">Uredi</th>
-                </tr>
-                    @foreach($korisnici as $item)
-
-                            @if($item->Uloga == "admin")
-                            <div class="row">
-                                <tr class="adminDio">
-                                    <td>{{$item->Ime_prezime}}</td>
-                                    <td>{{$item->Email}}</td>
-                                    <td style="text-align: center;">{{$item->Lozinka}}</td>
-                                    <td style="text-align: center;">{{$item->Uloga}}</td>
-                                </tr>
-                            </div>
-                            @else
-                            <div class="row">
-                            <tr>
-                                    <td>{{$item->Ime_prezime}}</td>
-                                    <td>{{$item->Email}}</td>
-                                    <td style="text-align: center;">{{$item->Lozinka}}</td>
-                                    <td style="text-align: center;">{{$item->Uloga}}</td>
-                                    <td>
-                                        <form action="{{route('urediKorisnika',$item->korisnik_id)}}" method="GET">
-                                            <button  class="fas fa-user-edit">
-                                        </form>
-                                    </td>
-                                </tr>
-                            </div>
-                            @endif
-
-                    @endforeach
-                </table>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="pomLaptop">
+                        <button id="dLaptop" class="btn btn-default btn-robot">Laptop</button>
+                        <div class="dodajLaptop">
+                            <form action="{{route('dodajLaptop')}}" method="POST"> 
+                                <label for="na" class="svakiLabel">
+                                    Slika laptopa:<br>
+                                    <input type="text" name="slikaLaptopa">
+                                </label><br>
+                                <hr>
+                                <label for="na" class="svakiLabel">
+                                    Uvecana slika laptopa:<br>
+                                    <input type="text" name="uvecanaSlikaLaptopa">
+                                </label><br>
+                                <hr>
+                                <label for="na" class="svakiLabel">
+                                    Naziv laptopa: <br>
+                                    <input type="text" name="nazivLaptopa">
+                                </label><br>
+                                <hr>
+                                <label for="na" class="svakiLabel">
+                                    CPU laptopa: <br>
+                                    <input type="text" name="cpu">
+                                </label><br>
+                                <hr>
+                                <label for="na" class="svakiLabel">
+                                    RAM laptopa: <br>
+                                    <input type="text" name="ram">
+                                </label><br>
+                                <hr>
+                                <label for="na" class="svakiLabel">
+                                    Memorija laptopa: <br>
+                                    <input type="text" name="memorija">
+                                </label><br>
+                                <hr>
+                                <label for="na" class="svakiLabel">
+                                    Grafička laptopa: <br>
+                                    <input type="text" name="graficka">
+                                </label><br>
+                                <hr>
+                                <label for="na" class="svakiLabel">
+                                    Cijena laptopa: <br>
+                                    <input type="text" name="cijenaLaptopa">
+                                </label><br>
+                                <hr>
+                                <div class="dodaj">
+                                    <button class="btn btn-default btn-robot">Dodaj</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="pomRacunalo">
+                        <button id="dRacunalo" class="btn btn-default btn-robot">Računalo</button>
+                        <div class="dodajRacunalo">
+                            <form action="{{route('dodajRacunalo')}}" method="POST">
+                                <label for="na" class="svakiLabel">
+                                    Slika računala: <br>
+                                    <input type="text" name="slikaRac">
+                                </label><br>
+                                <hr>
+                                <label for="na" class="svakiLabel">
+                                    Uvecana slika računala: <br>
+                                    <input type="text" name="velikaSlikaRac">
+                                </label><br>
+                                <hr>
+                                <label for="na" class="svakiLabel">
+                                    Naziv računala: <br>
+                                    <input type="text" name="nazivRac">
+                                </label><br>
+                                <hr>
+                                <label for="na" class="svakiLabel">
+                                    CPU računala: <br>
+                                    <input type="text" name="cpuRac">
+                                </label><br>
+                                <hr>
+                                <label for="na" class="svakiLabel">
+                                    RAM računala: <br>
+                                    <input type="text" name="ramRac">
+                                </label><br>
+                                <hr>
+                                <label for="na" class="svakiLabel">
+                                    Memorija računala: <br>
+                                    <input type="text" name="memorijaRac">
+                                </label><br>
+                                <hr>
+                                <label for="na" class="svakiLabel">
+                                    Grafička računala: <br>
+                                    <input type="text" name="grafickaRac">
+                                </label><br>
+                                <hr>
+                                <label for="na" class="svakiLabel">
+                                    Cijena računala: <br>
+                                    <input type="text" name="cijenaRac">
+                                </label>
+                                <hr>
+                                <div class="dodaj">
+                                    <button class="btn btn-default btn-robot">Dodaj</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="pomOprema">
+                        <button id="dOprema" class="btn btn-default btn-robot">Oprema</button>
+                        <div class="dodajOpremu">
+                            <form action="{{route('dodajOpremu')}}" method='POST'>
+                                <label for="na" class="svakiLabel">
+                                    Slika proizvoda: <br>
+                                    <input type="text" name="slika">
+                                </label><br>
+                                <hr>
+                                <label for="na" class="svakiLabel">
+                                    Uvećana slika proizvoda: <br>
+                                    <input type="text" name="velikaSlika">
+                                </label><br>
+                                <hr>
+                                <label for="na" class="svakiLabel">
+                                    Naziv proizvoda i opis: <br>
+                                    <input type="text" name="naziv">
+                                </label><br>
+                                <hr>
+                                <label for="na" class="svakiLabel">
+                                    Cijena proizvoda: <br>
+                                    <input type="text" name="cijena">
+                                </label><br>
+                                <hr>
+                                
+                                <div class="dodaj">
+                                    <button class="btn btn-default btn-robot">Dodaj</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section> 
+    </section>
 
     <!-- Footer -->
         <section id="footer-widget" class="footer-widget">

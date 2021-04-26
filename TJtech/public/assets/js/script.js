@@ -202,4 +202,37 @@ $(document).ready(function(){
         })
     //END OF SEARCH-BAR
 
+    // Paying method
+        $(".Kupi button").click(function(e){
+            e.preventDefault;
+            console.log("OK");
+            var inpRadio = $("input[name='myRadioField']:checked").val();
+            var inpAdresa = $("input[name='address']").val();
+            if(!inpRadio){
+                alert("Molimo ptvrdite način plaćanja.");
+            }else if(!inpAdresa){
+                alert("Molimo upišite adresu.");
+            }
+        })
+    // PAYING METHOD END
+
+    // Admin Proizvodi
+        $(".dodajLaptop").hide();
+        $(".dodajRacunalo").hide();
+        $(".dodajOpremu").hide();
+
+
+        $("#dLaptop").click(function(){
+            $(".dodajLaptop").slideToggle('slow');
+        });
+        $("#dRacunalo").click(function(){
+            $(".dodajRacunalo").slideToggle('slow');
+        });
+        $("#dOprema").click(function(){
+            console.log("Halo");
+            $(".dodajOpremu").slideToggle('slow');
+        });
+    // ADMIN PROIZVODI KRAJ
+
+
 }); // end of $(document).ready(function()

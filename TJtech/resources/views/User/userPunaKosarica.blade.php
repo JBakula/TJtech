@@ -85,7 +85,7 @@
 
                         <div class="collapse navbar-collapse" id="site-nav-bar">
                             <ul class="nav navbar-nav">
-                                <li class="active"><a href="userIndex.html">Početna</a></li>
+                                <li><a href="userIndex.html">Početna</a></li>
                                 <li><a href="userOnama.html">O nama</a></li>
                                 <li><a href="userLaptopi.html"><b><i><u>Laptopi</u></i></b></a></li>
                                 <li><a href="userRacunala.html"><b><i><u>Računala</u></i></b></a></li>
@@ -120,33 +120,101 @@
         
         <section id="Kosarica">
             <div class="container">
-                <div class="Kupljeno">
-                    <span class="opcijeProizvoda"><h3>Naziv Proizvoda - Cijena</h3><h3>Količina</h3><h3>Ukloni - Dodaj</h3></span>
-            @foreach($PodaciKosaraUser as $item)              
-                    <div class="row">
-                        <div class="PunaKosara">
-                            <div class="Proizvodi">
-                                <h3>  {{$item->Naziv_proizvoda}} - {{$item->Cijena*$item->Kolicina}} KM   {{$item->Kolicina}}</h3>
+                <div class="table-responsive">
+                    <table class="tabla">
+                        <!--<span class="opcijeProizvoda"><h3>Naziv Proizvoda - Cijena</h3><h3>Količina</h3><h3>Ukloni - Dodaj</h3></span>-->
+                        <tr>
+                            <th>Naziv Proizvoda</th>
+                            <th>Cijena</th>
+                            <th>Količina</th>
+                            <th colspan="2">Ukloni - Dodaj</th>
+                        </tr>
+                        @foreach($PodaciKosaraUser as $item)    
+                        <tr>          
+                            <div class="row">
+                                <div class="PunaKosara">
+                                    <div class="Proizvodi">
+                                        <td>{{$item->Naziv_proizvoda}}</td>
+                                        <td style="text-align: center;">{{$item->Cijena*$item->Kolicina}} KM</td>
+                                        <td class="kolicina">{{$item->Kolicina}}</td>
+                                    </div>
+                                    <div class="Gumbi">
+                                        <td class="jedan"> 
+                                            <form action="{{route('ukloniJedanProizvod',$item->proizvod_id)}}" method="GET">
+                                            <!-- <a href="{{route('ukloniJedanProizvod',$item->kosarica_id)}}" class="fas fa-minus-circle"></a>-->
+                                                <button  class="fas fa-minus-circle">
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <form action="{{route('dodajJedan',$item->proizvod_id)}}" method="POST">
+                                                <!--<a href="{{route('dodajJedan',$item->proizvod_id)}}" class="fas fa-plus-circle"></a>-->
+                                                <button  class="fas fa-plus-circle">
+                                            </form>
+                                            <!--<button  class="fas fa-minus-circle"></a><button  class="fas fa-plus-circle">-->
+                                            <!--<a href="/removecart/{{$item->kosarica_id}}" class="fas fa-minus-circle"></a><!--<button  class="fas fa-minus-circle"></a><button  class="fas fa-plus-circle">-->
+                                        </td>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="Gumbi">
-                            <form action="{{route('ukloniJedanProizvod',$item->proizvod_id)}}" method="GET">
-                               <!-- <a href="{{route('ukloniJedanProizvod',$item->kosarica_id)}}" class="fas fa-minus-circle"></a>-->
-                               <button  class="fas fa-minus-circle">
-                            </form>
-                            <form action="{{route('dodajJedan',$item->proizvod_id)}}" method="POST">
-                                <!--<a href="{{route('dodajJedan',$item->proizvod_id)}}" class="fas fa-plus-circle"></a>-->
-                                <button  class="fas fa-plus-circle">
-                            </form>
-                               <!--<button  class="fas fa-minus-circle"></a><button  class="fas fa-plus-circle">-->
-                            <!--<a href="/removecart/{{$item->kosarica_id}}" class="fas fa-minus-circle"></a><!--<button  class="fas fa-minus-circle"></a><button  class="fas fa-plus-circle">-->
+                        </tr>
+                        @endforeach
+                    </table>
+                </div>
+                <div class="col-sm-8 col-sm-offset-2 text-left">
+                    <div class="nacinPlacanja">
+                        <form action="{{route('buy')}}" method="POST" >
+                         @csrf
+                            <div class="radioBox">
+                                <h3>Način plaćanja:</h3>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label for="myRadioId1" class="radio">
+                                            <input type="radio" value="MasterCard" name="myRadioField" id="myRadioId1" class="radio__input">
+                                            <div class="radio__radio"></div>
+                                            Master Card
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label for="myRadioId2" class="radio">
+                                            <input type="radio" value="Visa" name="myRadioField" id="myRadioId2" class="radio__input">
+                                            <div class="radio__radio"></div>
+                                            Visa
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label for="myRadioId3" class="radio">
+                                            <input type="radio" value="Maestro" name="myRadioField" id="myRadioId3" class="radio__input">
+                                            <div class="radio__radio"></div>
+                                            Maestro
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label for="myRadioId4" class="radio">
+                                            <input type="radio" value="AmericanExpress" name="myRadioField" id="myRadioId4" class="radio__input">
+                                            <div class="radio__radio"></div>
+                                            American Express
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div> 
-                    <hr>
-            @endforeach   
-                </div> 
+                            <div class="adress">
+                                <div class="row">
+                                    <label for="adresInput">
+                                        Adresa: 
+                                        <input type="text" id="adresInput" name="address">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="Kupi">
+                                <h2>Ukupna cijena proizvoda u košarici: <u>{{$ukupnaCijena}}</u> KM</h2>
+                                <button class="btn btn-default btn-robot">Kupi
+                            </div>
+                        </form>
+                        
+                    </div>
+                </div>
             </div>
-            <span class="Kupi"><h2>Ukupna cijena proizvoda u košarici: <u>{{$ukupnaCijena}}</u> KM</h2><button class="btn btn-default btn-robot">Kupi</span>
+            <!--<span class="Kupi"><h2>Ukupna cijena proizvoda u košarici: <u>{{$ukupnaCijena}}</u> KM</h2><button class="btn btn-default btn-robot">Kupi</span>-->
         </section>
         
        

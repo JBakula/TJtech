@@ -83,7 +83,7 @@
 
                         <div class="collapse navbar-collapse" id="site-nav-bar">
                             <ul class="nav navbar-nav">
-                                <li class="active"><a href="userIndex.html">Početna</a></li>
+                                <li><a href="userIndex.html">Početna</a></li>
                                 <li><a href="userOnama.html">O nama</a></li>
                                 <li><a href="userLaptopi.html"><b><i><u>Laptopi</u></i></b></a></li>
                                 <li><a href="userRacunala.html"><b><i><u>Računala</u></i></b></a></li>

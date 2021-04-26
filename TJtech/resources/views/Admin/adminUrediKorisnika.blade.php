@@ -22,14 +22,14 @@
         <link href="assets/css/owl.carousel.theme.min.css" rel="stylesheet">
         <link href="assets/css/ionicons.css" rel="stylesheet">
         <link href="assets/css/main.css" rel="stylesheet">
-
+        
     </head>
     <body>
 
     <!-- Site Header -->
         <div class="site-header-bg"> 
             <div class="container">
-                <div class="row">
+                <div class="row"> 
                     <div class="col-sm-6">
                         <a href="{{route('adminProfile')}}"><img src="assets/images/logo.png" alt="logo"></a>
                     </div>
@@ -40,7 +40,7 @@
                             <span style="padding-right: 10px;">{{$LogiraniKorisnikPodaci->Ime_prezime}}</span><button><i class="fas fa-user btn btn-default user"></i></button><br>
                             <ul>
                                 <li><a href="logout">Logout</a></li>
-                                <li><a href="{{route('adminUpravljanjeProizvodima')}}">Proizvodi</a></li> 
+                                <li><a href="{{route('adminUpravljanjeProizvodima')}}">Proizvodi</a></li>
                                 <li><a href="{{route('korisniciAdmin')}}">Korisnici</a></li>
                             </ul>
                         </div>
@@ -59,7 +59,7 @@
                 </div>
             </div>
         </div>
-        
+         
     <!-- Header -->
 
         <section id="header" class="main-header">
@@ -100,49 +100,54 @@
         </section> <!-- /#header -->
 
     <!-- Proizvodi -->
-    <section id="Korisnici">
+    
+    <section id="dodajKorisnika">
         <div class="container">
-            <div class="table-responsive">
-                <table class="tablaKorisnici">
-                <tr>
-                    <th>Ime Prezime</th>
-                    <th>Email</th>
-                    <th style="text-align: center;">Lozinka</th>
-                    <th style="text-align: center;">Uloga</th>
-                    <th style="text-align: center;">Uredi</th>
-                </tr>
-                    @foreach($korisnici as $item)
-
-                            @if($item->Uloga == "admin")
-                            <div class="row">
-                                <tr class="adminDio">
-                                    <td>{{$item->Ime_prezime}}</td>
-                                    <td>{{$item->Email}}</td>
-                                    <td style="text-align: center;">{{$item->Lozinka}}</td>
-                                    <td style="text-align: center;">{{$item->Uloga}}</td>
-                                </tr>
+            <div class="row">
+                <div class="col-sm-6">
+                @foreach($user as $korisnik)
+                    <div class="trenutnoStanje">
+                        <h1>{{$korisnik->Ime_prezime}}<!--Ime_Prezime:--></h1>
+                        <h3><!--Ispiši trenutno ime--></h3>
+                        <h1><!--Lozinka:--></h1>
+                        <h3><!--Ispiši trenutnu lozinku--></h3>
+                    </div>
+               
+                </div>
+                <div class="col-sm-6">
+                    <div class="promjenutoStanje">
+                        <form action="{{route('promijeniImeKorisnika')}}" method="GET">
+                        @csrf
+                            <h1>Nova email adresa:</h1>
+                            <div class="ime">
+                                <label for="ime1">
+                                    <input type="hidden" name="id" value="{{$korisnik->korisnik_id}}">
+                                    <input type="text" name="ime1">
+                                </label>
+                                <button id="izmjeniIme" class="btn btn-default btn-robot">Izmjeni</button>
                             </div>
-                            @else
-                            <div class="row">
-                            <tr>
-                                    <td>{{$item->Ime_prezime}}</td>
-                                    <td>{{$item->Email}}</td>
-                                    <td style="text-align: center;">{{$item->Lozinka}}</td>
-                                    <td style="text-align: center;">{{$item->Uloga}}</td>
-                                    <td>
-                                        <form action="{{route('urediKorisnika',$item->korisnik_id)}}" method="GET">
-                                            <button  class="fas fa-user-edit">
-                                        </form>
-                                    </td>
-                                </tr>
+                        </form>
+                        <form action="{{route('promijeniLozinku')}}" method="POST">
+                        @csrf
+                            <h1>Nova Lozinka:</h1>
+                            <div class="ime">
+                                <label for="ime2">
+                                    <input type="hidden" name="id2" value="{{$korisnik->korisnik_id}}">
+                                    <input type="text" name="ime2">
+                                </label>
+                                <button id="izmjeniLozinku" class="btn btn-default btn-robot">Izmjeni</button>
                             </div>
-                            @endif
-
-                    @endforeach
-                </table>
+                        </form>
+                        <form action="{{route('ukloniKorisnika')}}" method="POST">
+                            <input type="hidden" name="id3" value="{{$korisnik->korisnik_id}}">
+                            <h1>Ukloni Korisnika:<span class="imeK"><button  id="ukloniKorisnika" class="btn btn-default btn-robot">Ukloni</button></span></h1>  
+                        </form>
+                    </div>
+                </div>
+                @endforeach
             </div>
         </div>
-    </section> 
+    </section>
 
     <!-- Footer -->
         <section id="footer-widget" class="footer-widget">

@@ -78,13 +78,13 @@
 
                         <div class="collapse navbar-collapse" id="site-nav-bar">
                             <ul class="nav navbar-nav">
-                                <li class="active"><a href="{{route('adminProfile')}}">Početna</a></li>
+                                <li><a href="{{route('adminProfile')}}">Početna</a></li>
                                 <li><a href="{{route('OnamaAdmin')}}">O nama</a></li>
                                 <li><a href="{{route('laptopiAdmin')}}"><b><i><u>Laptopi</u></i></b></a></li>
                                 <li><a href="{{route('racunalaAdmin')}}"><b><i><u>Računala</u></i></b></a></li>
                                 <li><a href="{{route('opremaAdmin')}}"><b><i><u>Oprema</u></i></b></a></li>
                                 <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
-                                <li><a href="#" class="btn btn-default"style="padding: 5px; margin-top: 10px;">Dodaj</a></li>
+                                <li><a href="{{route('dodajProizvod')}}" class="btn btn-default"style="padding: 5px; margin-top: 10px;">Dodaj</a></li>
                                 <!--
                                 <li><a href="login.html" style="margin: 0; padding: 0;">
                                     <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;">Login</button>
@@ -98,20 +98,36 @@
                     </nav>
                 </div>
             </div> <!-- /.container -->
-            <div class="nutral"></div>
         </section> <!-- /#header -->
 
     <!-- Proizvodi -->
-    @foreach($proizvodi as $item)
+    
         <section id="Proizvodi">
             <div class="container">
-                <div class="row">
-                    <h3>{{$item->Naziv_proizvoda}}</h3>
-                    <p>{{$item->Cijena}}</p>
+                <div class="table-responsive">
+                    <table class="tablaProizvoda">
+                        <tr>
+                            <th>Naziv Proizvoda</th>
+                            <th>Cijena</th>
+                            <th>Ukloni</th>
+                        </tr>
+                        @foreach($proizvodi as $item)
+                        <div class="row">
+                            <tr>
+                                <td>{{$item->Naziv_proizvoda}}</td>
+                                <td style="text-align: center;">{{$item->Cijena}} KM</td>
+                                <td>
+                                    <form action="{{route('ukloniProizvod',$item->proizvod_id)}}" method="GET">
+                                        <button  class="fas fa-minus-circle">
+                                    </form>
+                                </td>
+                            </tr>
+                        </div>
+                        @endforeach
+                    </table>
                 </div>
             </div>
         </section> 
-    @endforeach
 
     <!-- Footer -->
         <section id="footer-widget" class="footer-widget">
