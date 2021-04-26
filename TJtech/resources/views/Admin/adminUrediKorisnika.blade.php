@@ -82,15 +82,7 @@
                                 <li><a href="{{route('laptopiAdmin')}}"><b><i><u>Laptopi</u></i></b></a></li>
                                 <li><a href="{{route('racunalaAdmin')}}"><b><i><u>Računala</u></i></b></a></li>
                                 <li><a href="{{route('opremaAdmin')}}"><b><i><u>Oprema</u></i></b></a></li>
-                                <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
-                                <!--
-                                <li><a href="login.html" style="margin: 0; padding: 0;">
-                                    <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;">Login</button>
-                                </a></li>
-                                <li><a href="signup.html" style="margin: 0; padding: 0;">
-                                    <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;">Signup</button>
-                                </a></li>
-                                -->
+                                <li><a href="{{ asset('assets\TJ-tech, vizija.pdf') }}">Vizija</a></li>
                             </ul>
                         </div><!-- /.navbar-collapse -->
                     </nav>
@@ -106,15 +98,28 @@
                 <div class="col-sm-6">
                 @foreach($user as $korisnik)
                     <div class="trenutnoStanje">
-                        <h1>{{$korisnik->Ime_prezime}}<!--Ime_Prezime:--></h1>
-                        <h3><!--Ispiši trenutno ime--></h3>
-                        <h1><!--Lozinka:--></h1>
-                        <h3><!--Ispiši trenutnu lozinku--></h3>
+                        <h1>Ime i prezime:</h1>
+                        <h3>{{$korisnik->Ime_prezime}}<!--Ispiši trenutno ime--></h3>
+                        <h1>Email:</h1>
+                        <h3>{{$korisnik->Email}}<!--Ispiši trenutni email--></h3>
+                        <h1>Lozinka:</h1>
+                        <h3>{{$korisnik->Lozinka}}<!--Ispiši trenutnu lozinku--></h3>
                     </div>
                
                 </div>
                 <div class="col-sm-6">
                     <div class="promjenutoStanje">
+                    <form action="{{route('promijeniImeKorisnika')}}" method="GET">
+                        @csrf
+                            <h1>Novo korisničko ime:</h1>
+                            <div class="ime">
+                                <label for="ime1">
+                                    <input type="hidden" name="id" value="{{$korisnik->korisnik_id}}">
+                                    <input type="text" name="ime1">
+                                </label>
+                                <button id="izmjeniIme" class="btn btn-default btn-robot">Izmjeni</button>
+                            </div>
+                        </form>
                         <form action="{{route('promijeniImeKorisnika')}}" method="GET">
                         @csrf
                             <h1>Nova email adresa:</h1>
@@ -128,7 +133,7 @@
                         </form>
                         <form action="{{route('promijeniLozinku')}}" method="POST">
                         @csrf
-                            <h1>Nova Lozinka:</h1>
+                            <h1>Nova lozinka:</h1>
                             <div class="ime">
                                 <label for="ime2">
                                     <input type="hidden" name="id2" value="{{$korisnik->korisnik_id}}">
@@ -175,7 +180,7 @@
                         <h3>Korisne informacije</h3>
                         <ul>
                         <li><a href="{{route('OnamaAdmin')}}">O nama</a></li>
-                        <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
+                        <li><a href="{{ asset('assets\TJ-tech, vizija.pdf') }}">Vizija</a></li>
                         <li><a href="{{route('adminProfile')}}">Početna</a></li>
                         <li><a href="{{route('laptopiAdmin')}}">Laptopi</a></li>
                         <li><a href="{{route('racunalaAdmin')}}">Računala</a></li>

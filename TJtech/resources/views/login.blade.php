@@ -18,7 +18,7 @@
                 <input type="text" name="email" placeholder="Upišite E-mail" id="E-mail" value="{{old('email')}}" required>
                 <input type="password" name="lozinka" placeholder="Upišite lozinku" id="password" required>
                 <input type="submit" name="login-submit" value="Potvrdi" id="submit">
-                <h4>Nemate račun? <a href="signup.html">Signup</a></h4>
+                <h4>Nemate račun? <a href="{{route('singUpIndex')}}">Signup</a></h4>
             </form>
         </div>
     </div>

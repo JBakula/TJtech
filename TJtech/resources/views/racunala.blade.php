@@ -21,7 +21,7 @@
         <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.theme.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/ionicons.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
-
+        
     </head>
     <body>
 
@@ -30,17 +30,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    <a href="index.html"><img src="assets/images/logo.png" alt="logo"></a>
+                    <a href="{{route('indexIndex')}}"><img src="{{ asset('assets/images/logo.png') }}" alt="logo"></a>
                 </div>
                 <div class="col-sm-3 col-sm-offset-3 text-right">
 
                     <!--Košarica i User-->
-                    
-                    <!--
-                    <span style="padding-right: 10px;">Ime Prezime</span><a href="#"><i class="fas fa-user btn btn-default user"></i></a><br>
-                    <span class="ion-android-cart btn btn-default"style="margin-bottom: 15px"> 0 produkata </span>
-                    -->
-
                     <form id="form-data" class="input-group" method="post" data-route="{{ route('search.fetch') }}">
                             {{ csrf_field() }}
                             <input type="text" name="Naziv_proizvoda" id="Naziv_proizvoda" 
@@ -71,19 +65,19 @@
                                 <span class="icon-bar"></span>
                             </button>
                         </div>
-
+                        
                         <div class="collapse navbar-collapse" id="site-nav-bar">
                             <ul class="nav navbar-nav">
-                                <li><a href="index.html">Početna</a></li>
-                                <li><a href="Onama.html">O nama</a></li>
-                                <li><a href="Laptopi.html"><b><i><u>Laptopi</u></i></b></a></li>
-                                <li class="active"><a href="Računala.html"><b><i><u>Računala</u></i></b></a></li>
-                                <li><a href="Oprema.html"><b><i><u>Oprema</u></i></b></a></li>
-                                <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
-                                <li><a href="login.html" style="margin: 0; padding: 0;">
+                                <li><a href="{{route('indexIndex')}}">Početna</a></li>
+                                <li><a href="{{route('oNama')}}">O nama</a></li>
+                                <li><a href="{{route('laptopi')}}"><b><i><u>Laptopi</u></i></b></a></li>
+                                <li class="active"><a href="{{route('racunala')}}"><b><i><u>Računala</u></i></b></a></li>
+                                <li><a href="{{route('oprema')}}"><b><i><u>Oprema</u></i></b></a></li>
+                                <li><a href="{{ asset('assets\TJ-tech, vizija.pdf') }}">Vizija</a></li>
+                                <li><a href="{{route('loginIndex')}}" style="margin: 0; padding: 0;">
                                     <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;">Login</button>
                                 </a></li>
-                                <li><a href="signup.html" style="margin: 0; padding: 0;">
+                                <li><a href="{{route('singUpIndex')}}" style="margin: 0; padding: 0;">
                                     <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;">Signup</button>
                                 </a></li>
                             </ul>
@@ -95,7 +89,7 @@
                     <div class="overlay"></div>
                     <div class="col-sm-12">
                         <ol class="breadcrumb">
-                            <li><a href="index.html">Početna</a></li>
+                            <li><a href="{{route('indexIndex')}}">Početna</a></li>
                             <li class="active">Računala</li>
                         </ol>
                     </div>
@@ -128,9 +122,6 @@
                                             <a class="test-popup-link" href="{{$item->Velika_slika}}">
                                                 <span class="ion-ios-search-strong just-img"></span>
                                             </a>
-                                            <!--<a href="#">
-                                                <span class="ion-ios-cart"></span>
-                                            </a>-->
                                             <form action="{{route('dodajRacunalaUKosaru')}}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="proizvod_id" value="{{$item->proizvod_id}}">
@@ -162,20 +153,6 @@
                             </div>
                         </div>
                         @endforeach
-                        
-                        <!--
-                        <div class="col-sm-12">
-                            <nav>
-                                <ul class="pager">
-                                    <li class="previous disabled"><a href="#"><span aria-hidden="true" class="ion-chevron-left"></span></a></li>
-                                    <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li class="next"><a href="#"><span aria-hidden="true" class="ion-chevron-right"></span></a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                        -->
                     </div>
                 </div>
             </div>
@@ -207,12 +184,12 @@
                 <div class="col-sm-4">
                     <h3>Korisne informacije</h3>
                     <ul>
-                        <li><a href="Onama.html">O nama</a></li>
-                        <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
-                        <li><a href="index.html">Početna</a></li>
-                        <li><a href="Laptopi.html">Laptopi</a></li>
-                        <li><a href="Računala.html">Računala</a></li>
-                        <li><a href="Oprema.html">Oprema</a></li>
+                        <li><a href="{{route('oNama')}}">O nama</a></li>
+                        <li><a href="{{ asset('assets\TJ-tech, vizija.pdf') }}">Vizija</a></li>
+                        <li><a href="{{route('indexIndex')}}">Početna</a></li>
+                        <li><a href="{{route('laptopi')}}">Laptopi</a></li>
+                        <li><a href="{{route('racunala')}}">Računala</a></li>
+                        <li><a href="{{route('oprema')}}">Oprema</a></li>
                     </ul>
                 </div>
             </div>

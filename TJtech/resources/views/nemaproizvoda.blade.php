@@ -21,14 +21,14 @@
         <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.theme.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/ionicons.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
-
+        
     </head>
 <body style="background-color: white;">
     <div class="nema">
         <div class="container">
             <div class="row">
-                <h1>Nemamo taj proizvod. <a href="index.html">Početna</a></h1>
-                <img src="assets/images/confused.png" class="emoji">
+                <h1>Nemamo taj proizvod. <a href="{{route('indexIndex')}}">Početna</a></h1>
+                <img src="{{ asset('assets/images/confused.png') }}" class="emoji">
             </div>
         </div>
     </div>

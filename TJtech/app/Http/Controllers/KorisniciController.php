@@ -52,7 +52,6 @@ class KorisniciController extends Controller
         $korisnik->Email=$request->ime1;
         $korisnik->save();
         return redirect(route('korisniciAdmin'));   
-        
     }
     function promijeniLozinku(Request $request){
        

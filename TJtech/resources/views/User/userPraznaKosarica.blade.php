@@ -34,7 +34,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6">
-                        <a href="userIndex.html"><img src="assets/images/logo.png" alt="logo"></a>
+                        <a href="{{route('userProfile')}}"><img src="{{ asset('assets/images/logo.png') }}" alt="logo"></a>
                     </div>
                     <div class="col-sm-3 col-sm-offset-3 text-right">
 
@@ -83,12 +83,12 @@
 
                         <div class="collapse navbar-collapse" id="site-nav-bar">
                             <ul class="nav navbar-nav">
-                                <li><a href="userIndex.html">Početna</a></li>
-                                <li><a href="userOnama.html">O nama</a></li>
-                                <li><a href="userLaptopi.html"><b><i><u>Laptopi</u></i></b></a></li>
-                                <li><a href="userRacunala.html"><b><i><u>Računala</u></i></b></a></li>
-                                <li><a href="userOprema.html"><b><i><u>Oprema</u></i></b></a></li>
-                                <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
+                                <li><a href="{{route('userProfile')}}">Početna</a></li>
+                                <li><a href="{{route('userOnama')}}">O nama</a></li>
+                                <li><a href="{{route('laptopiUser')}}"><b><i><u>Laptopi</u></i></b></a></li>
+                                <li><a href="{{route('racunalaUser')}}"><b><i><u>Računala</u></i></b></a></li>
+                                <li><a href="{{route('opremaUser')}}"><b><i><u>Oprema</u></i></b></a></li>
+                                <li><a href="{{ asset('assets\TJ-tech, vizija.pdf') }}">Vizija</a></li>
                                 <li><span class="ion-android-cart btn btn-default"style="margin-top: 10px; cursor: default;">
                                     @if($ukupanBrojProizvoda>0)
                                         <a href="{{route('kosara')}}"> {{$ukupanBrojProizvoda}} proizvoda </a>
@@ -98,14 +98,6 @@
                                         </span>
                                     </span>
                                 </li>
-                                <!--
-                                <li><a href="login.html" style="margin: 0; padding: 0;">
-                                    <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;">Login</button>
-                                </a></li>
-                                <li><a href="signup.html" style="margin: 0; padding: 0;">
-                                    <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;">Signup</button>
-                                </a></li>
-                                -->
                             </ul>
                         </div><!-- /.navbar-collapse -->
                     </nav>
@@ -120,14 +112,14 @@
                     <div class="nema-proizvoda">
                         <h1>
                             Košarica je prazna!<br>
-                            <a href="userIndex.html">Početna</a>
+                            <a href="{{route('userProfile')}}">Početna</a>
                         </h1>
-                        <img src="assets\images\confused.jpg" alt="img">
+                        <img src="{{ asset('assets\images\confused.jpg') }}" alt="img">
                     </div>
                 </div>
             </div>
         </section> 
-
+        
     <!-- Footer -->
         <section id="footer-widget" class="footer-widget" style="padding: 20px 0;">
             <div class="container header-bg">
@@ -151,15 +143,15 @@
                             <li><i class="fab fa-css3-alt" style="font-size: 50px; padding-left: 5px; color: blue;"></i><a href="userOnama.html#Jezici" style="padding-left: 20px;">CSS3</a></li>
                         </ul>
                     </div>
-                    <div class="col-sm-4"><!--userOnama.html-->
+                    <div class="col-sm-4">
                         <h3>Korisne informacije</h3>
                         <ul>
-                            <li><a href="userOnama.html">O nama</a></li>
-                            <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
-                            <li><a href="userIndex.html">Početna</a></li>
-                            <li><a href="userLaptopi.html">Laptopi</a></li>
-                            <li><a href="userRacunala.html">Računala</a></li>
-                            <li><a href="userOprema.html">Oprema</a></li>
+                            <li><a href="{{route('userOnama')}}">O nama</a></li>
+                            <li><a href="{{ asset('assets\TJ-tech, vizija.pdf') }}">Vizija</a></li>
+                            <li><a href="{{route('userProfile')}}">Početna</a></li>
+                            <li><a href="{{route('laptopiUser')}}">Laptopi</a></li>
+                            <li><a href="{{route('racunalaUser')}}">Računala</a></li>
+                            <li><a href="{{route('opremaUser')}}">Oprema</a></li>
                         </ul>
                     </div>
                 </div>

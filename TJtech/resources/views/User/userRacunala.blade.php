@@ -34,7 +34,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    <a href="userIndex.html"><img src="assets/images/logo.png" alt="logo"></a>
+                    <a href="{{route('userProfile')}}"><img src="{{ asset('assets/images/logo.png') }}" alt="logo"></a>
                 </div>
                 <div class="col-sm-3 col-sm-offset-3 text-right">
 
@@ -84,12 +84,12 @@
 
                         <div class="collapse navbar-collapse" id="site-nav-bar">
                             <ul class="nav navbar-nav">
-                                <li><a href="userIndex.html">Početna</a></li>
-                                <li><a href="userOnama.html">O nama</a></li>
-                                <li><a href="userLaptopi.html"><b><i><u>Laptopi</u></i></b></a></li>
-                                <li class="active"><a href="userRacunala.html"><b><i><u>Računala</u></i></b></a></li>
-                                <li><a href="userOprema.html"><b><i><u>Oprema</u></i></b></a></li> 
-                                <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
+                                <li><a href="{{route('userProfile')}}">Početna</a></li>
+                                <li><a href="{{route('userOnama')}}">O nama</a></li>
+                                <li><a href="{{route('laptopiUser')}}"><b><i><u>Laptopi</u></i></b></a></li>
+                                <li class="active"><a href="{{route('racunalaUser')}}"><b><i><u>Računala</u></i></b></a></li>
+                                <li><a href="{{route('opremaUser')}}"><b><i><u>Oprema</u></i></b></a></li> 
+                                <li><a href="{{ asset('assets\TJ-tech, vizija.pdf') }}">Vizija</a></li>
                                 <li><span class="ion-android-cart btn btn-default"style="margin-top: 10px; cursor: default;">
                                     @if($ukupanBrojProizvoda>0)
                                         <a href="{{route('kosara')}}"> {{$ukupanBrojProizvoda}} proizvoda </a>
@@ -99,14 +99,6 @@
                                         </span>
                                     </span>
                                 </li>
-                                <!--
-                                <li><a href="login.html" style="margin: 0; padding: 0;">
-                                    <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;">Login</button>
-                                </a></li>
-                                <li><a href="signup.html" style="margin: 0; padding: 0;">
-                                    <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;">Signup</button>
-                                </a></li>
-                                -->
                             </ul>
                         </div><!-- /.navbar-collapse -->
                     </nav>
@@ -116,7 +108,7 @@
                     <div class="overlay"></div>
                     <div class="col-sm-12">
                         <ol class="breadcrumb">
-                            <li><a href="userIndex.html">Početna</a></li>
+                            <li><a href="{{route('userProfile')}}">Početna</a></li>
                             <li class="active">Računala</li>
                         </ol>
                     </div>
@@ -149,9 +141,6 @@
                                             <a class="test-popup-link" href="{{$item->Velika_slika}}">
                                                 <span class="ion-ios-search-strong just-img"></span>
                                             </a>
-                                            <!--<a href="#">
-                                                <span class="ion-ios-cart"></span>
-                                            </a>-->
                                             <form action="{{route('dodajUserRacunalaUKosaru')}}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="proizvod_id" value="{{$item->proizvod_id}}">
@@ -183,20 +172,6 @@
                             </div>
                         </div>
                         @endforeach
-                        
-                        <!--
-                        <div class="col-sm-12">
-                            <nav>
-                                <ul class="pager">
-                                    <li class="previous disabled"><a href="#"><span aria-hidden="true" class="ion-chevron-left"></span></a></li>
-                                    <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li class="next"><a href="#"><span aria-hidden="true" class="ion-chevron-right"></span></a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                        -->
                     </div>
                 </div>
             </div>
@@ -228,12 +203,12 @@
                 <div class="col-sm-4">
                     <h3>Korisne informacije</h3>
                     <ul>
-                        <li><a href="userOnama.html">O nama</a></li>
-                        <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
-                        <li><a href="userIndex.html">Početna</a></li>
-                        <li><a href="userLaptopi.html">Laptopi</a></li>
-                        <li><a href="userRacunala.html">Računala</a></li>
-                        <li><a href="userOprema.html">Oprema</a></li>
+                        <li><a href="{{route('userOnama')}}">O nama</a></li>
+                        <li><a href="{{ asset('assets\TJ-tech, vizija.pdf') }}">Vizija</a></li>
+                        <li><a href="{{route('userProfile')}}">Početna</a></li>
+                        <li><a href="{{route('laptopiUser')}}">Laptopi</a></li>
+                        <li><a href="{{route('racunalaUser')}}">Računala</a></li>
+                        <li><a href="{{route('opremaUser')}}">Oprema</a></li>
                     </ul>
                 </div>
             </div>

@@ -8,7 +8,7 @@
     <title>Signup</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container"> 
         <div class="row">
             <form class="box" action="{{route('spremi')}}" method="POST">
             @csrf<!--- ovo je nesto za kolacice, nemoj ovo dirat --->
@@ -20,7 +20,7 @@
                 <input type="password" name="lozinka" placeholder="Upišite lozinku" id="password" required>
                 <input type="password" name="potvrda" placeholder="Potvrdite lozinku" id="confirm-password" required>
                 <input type="submit" name="signup-submit" value="Potvrdi" id="submit">
-                <h4>Već imate račun? <a href="login.html">Login</a></h4>
+                <h4>Već imate račun? <a href="{{route('loginIndex')}}">Login</a></h4>
             </form>
         </div>
     </div>

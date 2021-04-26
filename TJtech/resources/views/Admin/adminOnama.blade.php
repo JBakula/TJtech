@@ -22,11 +22,6 @@
         <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.theme.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/ionicons.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
-
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
     </head>
     <body>
 
@@ -35,7 +30,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    <a href="adminIndex.html"><img src="assets/images/logo.png" alt="logo"></a>
+                <a href="{{route('adminProfile')}}"><img src="{{ asset('assets/images/logo.png') }}" alt="logo"></a>
                 </div>
                 <div class="col-sm-3 col-sm-offset-3 text-right">
 
@@ -83,20 +78,12 @@
 
                     <div class="collapse navbar-collapse" id="site-nav-bar">
                         <ul class="nav navbar-nav">
-                            <li><a href="adminIndex.html">Početna</a></li>
-                            <li class="active"><a href="adminOnama.html">O nama</a></li>
-                            <li><a href="adminLaptopi.html"><b><i><u>Laptopi</u></i></b></a></li>
-                            <li><a href="adminRačunala.html"><b><i><u>Računala</u></i></b></a></li>
-                            <li><a href="adminOprema.html"><b><i><u>Oprema</u></i></b></a></li>
-                            <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
-                            <!--
-                            <li><a href="login.html" style="margin: 0; padding: 0;">
-                                <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;">Login</button>
-                            </a></li>
-                            <li><a href="signup.html" style="margin: 0; padding: 0;">
-                                <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;">Signup</button>
-                            </a></li>
-                            -->
+                            <li><a href="{{route('adminProfile')}}">Početna</a></li>
+                            <li class="active"><a href="{{route('OnamaAdmin')}}">O nama</a></li>
+                            <li><a href="{{route('laptopiAdmin')}}"><b><i><u>Laptopi</u></i></b></a></li>
+                            <li><a href="{{route('racunalaAdmin')}}"><b><i><u>Računala</u></i></b></a></li>
+                            <li><a href="{{route('opremaAdmin')}}"><b><i><u>Oprema</u></i></b></a></li>
+                            <li><a href="{{ asset('assets\TJ-tech, vizija.pdf') }}">Vizija</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </nav>
@@ -106,7 +93,7 @@
                 <div class="overlay"></div>
                 <div class="col-sm-12">
                     <ol class="breadcrumb">
-                        <li><a href="adminIndex.html">Početna</a></li>
+                        <li><a href="{{route('adminProfile')}}">Početna</a></li>
                         <li class="active">O nama</li>
                     </ol>
                 </div>
@@ -255,7 +242,7 @@
                             <div class="col-sm-6">
                                 <div class="team-box">
                                     <div class="team-img">
-                                        <img class="team-img img-responsive" src="assets/images/team-1.png" alt="team">
+                                        <img class="team-img img-responsive" src="{{ asset('assets/images/team-1.png') }}" alt="team">
                                     </div>
                                     <div class="team-img-detail">
                                         <h4 class="member-name">Jure Bakula</h4>
@@ -278,7 +265,7 @@
                             <div class="col-sm-6">
                                 <div class="team-box">
                                     <div class="team-img">
-                                        <img class="team-img img-responsive" src="assets/images/team-2.png" alt="team">
+                                        <img class="team-img img-responsive" src="{{ asset('assets/images/team-2.png') }}" alt="team">
                                     </div>
                                     <div class="team-img-detail">
                                         <h4 class="member-name">Vinko-Tino Zlopaša</h4>
@@ -323,15 +310,15 @@
                         <li><i class="fab fa-css3-alt" style="font-size: 50px; padding-left: 5px; color: blue;"></i><a href="adminOnama.html" style="padding-left: 20px;">CSS3</a></li>
                     </ul>
                 </div>
-                <div class="col-sm-4">userOnama.html
+                <div class="col-sm-4">
                     <h3>Korisne informacije</h3>
                     <ul>
-                        <li><a href="adminOnama.html">O nama</a></li>
-                        <li><a href="assets\TJ-tech, vizija.pdf">Vizija</a></li>
-                        <li><a href="adminIndex.html">Početna</a></li>
-                        <li><a href="adminLaptopi.html">Laptopi</a></li>
-                        <li><a href="adminRačunala.html">Računala</a></li>
-                        <li><a href="adminOprema.html">Oprema</a></li>
+                        <li><a href="{{route('OnamaAdmin')}}">O nama</a></li>
+                        <li><a href="{{ asset('assets\TJ-tech, vizija.pdf') }}">Vizija</a></li>
+                        <li><a href="{{route('adminProfile')}}">Početna</a></li>
+                        <li><a href="{{route('laptopiAdmin')}}">Laptopi</a></li>
+                        <li><a href="{{route('racunalaAdmin')}}">Računala</a></li>
+                        <li><a href="{{route('opremaAdmin')}}">Oprema</a></li>
                     </ul>
                 </div>
             </div>

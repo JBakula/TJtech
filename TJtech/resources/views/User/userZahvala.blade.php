@@ -21,7 +21,7 @@
         <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.theme.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/ionicons.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
-
+        
     </head>
 <body style="background-color: white;">
     <div class="nema">
@@ -32,7 +32,7 @@
                     Vaš proizvod bi uskoro trebao doći na Vaša vrata!
                     <a href="{{route('userProfile')}}">Početna</a>
                 </h1>
-                <img src="assets/images/succes.png">
+                <img src="{{ asset('assets/images/succes.png') }}">
             </div>
         </div>
     </div>
