@@ -98,14 +98,6 @@
                                         </span>
                                     </span>
                                 </li>
-                                <!--
-                                <li><a href="login.html" style="margin: 0; padding: 0;">
-                                    <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;">Login</button>
-                                </a></li>
-                                <li><a href="signup.html" style="margin: 0; padding: 0;">
-                                    <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;">Signup</button>
-                                </a></li>
-                                -->
                             </ul>
                         </div><!-- /.navbar-collapse -->
                     </nav>

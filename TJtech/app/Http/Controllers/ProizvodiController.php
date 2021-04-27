@@ -22,11 +22,7 @@ class ProizvodiController extends Controller
     }
     public function indexZahvala(){
         return view('User.userZahvala'); 
-    }/*
-    function prikazOpreme(){
-        $data = DB::table('opremas')->get();
-        return view('oprema',['data'=>$data]);
-    }*/
+    }
     /**/
     
     function fetch(Request $request)

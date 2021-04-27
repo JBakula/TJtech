@@ -71,6 +71,7 @@ Route::post('userPunaKosarica.html',[ProizvodiController::class,'kupi'])->name('
 Route::get('userZahvala.html',[ProizvodiController::class,'indexZahvala'])->name('zahvala');
 Route::get('adminUrediKorisnika.html/{idKorisnika}',[KorisniciController::class,'urediKorisnika'])->name('urediKorisnika');
 Route::get('adminUrediKorisnika.html',[KorisniciController::class,'promijeniImeKorisnika'])->name('promijeniImeKorisnika');
+Route::post('adminUrediKorisnika.html/promijeniKorisnickoIme',[KorisniciController::class,'promijeniKorisnickoIme'])->name('promijeniKorisnickoIme');
 Route::post('adminUrediKorisnika.html',[KorisniciController::class,'promijeniLozinku'])->name('promijeniLozinku');
 Route::post('adminUrediKorisnika.html/ukloniKorisnika',[KorisniciController::class,'ukloniKorisnika'])->name('ukloniKorisnika');
 Route::get('adminProizvodi.html/{id}',[ProizvodiController::class,'ukloniProizvod'])->name('ukloniProizvod');

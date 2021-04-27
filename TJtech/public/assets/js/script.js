@@ -1,24 +1,5 @@
 $(document).ready(function(){
 
-    // Partner slider
-        $('#partner-slider').owlCarousel({
-            loop:true,
-            margin:10,
-            autoplay: true,
-            responsive:{
-                0:{
-                    items:1
-                },
-                600:{
-                    items:3
-                },
-                1000:{
-                    items:4
-                }
-            }
-        }) // end of #partner-slider(ako budemo ubacivali ikoga)
-
-
     // Team box height
         var h = $('.team-img-detail').height();
         var mbottom = h;
@@ -39,7 +20,8 @@ $(document).ready(function(){
                 "width": "100%"
             });
             $(".team-box").css("margin-bottom", mbottom+30);
-        }// end of Team box height
+        }
+    // END OF TEAM BOX HEIGHT
 
 
     // Pop up
@@ -47,16 +29,9 @@ $(document).ready(function(){
             type:'image',
             gallery:{
                 enabled:true
-            },
-            /*zoom: {
-                enabled: true,
-                duration: 300,
-                easing: 'ease-in-out',
-                opener: function(openerElement) {
-                    return openerElement.is('img') ? openerElement : openerElement.find('img');
-                }
-            }*/
-        }); //end of Pop Up
+            }
+        }); 
+    // END OF POP UP
 
     // User icon
         $(".dropdown-user button").click(function(){
@@ -65,12 +40,12 @@ $(document).ready(function(){
         $(".admin-dropdown-user button").click(function(){
             $(".admin-dropdown-user ul").toggleClass("active");
         })
+    // USER ICON END
 
     // Search dropdown 
         $("#form-data").click(function(e){
             e.preventDefault();
             $('#Naziv_proizvoda').keyup(function(){ 
-                //console.log("RADII");
                 var route = $("#form-data").data("route");
                 var query = $(this).val();
                 if(query != ''){
@@ -95,6 +70,8 @@ $(document).ready(function(){
             $('#countryList').fadeOut();
         });
         
+        // Namještanje URL-ova kod Search dropdowna
+
         /*  /index.html
             /Onama.html
             /Laptopi.html
@@ -116,23 +93,11 @@ $(document).ready(function(){
             /adminOprema.html
       */
         pom = window.location.href.split("/");
-        //console.log(pom);
-        //console.log(pom[pom.length-1])
         pom.pop();
-        //console.log(pom);
-        //pom.push("Primjer");
-        //pom = pom.join("/");
-        /*
-        obicni = ["/index.html", "/Onama.html", "/Laptopi.html", "/Ra%C4%8Dunala.html", "/Oprema.html", "/"];
-        user = ["/userIndex.html", "/userOnama.html", "/userLaptopi.html", "/userRacunala.html", "/userOprema.html"];
-        admin = ["/adminIndex.html", "/adminOnama.html", "/adminLaptopi.html", "/adminRa%C4%8Dunala.html", "/adminOprema.html"];
-        */
         $("#form-data button").click(function(e){
             e.preventDefault;
-            ime = $("#form-data #Naziv_proizvoda").val()
-            //console.log(ime);
+            ime = $("#form-data #Naziv_proizvoda").val();
             console.log(window.location.href);
-            //console.log(window.location.pathname.includes("user"));
             duljinaImena = ime.length;
             id = ime[duljinaImena-4] + ime[duljinaImena-3];
             id = parseInt(id);

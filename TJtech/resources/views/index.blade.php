@@ -5,11 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>TJ-tech</title>
-        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
-        
+        <title>TJ-tech</title>  
 
         <!-- CSS -->
 
@@ -39,32 +35,6 @@
                     <div class="col-sm-3 col-sm-offset-3 text-right">
 
                         <!--Košarica i User-->
-                        
-                       <!-- @if(Session::has('Ime'))   provjera je li uspostavljena sesija, ako je pojavi se ime i kosara
-                        <span style="padding-right: 10px;">{{Session::get('Ime')}}</span><a href="#"><i class="fas fa-user btn btn-default user"></i></a><br>
-                        <span class="ion-android-cart btn btn-default"style="margin-bottom: 15px"> 0 produkata </span>
-                        
-                        @endif--->
-                    <!--
-                        <form>
-                        
-                            <div class="input-group">
-                                <input type="text" name="Naziv_proizvoda" id="Naziv_proizvoda" class="form-control input-lg" placeholder="" > 
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default btn-robot" type="button">Pretraga</button>
-                                </span>
-                                {{ csrf_field() }}
-                            </div><!-- /input-group 
-                        </form> 
-                        <div class="input-group">
-                            <input type="text" name="Naziv_proizvoda" id="Naziv_proizvoda" class="form-control input-lg" placeholder="" > 
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default btn-robot" type="button">Pretraga</button>
-                                </span>
-                                <div id="countryList">
-                                </div>
-                                {{ csrf_field() }}
-                        </div>-->
                         <form action="{{route('indexIndex')}}" id="form-data" class="input-group" method="post" data-route="{{ route('search.fetch') }}">
                             {{ csrf_field() }}
                             <input type="text" name="Naziv_proizvoda" id="Naziv_proizvoda" 
@@ -123,7 +93,7 @@
                             <!--Your sweeping costs with the-->
                             Prodajemo digitalne čarolije
                         </p>
-                        <h1 class="header-title">TJ<!--Robot--><br><span class="thin">tech<!--Factory--></span></h1>
+                        <h1 class="header-title">TJ<br><span class="thin">tech</span></h1>
                     </div>
                 </div> <!-- /.intro.row -->
             </div> <!-- /.container -->
@@ -184,7 +154,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="title-box">
-                            <p>Od 2018</p>
+                            <p>Od 2017</p>
                             <h2 class="title mt0">Naša povijest</h2>
                         </div>
                     </div>

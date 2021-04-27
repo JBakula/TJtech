@@ -71,12 +71,11 @@ class KorisniciController extends Controller
     
     //    return $request->id3;    
     }
-    /*
-    function ukloniKorisnika(Request $request){
-        DB::table('korisniks')
-            ->where('korisnik_id','=',$request->id3)
-            ->delete();
+    function promijeniKorisnickoIme(Request $request){
+        $korisnik=Korisnik::where('korisnik_id','=',$request->id)->first();
+        $korisnik->Ime_prezime=$request->ime1;
+        $korisnik->save();
         return redirect(route('korisniciAdmin'));
-    }*/
+    }
     
 }

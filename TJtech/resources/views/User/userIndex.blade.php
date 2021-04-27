@@ -99,14 +99,6 @@
                                         </span>
                                     </span>
                                 </li>
-                                <!--
-                                <li><a href="login.html" style="margin: 0; padding: 0;">
-                                    <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;">Login</button>
-                                </a></li>
-                                <li><a href="signup.html" style="margin: 0; padding: 0;">
-                                    <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;">Signup</button>
-                                </a></li>
-                                -->
                             </ul>
                         </div><!-- /.navbar-collapse -->
                     </nav>
@@ -120,7 +112,7 @@
                             <!--Your sweeping costs with the-->
                             Prodajemo digitalne čarolije
                         </p>
-                        <h1 class="header-title">TJ<!--Robot--><br><span class="thin">tech<!--Factory--></span></h1>
+                        <h1 class="header-title">TJ<br><span class="thin">tech</span></h1>
                     </div>
                 </div> <!-- /.intro.row -->
             </div> <!-- /.container -->
@@ -181,7 +173,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="title-box">
-                            <p>Od 2018</p>
+                            <p>Od 2017</p>
                             <h2 class="title mt0">Naša povijest</h2>
                         </div>
                     </div>

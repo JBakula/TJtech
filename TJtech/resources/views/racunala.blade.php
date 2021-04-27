@@ -35,12 +35,6 @@
                 <div class="col-sm-3 col-sm-offset-3 text-right">
 
                     <!--Košarica i User-->
-                    
-                    <!--
-                    <span style="padding-right: 10px;">Ime Prezime</span><a href="#"><i class="fas fa-user btn btn-default user"></i></a><br>
-                    <span class="ion-android-cart btn btn-default"style="margin-bottom: 15px"> 0 produkata </span>
-                    -->
-
                     <form id="form-data" class="input-group" method="post" data-route="{{ route('search.fetch') }}">
                             {{ csrf_field() }}
                             <input type="text" name="Naziv_proizvoda" id="Naziv_proizvoda" 
@@ -128,9 +122,6 @@
                                             <a class="test-popup-link" href="{{$item->Velika_slika}}">
                                                 <span class="ion-ios-search-strong just-img"></span>
                                             </a>
-                                            <!--<a href="#">
-                                                <span class="ion-ios-cart"></span>
-                                            </a>-->
                                             <form action="{{route('dodajRacunalaUKosaru')}}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="proizvod_id" value="{{$item->proizvod_id}}">
@@ -162,20 +153,6 @@
                             </div>
                         </div>
                         @endforeach
-                        
-                        <!--
-                        <div class="col-sm-12">
-                            <nav>
-                                <ul class="pager">
-                                    <li class="previous disabled"><a href="#"><span aria-hidden="true" class="ion-chevron-left"></span></a></li>
-                                    <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li class="next"><a href="#"><span aria-hidden="true" class="ion-chevron-right"></span></a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                        -->
                     </div>
                 </div>
             </div>

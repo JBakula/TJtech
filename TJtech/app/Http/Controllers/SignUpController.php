@@ -8,12 +8,12 @@ use Illuminate\Support\Facades\Hash;
 
 class SignUpController extends Controller
 {
-    public function index()   // ova metoda ucitava stranicu signup.html
+    public function index()   
     {
         return view('signup');
     }
 
-    public function store(Request $request) // ova metoda sprema unesene podatke u bazu
+    public function store(Request $request) 
     {
         //
         $this->validate($request,[     // validacija unesenih podataka iz forme

@@ -98,14 +98,6 @@
                                     @endif
                                         </span>
                                 </li>
-                                <!--
-                                <li><a href="login.html" style="margin: 0; padding: 0;">
-                                    <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;">Login</button>
-                                </a></li>
-                                <li><a href="signup.html" style="margin: 0; padding: 0;">
-                                    <button class="btn btn-default btn-robot" style="border-radius: 5px; margin: 10px 10px;">Signup</button>
-                                </a></li>
-                                -->
                             </ul>
                         </div><!-- /.navbar-collapse -->
                     </nav>
@@ -148,9 +140,6 @@
                                             <a class="test-popup-link" href="{{$item->Velika_slika}}">
                                                 <span class="ion-ios-search-strong just-img"></span>
                                             </a>
-                                            <!--<a href="#">
-                                                <span class="ion-ios-cart"></span>
-                                            </a>-->
                                             <form action="{{route('dodajUserLaptopeUKosaru')}}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="proizvod_id" value="{{$item->proizvod_id}}">
@@ -178,20 +167,6 @@
                             </div>
                         </div>
                         @endforeach
-                        
-                        <!--
-                        <div class="col-sm-12">
-                            <nav>
-                                <ul class="pager">
-                                    <li class="previous disabled"><a href="#"><span aria-hidden="true" class="ion-chevron-left"></span></a></li>
-                                    <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li class="next"><a href="#"><span aria-hidden="true" class="ion-chevron-right"></span></a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                        -->
                     </div>
                 </div>
             </div>
