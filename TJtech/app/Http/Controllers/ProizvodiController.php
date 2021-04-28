@@ -5,16 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Kosarica;
-use App\Models\Korisnik;
+use App\Models\Korisnik; 
 use App\Models\Racunalo;
 use App\Models\Kupovina;
+use Artisan;
 use Illuminate\Support\Facades\Session;
 class ProizvodiController extends Controller
 {
     public function index(){
+        
         return view('oprema'); 
     }
     public function indexIndex(){
+        Artisan::call('cache:clear'); 
         return view('index'); 
     }
     public function oNama(){
@@ -33,14 +36,13 @@ class ProizvodiController extends Controller
             $data = DB::table('racunalos')
                 ->where('Naziv_proizvoda', 'LIKE', "%{$query}%")
                 ->get();
-                $output = '<ul class="dropdown-menu" style="display:block; position:absolute; background-color: #eceaeadc;">';
+                $output = '<table class="dropdown-menu table-responsive">';/* style="display:block; position:absolute; background-color: #eceaeadc;" */
             foreach($data as $row)
             {
                 $output .= '
-                <li><a href="#">'.$row->Naziv_proizvoda.' '.$row->proizvod_id.':'.$row->kategorija_fk.'</a></li>
-                ';
+                <tr><th><a href="#">'.$row->Naziv_proizvoda.' '.$row->proizvod_id.':'.$row->kategorija_fk.'</a></th></tr>';
             }
-            $output .= '</ul>';
+            $output .= '</table>';
             echo $output;
         }
        

@@ -110,11 +110,17 @@
             <div class="container">
                 <div class="row">
                     <div class="nema-proizvoda">
-                        <h1>
-                            Košarica je prazna!<br>
-                            <a href="{{route('userProfile')}}">Početna</a>
-                        </h1>
-                        <img src="{{ asset('assets\images\confused.jpg') }}" alt="img">
+                        <div class="col-sm-8 text-center">
+                            <div class="col-sm-6 text-left">
+                                <h1>
+                                    Košarica je prazna!<br>
+                                    <a href="{{route('userProfile')}}">Početna</a>
+                                </h1>
+                            </div>
+                            <div class="col-sm-6 text-right">
+                                <img src="{{ asset('assets\images\confused.jpg') }}" alt="img" class="img-responsiv">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

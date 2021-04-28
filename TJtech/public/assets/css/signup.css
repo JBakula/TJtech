@@ -1,9 +1,17 @@
-body{
+body,
+html,
+header{
+	height: 100%;
 	margin: 0;
     padding: 0;
     font-family: "Oswald";
 	background-image: url("../images/login-signup.jpg");
 	background-repeat: no-repeat;
+	background-position: center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 
@@ -110,7 +118,7 @@ body{
     transition: 0.25s;
 }
 .box input[type="text"]:focus,.box input[type="password"]:focus{
-	width: 270px;
+	width: 240px;
 	border-color: #fabe12;
 	border-bottom: 1px solid #fabe12;
 	box-shadow: none;

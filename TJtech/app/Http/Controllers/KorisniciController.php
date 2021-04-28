@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Kosarica;
 use App\Models\Korisnik;
 use App\Models\Racunalo;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session; 
 class KorisniciController extends Controller
 {
@@ -53,11 +54,12 @@ class KorisniciController extends Controller
         $korisnik->save();
         return redirect(route('korisniciAdmin'));   
         
-    }
+    } 
     function promijeniLozinku(Request $request){
-       
+        
         $korisnik=Korisnik::where('korisnik_id','=',$request->id2)->first();
-        $korisnik->Lozinka=$request->ime2;
+        $novaLozinka=$request->ime2;
+        $korisnik->Lozinka=Hash::make($novaLozinka);
         $korisnik->save();
         return redirect(route('korisniciAdmin'));   
         

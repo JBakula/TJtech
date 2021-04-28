@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Kosarica extends Model
 {
     use HasFactory;
+    
 }

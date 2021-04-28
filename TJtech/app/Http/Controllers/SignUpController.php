@@ -22,14 +22,16 @@ class SignUpController extends Controller
             'lozinka'=>'required_with:potvrda',
             'potvrda'=>'required|same:lozinka',
         ]);
-
+        $pass=$request->lozinka;
+        $mail=$request->email;
+        $provjeraMaila=Korisnik::where('Email','=',$mail)->count();
         $user=new Korisnik;         // kreiranje novog retka u tablici
         $user->Ime_prezime=$request->ime;   // unosenje imena iz forme u Ime u bazi
-        $user->Email=$request->email;   // unosenje maila iz forme u Email u bazi
-        $user->Lozinka = $request->lozinka;   // unosenje lozinke iz forme u Lozinka u bazi
+        $user->Email=$mail;   // unosenje maila iz forme u Email u bazi
+        $user->Lozinka = Hash::make($pass);   // unosenje lozinke iz forme u Lozinka u bazi
         $user->Uloga='korisnik';   // unosenje uloge u bazu
         $potvrda=$request->input('potvrda');   // potvrda lozinke
-       if($potvrda==$user->Lozinka){  // ako je potvrdjena lozinka jednaka kao i prethodno unesena lozinka, podaci se spremaju u bazu
+        if($potvrda==$pass && $provjeraMaila==0){  // ako je potvrdjena lozinka jednaka kao i prethodno unesena lozinka, podaci se spremaju u bazu
             $user->save();
             return redirect('login.html');
         }else{

@@ -599,6 +599,7 @@ body{
 	/*padding-top: 60px;
 	padding-bottom: 60px;*/
 	margin-bottom: 60px;
+	padding: 10px;
 }
 .service-box p{
 	font-size: 13px;
@@ -709,6 +710,7 @@ body{
 .nema .emoji{
 	width: 500px;
 	padding-top: 40px;
+	margin: auto;
 }
 .nema a{
 	text-decoration: none;
@@ -1119,4 +1121,20 @@ body{
 	font-size: 35px;
 	margin: 0;
 	background-color: red;
+}
+/* Search bar Table */
+.dropdown-menu Table{
+	display:block; 
+	position:absolute; 
+	background-color: #eceaeadc;
+	padding: 5px;
+}
+.dropdown-menu a{
+	color: #000;
+}
+.dropdown-menu Table, th{
+	border-bottom: 1px solid black;
+}
+.dropdown-menu th{
+	padding: 5px;
 }

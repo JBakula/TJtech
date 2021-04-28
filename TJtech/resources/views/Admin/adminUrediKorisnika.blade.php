@@ -38,7 +38,7 @@
                         <div class="admin-dropdown-user">
                             <span style="padding-right: 10px;">{{$LogiraniKorisnikPodaci->Ime_prezime}}</span><button><i class="fas fa-user btn btn-default user"></i></button><br>
                             <ul>
-                                <li><a href="logout">Logout</a></li>
+                                <li><a href="{{route('logout')}}">Logout</a></li>
                                 <li><a href="{{route('adminUpravljanjeProizvodima')}}">Proizvodi</a></li>
                                 <li><a href="{{route('korisniciAdmin')}}">Korisnici</a></li>
                             </ul>
@@ -103,7 +103,7 @@
                         <h1>Email:</h1>
                         <h3>{{$korisnik->Email}}<!--Ispiši trenutni email--></h3>
                         <h1>Lozinka:</h1>
-                        <h3>{{$korisnik->Lozinka}}<!--Ispiši trenutnu lozinku--></h3>
+                        <h3>Kriptirana lozinka<!--Ispiši trenutnu lozinku--></h3>
                     </div>
                
                 </div>

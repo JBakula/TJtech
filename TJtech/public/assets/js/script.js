@@ -22,6 +22,7 @@ $(document).ready(function(){
             $(".team-box").css("margin-bottom", mbottom+30);
         }
     // END OF TEAM BOX HEIGHT
+        
 
 
     // Pop up
@@ -33,6 +34,7 @@ $(document).ready(function(){
         }); 
     // END OF POP UP
 
+
     // User icon
         $(".dropdown-user button").click(function(){
             $(".dropdown-user ul").toggleClass("active");
@@ -41,6 +43,7 @@ $(document).ready(function(){
             $(".admin-dropdown-user ul").toggleClass("active");
         })
     // USER ICON END
+
 
     // Search dropdown 
         $("#form-data").click(function(e){
@@ -64,8 +67,14 @@ $(document).ready(function(){
                 }
             })
         })
+        $('#form-data').keydown(function (e) {
+            if (e.keyCode == 13) {
+                e.preventDefault();
+                return false;
+            }
+        });
 
-        $(".site-header-bg").on('click', 'li', function(){  
+        $(".site-header-bg").on('click', 'th', function(){  
             $('#Naziv_proizvoda').val($(this).text());
             $('#countryList').fadeOut();
         });

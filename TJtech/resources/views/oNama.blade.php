@@ -247,8 +247,6 @@
                                             Prijatelji otkad znamo za sebe, samo je bilo pitanje kad će nastat stranica, odnosno TJ-tech.
                                             Osobno o meni: Dolazim iz Posušja, gdje sam završio osnovnu i srednju školu.
                                             Najdraže jelo mi je...sve, a najdraži predmet u školi mi je bio tjelesni.
-                                            Tijekom svog školovanja zavolio sam tehnologiju i programiranje općenito pa sam odlučio
-                                            upisati fakultet Računarstva da proširim svoje znanje. I tako smo došli do TJ-techa.
                                         </p>
                                         <div class="social">
                                             <a href="#"><i class="ion-social-instagram-outline"></i></a>
@@ -267,6 +265,8 @@
                                         <h4 class="member-name">Vinko-Tino Zlopaša</h4>
                                         <h5 class="member-id">Founder &amp; CEO</h5>
                                         <p>
+                                            Prijatelji otkad znamo za sebe, samo je bilo pitanje kad će nastat stranica, odnosno TJ-tech.
+                                            Osobno o meni: Dolazim iz Posušja, gdje sam završio osnovnu i srednju školu.
                                             Sve isto. Samo sam manji i širi.
                                         </p>
                                         <div class="social">

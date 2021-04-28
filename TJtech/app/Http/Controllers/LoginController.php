@@ -19,13 +19,12 @@ class LoginController extends Controller
         ]);
         $email = $request->email;
         $password=$request->lozinka;
-        $podaci=Korisnik::where([['Email','=',$email],['Lozinka','=', $password]])->first();  
-
+        $podaci=Korisnik::where('Email','=',$email/*,['Lozinka','=', $password]]*/)->first();  
+        
         if(!$podaci){
             return back()->withInput(); 
         }else{
-            
-            if($request->lozinka==$podaci->Lozinka){ 
+            if(Hash::check($password, $podaci->Lozinka)){ 
                 $request->session()->put('LogiraniKorisnik',$podaci['korisnik_id']); 
                 
                 if($podaci->Uloga=="korisnik"){
