@@ -22,11 +22,7 @@ class ProizvodiController extends Controller
     }
     public function indexZahvala(){
         return view('User.userZahvala'); 
-    }/*
-    function prikazOpreme(){
-        $data = DB::table('opremas')->get();
-        return view('oprema',['data'=>$data]);
-    }*/
+    }
     /**/
     
     function fetch(Request $request)
@@ -37,14 +33,13 @@ class ProizvodiController extends Controller
             $data = DB::table('racunalos')
                 ->where('Naziv_proizvoda', 'LIKE', "%{$query}%")
                 ->get();
-                $output = '<ul class="dropdown-menu" style="display:block; position:absolute; background-color: #eceaeadc;">';
+                $output = '<table class="dropdown-menu table-responsive">';/* style="display:block; position:absolute; background-color: #eceaeadc;" */
             foreach($data as $row)
             {
                 $output .= '
-                <li><a href="#">'.$row->Naziv_proizvoda.' '.$row->proizvod_id.':'.$row->kategorija_fk.'</a></li>
-                ';
+                <tr><th><a href="#">'.$row->Naziv_proizvoda.' '.$row->proizvod_id.':'.$row->kategorija_fk.'</a></th></tr>';
             }
-            $output .= '</ul>';
+            $output .= '</table>';
             echo $output;
         }
        

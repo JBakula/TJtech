@@ -42,7 +42,7 @@
                             <span class="input-group-btn">
                                 <button class="btn btn-default btn-robot" type="button" name="btn">Pretraga</button>
                             </span>
-                            <div id="countryList" class="dropdown-menu" style="display:block; position:absolute; background-color: transparent">
+                            <div id="countryList" class="dropdown-menu" style="display:block; position:absolute; background-color: transparent;">
                             </div>
                         </form>
                     </div>

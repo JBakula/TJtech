@@ -38,7 +38,7 @@
                         <div class="admin-dropdown-user">
                             <span style="padding-right: 10px;">{{$LogiraniKorisnikPodaci->Ime_prezime}}</span><button><i class="fas fa-user btn btn-default user"></i></button><br>
                             <ul>
-                                <li><a href="logout">Logout</a></li>
+                                <li><a href="{{route('logout')}}">Logout</a></li>
                                 <li><a href="{{route('adminUpravljanjeProizvodima')}}">Proizvodi</a></li>
                                 <li><a href="{{route('korisniciAdmin')}}">Korisnici</a></li>
                             </ul>
@@ -109,7 +109,7 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="promjenutoStanje">
-                    <form action="{{route('promijeniImeKorisnika')}}" method="GET">
+                    <form action="{{route('promijeniKorisnickoIme')}}" method="POST">
                         @csrf
                             <h1>Novo korisničko ime:</h1>
                             <div class="ime">

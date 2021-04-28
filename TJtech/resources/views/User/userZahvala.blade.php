@@ -27,12 +27,18 @@
     <div class="nema">
         <div class="container">
             <div class="row">
-                <h1 style="margin: 0; padding: 0; margin-top: 20px;">
-                    Hvala Vam!<br>
-                    Vaš proizvod bi uskoro trebao doći na Vaša vrata!
-                    <a href="{{route('userProfile')}}">Početna</a>
-                </h1>
-                <img src="{{ asset('assets/images/succes.png') }}">
+                <div class="col-sm-12 left">
+                    <h1 style="margin: 0; padding: 0; margin-top: 20px;">
+                        Hvala Vam!<br>
+                        Vaš proizvod bi uskoro trebao doći na Vaša vrata!
+                        <a href="{{route('userProfile')}}">Početna</a>
+                    </h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 center">
+                    <img src="{{ asset('assets/images/succes.png') }}" class="img-responsive img-circle" style="margin: auto;">
+                </div>
             </div>
         </div>
     </div>
