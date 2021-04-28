@@ -8,7 +8,6 @@ use App\Models\Kosarica;
 use App\Models\Korisnik; 
 use App\Models\Racunalo;
 use App\Models\Kupovina;
-use Artisan;
 use Illuminate\Support\Facades\Session;
 class ProizvodiController extends Controller
 {
@@ -17,7 +16,6 @@ class ProizvodiController extends Controller
         return view('oprema'); 
     }
     public function indexIndex(){
-        Artisan::call('cache:clear'); 
         return view('index'); 
     }
     public function oNama(){
