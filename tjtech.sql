@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2021 at 01:08 AM
+-- Generation Time: Jun 28, 2021 at 01:00 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -80,11 +80,12 @@ CREATE TABLE `korisniks` (
 --
 
 INSERT INTO `korisniks` (`korisnik_id`, `Ime_prezime`, `Email`, `Lozinka`, `Uloga`, `created_at`, `updated_at`) VALUES
-(1, 'Jure Bakula', 'jure.bakula@fsre.sum.ba', 'Lozinka.2', 'admin', '2021-04-07 12:45:17', '2021-04-07 12:45:17'),
-(2, 'Vinko-Tino Zlopaša', 'zlopasa@hotmail.com', 'puto123', 'admin', '2021-04-07 12:46:38', '2021-04-07 12:46:38'),
-(3, 'Pero Peric', 'pero@gmail.com', '1234', 'korisnik', '2021-04-07 12:47:15', '2021-04-07 12:47:15'),
-(4, 'Ante Antic', 'ante@gmail.com', '111', 'korisnik', '2021-04-08 08:44:49', '2021-04-08 08:44:49'),
-(5, 'Mirko Mirkic', 'mirko@gmail.com', '1234', 'korisnik', '2021-04-09 22:02:37', '2021-04-09 22:02:37');
+(6, 'Ivan Ivanovic', 'ivan@gmail.com', '$2y$10$V/p39gZdykPJiE.CtF84LeEkMjbMwzj6lpby7n2naHUAnHKgiCsa.', 'korisnik', '2021-04-28 09:14:32', '2021-04-28 09:14:32'),
+(7, 'Marko Markovic', 'marko@gmail.com', '$2y$10$Xo3z7.Cze6UtzeY1Q0y9zOLQdvWQWhC9YFeu0XmXM.ticNNSn5eYm', 'korisnik', '2021-04-28 09:33:29', '2021-04-28 09:33:29'),
+(8, 'Josip Josipovic', 'josip@gmail.com', '$2y$10$lcV6h/QoJng7wuT/V.hNVesP1GyJDE7tflHe4B5w83TMoqepHV1z2', 'korisnik', '2021-04-28 09:47:07', '2021-04-28 09:47:07'),
+(11, 'Jure Bakula', 'jure.bakula@fsre.sum.ba', '$2y$10$yNhOFzR2rIWVR2IujXavO.ECa.iMntAVo4hZRCyjTXaOrbL2694F.', 'admin', '2021-04-28 10:21:31', '2021-04-28 10:21:31'),
+(12, 'Vinko-Tino Zlopaša', 'zlopasa@hotmail.com', '$2y$10$AxJRJuko/WgT3JiJKdaiIuvb93UQ/r3MXuxnQCfsii.nIhrNg4uqm', 'admin', '2021-04-28 10:52:35', '2021-04-28 10:52:35'),
+(13, 'Ivo Ivic', 'ivo@gmail.com', '$2y$10$rosAObc9Y.SVVEAkO.W21u3n.3g5JBU2GcTBRZ6siML/bOTR5Z3s.', 'korisnik', '2021-04-28 10:54:43', '2021-04-28 10:54:43');
 
 -- --------------------------------------------------------
 
@@ -106,9 +107,43 @@ CREATE TABLE `kosaricas` (
 --
 
 INSERT INTO `kosaricas` (`kosarica_id`, `korisnik_fk`, `proizvod_fk`, `created_at`, `updated_at`, `Kolicina`) VALUES
-(32, 4, 16, '2021-04-17 20:23:47', '2021-04-17 20:23:47', 5),
-(33, 4, 22, '2021-04-17 20:28:19', '2021-04-17 20:28:19', 2),
-(34, 4, 12, '2021-04-17 21:00:48', '2021-04-17 21:00:48', 1);
+(41, 13, 2, '2021-05-07 12:29:21', '2021-05-07 12:29:21', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kupovinas`
+--
+
+CREATE TABLE `kupovinas` (
+  `kupovina_id` int(10) UNSIGNED NOT NULL,
+  `id_proizvoda` int(11) NOT NULL,
+  `id_korisnika` int(11) NOT NULL,
+  `Adresa` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Nacin_placanja` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Placeni_iznos` double(8,2) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `kupovinas`
+--
+
+INSERT INTO `kupovinas` (`kupovina_id`, `id_proizvoda`, `id_korisnika`, `Adresa`, `Nacin_placanja`, `Placeni_iznos`, `created_at`, `updated_at`) VALUES
+(1, 4, 5, 'Ante Starcevica 2', 'Visa', 736.42, '2021-04-23 17:06:12', '2021-04-23 17:06:12'),
+(2, 4, 5, 'Ante Starcevica 2', 'Visa', 1472.84, '2021-04-23 17:07:46', '2021-04-23 17:07:46'),
+(3, 4, 5, 'Marasov Brig 5', 'AmericanExpress', 736.42, '2021-04-23 17:18:36', '2021-04-23 17:18:36'),
+(4, 7, 5, 'Marasov Brig 5', 'AmericanExpress', 393.41, '2021-04-23 17:18:36', '2021-04-23 17:18:36'),
+(5, 4, 5, 'Marasov Brig 5', 'AmericanExpress', 736.42, '2021-04-23 17:28:15', '2021-04-23 17:28:15'),
+(6, 7, 5, 'Marasov Brig 5', 'AmericanExpress', 393.41, '2021-04-23 17:28:15', '2021-04-23 17:28:15'),
+(7, 4, 5, 'Bakule bb', 'Maestro', 736.42, '2021-04-23 17:32:55', '2021-04-23 17:32:55'),
+(8, 7, 5, 'Bakule bb', 'Maestro', 393.41, '2021-04-23 17:32:55', '2021-04-23 17:32:55'),
+(9, 14, 5, 'Bakule bb', 'Maestro', 216.21, '2021-04-23 17:32:55', '2021-04-23 17:32:55'),
+(10, 16, 4, 'AB Šimića 12', 'Visa', 7.80, '2021-04-26 09:11:34', '2021-04-26 09:11:34'),
+(11, 22, 4, 'AB Šimića 12', 'Visa', 364.24, '2021-04-26 09:11:34', '2021-04-26 09:11:34'),
+(12, 12, 4, 'AB Šimića 12', 'Visa', 3194.03, '2021-04-26 09:11:34', '2021-04-26 09:11:34'),
+(13, 2, 4, 'AB Šimića 12', 'Visa', 384.79, '2021-04-26 09:14:13', '2021-04-26 09:14:13');
 
 -- --------------------------------------------------------
 
@@ -144,7 +179,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (19, '2021_04_12_162033_promjena_restrikcija', 12),
 (20, '2021_04_12_222925_create_kosaricas_table', 13),
 (21, '2021_04_14_231826_promjena_tipa_cijene', 14),
-(22, '2021_04_17_211309_dodaj_kolicinu_u_kosaricu', 15);
+(22, '2021_04_17_211309_dodaj_kolicinu_u_kosaricu', 15),
+(23, '2021_04_23_181041_create_kupovinas_table', 16),
+(24, '2021_04_23_182546_create_kupovinas_table', 17);
 
 -- --------------------------------------------------------
 
@@ -257,6 +294,12 @@ ALTER TABLE `kosaricas`
   ADD KEY `kosaricas_proizvod_fk_foreign` (`proizvod_fk`);
 
 --
+-- Indexes for table `kupovinas`
+--
+ALTER TABLE `kupovinas`
+  ADD PRIMARY KEY (`kupovina_id`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -302,25 +345,31 @@ ALTER TABLE `kategorijas`
 -- AUTO_INCREMENT for table `korisniks`
 --
 ALTER TABLE `korisniks`
-  MODIFY `korisnik_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `korisnik_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `kosaricas`
 --
 ALTER TABLE `kosaricas`
-  MODIFY `kosarica_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `kosarica_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+
+--
+-- AUTO_INCREMENT for table `kupovinas`
+--
+ALTER TABLE `kupovinas`
+  MODIFY `kupovina_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `racunalos`
 --
 ALTER TABLE `racunalos`
-  MODIFY `proizvod_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `proizvod_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `users`
