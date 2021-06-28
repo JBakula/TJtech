@@ -21,10 +21,19 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
+    /*
     public function boot()
     {
         if(env('APP_ENV') !== 'local'){
             URL::forceScheme('https');
+        }
+    }
+    */
+    public function boot()
+    {
+        //Schema::defaultStringLength(191);
+        if (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) || isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&  $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+             URL::forceScheme('https');
         }
     }
 }

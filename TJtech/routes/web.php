@@ -17,6 +17,7 @@ use App\Http\Controllers\PrikazProizvodaController;
 |
 */
 
+//URL::forceRootUrl('http://studenti.sum.ba/projekti/fsre_rwa/2020/g10');
 Route::get('/', function () {
     return view('index');
 });
